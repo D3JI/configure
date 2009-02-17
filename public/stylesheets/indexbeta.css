@@ -1,0 +1,670 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/* 首页专用样式表*/
+@import "../stylesheets/header.css"; /* 全局样式 */
+@import "../stylesheets/masterbeta.css"; /* 头部样式 */
+@import "../stylesheets/headerbeta.css"; /* 全局样式 */
+.mod {
+
+}
+.modtop {
+	background-image: url(../images/css/bg_mod.gif);
+	background-position: 0px -27px;
+	line-height: 27px;
+	height: 27px;
+}
+.modtop .topl {
+	background-image: url(../images/css/bg_mod.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 27px;
+}
+.modtop .topr {
+	background-image: url(../images/css/bg_mod.gif);
+	background-repeat: no-repeat;
+	background-position: right -54px;
+	height: 27px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 27px;
+}
+.modtop h1 {
+	float: left;
+	display: block;
+	padding-left: 22px;
+	height: 27px;
+}
+
+
+.modbot {
+	background-position: 0px -85px;
+	background-image: url(../images/css/bg_mod.gif);
+	background-repeat: repeat-x;
+	height: 4px;
+	overflow: hidden;
+}
+.modbot .botl {
+	background-image: url(../images/css/bg_mod.gif);
+	background-repeat: no-repeat;
+	background-position: left -81px;
+	height: 4px;
+}
+.modbot .botr {
+	background-image: url(../images/css/bg_mod.gif);
+	background-repeat: no-repeat;
+	background-position: right -89px;
+	height: 4px;
+}
+.modbox {
+	padding: 4px;
+	border-right: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #D3D3D3;
+	border-left-color: #D3D3D3;
+}
+.more {
+	float: right;
+	height: 25px;
+	width: 60px;
+	text-align: right;
+	font-size: 12px;
+	font-weight: normal;
+	background-image: url(../images/css/index.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -488px;
+	margin-right: 10px;
+}
+.more a {
+	display: block;
+	height: 26px;
+	width: 60px;
+}
+
+
+/* ==============左列开始======== */
+#left {
+	float: left;
+	width: 190px;
+}
+#subtop {
+	background-image: url(../images/css/bg_sub.gif);
+	background-repeat: no-repeat;
+	width: 190px;
+	height: 561px;
+}
+#subbon {
+	background-image: url(../images/css/bg_sub.gif);
+	background-repeat: no-repeat;
+	background-position: -380px bottom;
+	height: 530px;
+	padding-top: 31px;
+}
+#sub {
+	background-image: url(../images/css/bg_sub.gif);
+	background-repeat: repeat-y;
+	width: 190px;
+	overflow: hidden;
+	background-position: -190px 0px;
+	display: block;
+	height: 561px;
+}
+#subbon dl {
+	display: block;
+	width: 170px;
+	margin-right: auto;
+	margin-left: auto;
+	background-repeat: no-repeat;
+	padding: 5px;
+}
+#subbon  dt a:link,#subbon dt  a:visited  {
+	color: #0B9003;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: bold;
+}
+#subbon  dt a:hover,#subbon dt a:active  {
+	text-decoration: none;
+	color: #4FA603;
+}
+#subbon dt {
+	display: block;
+	float: left;
+	width: 170px;
+	background-image: url(../images/css/bg_sub_ico.gif);
+	background-repeat: no-repeat;
+	text-indent: 22px;
+}
+#subbon dt#t1 {
+	background-position: 0px 0px !important;  /*用于Opera、Firefox2、Firefox3等现代浏览器*/  
+    >background-position: 0px 0px !important;    /*IE7、IE8可以识别该规则，因此它覆盖掉了上一条规则*/
+	background-position: 0px -2px; /*IE6*/
+}
+#subbon dt#t2 {
+	background-position: 0px -28px !important;  /*用于Opera、Firefox2、Firefox3等现代浏览器*/  
+    >background-position: 0px -28px !important;    /*IE7、IE8可以识别该规则，因此它覆盖掉了上一条规则*/
+	background-position: 0px -29px; /*IE6*/
+}
+#subbon dt#t3 {
+	background-position: 0px -55px !important;  /*用于Opera、Firefox2、Firefox3等现代浏览器*/  
+    >background-position: 0px -55px !important;    /*IE7、IE8可以识别该规则，因此它覆盖掉了上一条规则*/
+	background-position: 0px -57px; /*IE6*/
+}
+#subbon dt#t4 {
+	background-position: 0px -83px !important;  /*用于Opera、Firefox2、Firefox3等现代浏览器*/  
+    >background-position: 0px -83px !important;    /*IE7、IE8可以识别该规则，因此它覆盖掉了上一条规则*/
+	background-position: 0px -85px; /*IE6*/
+}
+#subbon dt#t5 {
+	background-position: 0px -109px !important;  /*用于Opera、Firefox2、Firefox3等现代浏览器*/  
+    >background-position: 0px -109px !important;    /*IE7、IE8可以识别该规则，因此它覆盖掉了上一条规则*/
+	background-position: 0px -110px; /*IE6*/
+}
+#subbon dd {
+	display: block;
+	font-size: 12px;
+	width: 170px;
+	float: left;
+	line-height: 2em;
+	color: #D5D5D5;
+}
+#subbon a {
+	font-size: 14px;
+	line-height: 2em;
+}
+
+
+
+
+/* ==============中列开始======== */
+
+#content {
+	float: right;
+	width: 750px;
+}
+#c1 {
+	display: block;
+	overflow: hidden;
+	float: left;
+	width: 470px;
+}
+#c2 {
+	float: right;
+	width: 270px;
+	margin-left: 10px;
+}
+#c3 {
+	float: left;
+	height: 218px;
+	width: 750px;
+}
+
+#c4 {
+	float: left;
+	height: 80px;
+	width: 750px;
+	margin-top: 10px;
+}
+#c5 {
+	float: left;
+	height: 320px;
+	width: 750px;
+}
+
+#c6 {
+	float: left;
+	width: 750px;
+	height: 180px;
+}
+
+
+
+#c01 {
+	height: 267px;
+	overflow: hidden;
+}
+#c01 ul {
+	display: block;
+	float: left;
+	width: 170px;
+	clear: none;
+	height: 267px;
+}
+#c01 li {
+	display: block;
+	height: 125px;
+	text-align: center;
+	margin-top: 8px;
+	line-height: 2em;
+}
+#c01 img {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#c01 dl {
+	display: block;
+	float: right;
+	width: 290px;
+	height: 267px;
+	clear: none;
+}
+#c01 dt {
+	display: block;
+	background-image: url(../images/css/bg_dotted.gif);
+	background-position: bottom;
+	background-repeat: repeat-x;
+	line-height: 1.5em;
+	margin-bottom: 4px;
+	height: 70px;
+	text-indent: 10px;
+}
+#c01 dt a {
+	font-size: 14px;
+	line-height: 2em;
+	display: block;
+	font-weight: bold;
+}
+#c01 dt a:link,#c01 dt a:visited {
+	color: #008700;
+	text-decoration: none;
+}
+#c01 dt a:hover,#c01 dt a:active {
+	text-decoration: none;
+	color: #CC0000;
+}
+#c01 dd {
+	font-size: 14px;
+	background-image: url(../images/css/bg_dot.gif);
+	background-repeat: no-repeat;
+	background-position: 10px -11px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-indent: 23px;
+}
+
+
+
+#c02 {
+	height: 192px;
+	overflow: hidden;
+}
+#c02 li {
+	display: block;
+	line-height: 2em;
+}
+#c031,#c032,#c033,#c034,#c035 {
+	height: 260px;
+	overflow: hidden;
+	clear: left;
+}
+#c032,#c033,#c034,#c035 { display:none;}
+#c031 ul,#c032 ul,#c033 ul,#c034 ul,#c035 ul {
+	display: block;
+	padding-top: 8px;
+}
+
+#c031 li,#c032 li,#c033 li,#c034 li,#c035 li {
+	float: left;
+	width: 115px;
+	display: block;
+	height: 125px;
+	text-align: center;
+	line-height: 1.5em;
+}
+#c031 img,#c032 img,#c033 img,#c034 img,#c035 img {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 5px;
+}
+#c031 a,#c032 a,#c033 a,#c034 a,#c035 a {
+	display: block;
+}
+
+#c041,#c042 {
+	height: 260px;
+	overflow: hidden;
+}
+#c042 {display:none;}
+#c042 li {
+	background-image: url(../images/css/bg_dot.gif);
+	background-repeat: no-repeat;
+	background-position: 5px -11px;
+	text-indent: 13px;
+	display: block;
+	height: 24px;
+	overflow: hidden;
+}
+
+#c04tab {
+	font-size: 12px;
+	display: block;
+	float: right;
+	width: 160px;
+	height: 27px;
+}
+#c04tab  ul {
+	height: 27px;
+	width: 160px;
+	display: block;
+}
+#c03tab {
+	font-size: 12px;
+	display: block;
+	float: right;
+	width: 370px;
+	height: 27px;
+}
+#c03tab  ul {
+	height: 27px;
+	width: 350px;
+	display: block;
+}
+#c04tab li,#c03tab li {
+	float: left;
+	width: 70px;
+	display: block;
+	height: 22px;
+	text-align: center;
+	line-height: 22px !important;  /*用于Opera、Firefox2、Firefox3等现代浏览器*/  
+    >line-height: 22px !important;    /*IE7、IE8可以识别该规则，因此它覆盖掉了上一条规则*/
+	line-height: 26px; /*IE6*/
+	margin-top: 5px;
+	font-size: 12px;
+	font-weight: normal;
+	overflow: hidden;
+}
+#c04tab li a.tabactive,#c03tab li a.tabactive{
+	width: 70px;
+	display: block;
+	height: 22px;
+	background-image: url();
+	background-position: 0px -376px;
+	color: #666666;
+	text-decoration: none;
+}
+
+
+#c041 ul {
+	list-style-type: none;
+	overflow: hidden;
+}
+#c041 li {
+	display: block;
+	height: 65px;
+	background-image: url(../images/css/bg_dot.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -42px;
+	line-height: 1em;
+	color: #CCC;
+	text-overflow:ellipsis;
+	margin-left: 2px;
+}
+#c041 h4 {
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 36px;
+	height: 36px;
+	overflow: hidden;
+}
+#c041 .c_time {
+	height: 44px;
+	width: 44px;
+	text-align: center;
+	color: #FFFFFF;
+	float: left;
+	line-height: 20px;
+	padding-top: 7px;
+	padding-right: 4px;
+	padding-bottom: 7px;
+	padding-left: 0px;
+}
+#c041 .c_time  a {
+	font-weight: bold;
+	display: block;
+}
+#c05 {
+	height: 242px;
+	overflow: hidden;
+	line-height: 1.8em;
+	clear: both;
+}
+#c05 strong {
+	color: #008700;
+}
+#c05 dl {
+	display: block;
+	width: 92px;
+	float: left;
+}
+
+#c05 li {
+	float: left;
+	margin-right: 10px;
+	line-height: 24px;
+	height: 24px;
+	display: block;
+	margin-left: auto;
+	white-space: nowrap;
+}
+
+
+
+#c06,#c07,#c08,#c09 {
+	height: 113px;
+	overflow: hidden;
+	width: 360px;
+	clear: both;
+}
+#c06 li,#c07 li,#c08 li,#c09 li {
+	display: block;
+	float: left;
+	width: 110px;
+}
+#c06 dl,#c07 dl,#c08 dl,#c09 dl {
+	display: block;
+	width: 240px;
+	float: left;
+	height: 113px;
+	overflow: hidden;
+}
+#c10 {
+	height: 241px;
+	*background-position: 5px 4px;
+}
+#c10 li {
+	background-image: url(../images/css/bg_dot.gif);
+	background-repeat: no-repeat;
+	background-position: 5px -11px;
+	display: block;
+	height: 24px;
+	overflow: hidden;
+	text-indent: 13px;
+}
+#c11 {
+	height: 242px;
+}
+#c11 dl {
+	display: block;
+	width: 260px;
+	height: 90px;
+	float: left;
+}
+#c11  dt  {
+	float: left;
+	width: 190px;
+	display: block;
+}
+#c11  dd  {
+	display: block;
+	float: left;
+	width: 70px;
+	text-align: right;
+	color: #CC3300;
+}
+#c12 {
+	height: 255px;
+	overflow: hidden;
+}
+#c12 li {
+	height: 25px;
+	width: 90px;
+	display: block;
+	margin-bottom: 3px;
+	float: left;
+}
+#c12 img {
+	float: left;
+	margin-right: 10px;
+	display: block;
+}
+#c12 a {
+	display: block;
+}
+
+
+#c5  .mod {
+	float: left;
+	width: 370px;
+}
+#c5   #left01,#c5   #left02 {
+	margin-left: 10px;
+}
+#c5  dt {
+	display: block;
+	background-image: url(../images/css/bg_dotted.gif);
+	background-position: bottom;
+	background-repeat: repeat-x;
+	line-height: 1.5em;
+	height: 65px;
+}
+#c5  dt  a {
+	font-size: 12px;
+	line-height: 2em;
+	display: block;
+	font-weight: bold;
+}
+#c5  dt  a:link,#c4  dt  a:visited {
+	color: #006699;
+	text-decoration: none;
+}
+#c5  dd {
+	font-size: 12px;
+	padding-left: 10px;
+	background-image: url(../images/css/bg_dot.gif);
+	background-repeat: no-repeat;
+	background-position: 3px -11px;
+}
+#c5 font {
+	float: right;
+	height: 110px;
+	width: 110px;
+	overflow: hidden;
+	display: block;
+}
+
+
+
+
+
+
+#link {
+	width: 940px;
+	line-height: 25px;
+	text-align: left;
+	margin-top: 10px;
+	height: 50px;
+	padding: 4px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid #E3E3E3;
+}
+#Brand {
+	height: 80px;
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+	overflow: hidden;
+}
+#Brand  dl {
+	height: 35px;
+	width: 950px;
+}
+#Brand dt {
+	float: left;
+	display: block;
+	width: 50px;
+	height: 80px;
+}
+
+#Brand  dd {
+	display: block;
+	float: left;
+	height: 35px;
+	margin-left: 8px;
+	width: 92px;
+	margin-bottom: 8px;
+}
+#Brand  dd img {
+	display: block;
+	padding: 1px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid #E3E3E3;
+}
+
+
+
+/*首页3屏轮换广告*/
+#new_ad {
+	height: 135px;
+	width: 470px;
+	overflow: hidden;
+}
+#RotateAD {
+	height: 135px;
+	width: 490px;
+	overflow: hidden;
+}
+#RotateADTop {
+	width:100%;
+	height:135px;
+	float:left;
+	padding: 0px;
+}
+#RotateADTop #RotateADImgDiv {
+	width:100%;
+	height:135px;
+	clear:both;
+	display:block;
+}
+#RotateADPages {
+	width:470px;
+	height:18px;
+	right: 0px;
+	position: relative;
+	top: -20px;
+	_top: -22px;
+	line-height: 18px;
+}
+
+#RotateADPages div {
+	width:18px;
+	height:18px;
+	float:right;
+	bottom: 0px;
+	padding-top:0px;
+	cursor:pointer;
+	color:#333333;
+	text-align: center;
+	line-height: 18px;
+	margin-right: 2px;
+	font-size: 14px;
+}
+
+#RotateADPages .curpage{
+	font-size: 18px;
+}

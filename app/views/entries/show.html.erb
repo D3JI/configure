@@ -1,0 +1,70 @@
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+  </div>
+  <% if flash[:notice] %>
+  <div class="alert"><%= flash[:notice] %></div>
+<% end %>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>文章</h1>
+            </div>
+            <div class="modopt"><%= link_to '写新文章', new_user_entry_path %></div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="l_blog">
+        <ul>
+          <li class="ctitle"><%= @entry.title %>
+          <%= link_to 'edit', edit_user_entry_path(:id => @entry)%> | <%= link_to 'delete', user_entry_path(:id => @entry), :method => :delete, :confirm => '确认要删除这篇文章?' %>
+          </li>
+          <li class="ctime"><%= @entry.created_at %>
+          </li>
+          <li class="dcon"><%= @entry.content %></li>
+          <li class="dmore">分类：<%= link_to @entry.entry_category.name %> | 浏览() |  评论(<%= @entry.comments_count%>) | <a href="#" onclick="fav(23787,1);return false;">推荐到圈子</a></li>
+          <li>
+          <p class="goodup"><a href="#" onclick="fav(23787);this.innerHTML='已顶'; this.onclick=function(){return false;};return false;">已顶</a></p>
+          </li>
+          <li class="dnext"><p class="ta">上一篇：« <a href="blog.php?tid=24278" title="放假啦。。"></a></p><p class="tb">下一篇：<a href="blog.php?tid=23786" title="新年到。。"></a></p></li>
+        </ul>
+        <div id="review">
+          <div>
+            <% @comments.each do |comment|%>
+              <ul>
+                <li class="r_img"><img src="/user1/jshmemory/face35665.gif" height="88" width="110"></li>
+                <li class="user"><%= link_to comment.user.username %> [<%= comment.created_at %>]
+                <% if logged_in_user.username == @entry.user.username %>
+                  [<span style="color: rgb(153, 153, 153); cursor: pointer;"><%= link_to '删除' , user_entry_comment_path(:entry_id => @entry, :id => comment.id), :method => :delete, :confirm => "Do you sure to delete?"%></span>]
+              <% end %></li>
+                <li class="rcon"><%= comment.content %></li><li class="clear">&nbsp;</li>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+        <% form_for :comment, :url => user_entry_comments_path(:entry_id => @entry.id, :user_id => logged_in_user.id) do |f|%>
+          <ul id="addreview">
+            <li class="addtitle">添加评论</li>
+            <li>已登录:<%= logged_in_user.username %></li>
+            <li>验证码：
+            </li>
+            <li>
+            <%= f.text_area :content, :rows => 10, :cols => 30%>
+            </li> 
+            <li>
+            <%= submit_tag '提交评论', :class => 'button' %>
+            <input name="logid" id="logid" value="23787" type="hidden">
+            </li> 
+          </ul>
+        <% end %>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>

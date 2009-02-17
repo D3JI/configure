@@ -1,0 +1,41 @@
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+  </div>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>博客</h1>
+            </div>
+            <div class="modopt"><%= link_to '写新文章', new_user_entry_path(:user_id => logged_in_user.id) %></div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="l_blog">
+        <div id="notice">共<%= @user.entries_count %>篇文章</div>
+        <ul id="blog_post_25598">
+          <% @entries.each do |entry|%>
+            <li class="ctitle">
+            <%= link_to entry.title, user_entry_path(:id => entry) %>
+            <%= link_to 'edit', edit_user_entry_path(:id => entry)%> | <%= link_to 'delete', user_entry_path(:id => entry), :method => :delete, :confirm => '确认要删除这篇文章?' %>
+          </li>
+          <li class="ctime"><%= entry.created_at %></li>
+          <li class="bcon"><%= entry.content %><p class="cmore">类别：
+          <%= link_to entry.entry_category.name %>
+          <!-- display_user_entry_path(:user_id => entry.user_id, :category_id => entry.entry_category_id), :method => :put--> 
+          | 浏览 |  评论(<%= entry.comments_count %>)</p>
+          </li>
+        <% end %>
+        </ul>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>
+

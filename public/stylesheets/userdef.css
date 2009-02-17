@@ -1,0 +1,42 @@
+html,body{
+background-color: #76E7FF;
+color: #0C0036;
+}
+body,#content{
+background-image:none;
+}
+a:link,a:visited {color: #1B33FF;}
+#foot {
+background-color:#FFF;
+color:#666;
+}
+#spacesease {
+background-color: transparent;
+}
+#spaces_header{
+height:100px;
+background-color: transparent;
+}
+#topnav{
+background-color:#CCC;
+color:#666;
+}
+#spaces_header div.tit{
+font-size:12px;
+}
+#spaces_header div.desc {
+color:#00C;
+font-size:12px;
+}
+#nav{
+background-color:#1531FF;
+color:#B600B2;
+}
+#nav a:link,#nav a:visited,#nav a:visited,#nav a:active{color:#5D66FF;}
+#tabline {background-color:#5A83A1;}
+.mod,.mod td {
+background-color:#FFF;
+color:#5000DD;
+}
+.modth {
+}

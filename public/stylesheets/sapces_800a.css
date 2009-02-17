@@ -1,0 +1,51 @@
+#spacesease,#tabline {
+	width: 752px;
+}
+/* 左列 */
+#indexleft {
+	width: 188px;
+	float: left;
+}
+#topnav div.left {
+	width: 500px;
+	float: left;
+	height: 25px;
+	}
+#topnav div.right {
+	width: 202px;
+	float: right;
+	height: 25px;
+}
+#left {width: 188px;float: left;}
+/* 中列 */
+#con {
+	width: 554px;
+	float: right;
+	margin-left: 0px;
+}
+/* 右列 */
+#right {
+	width: 188px;
+	float: left;
+	margin-right: 0px;
+	clear: left;
+}
+/* 内页中列 */
+#con_ina{
+	width: 554px;
+	float: right;
+}
+#con_inb {
+	width: 554px;
+	float: right;
+}
+#review  .rcon {
+	float: right;
+	width: 447px;
+}
+#l_groups .g_title {
+	width: 437px;
+}
+#l_groups .g_con,#l_quest .q_title,#l_quest .q_con,#l_quest  .q_time,#l_quest .postcon {
+	width: 427px;
+}

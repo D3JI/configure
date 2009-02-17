@@ -1,0 +1,64 @@
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+  </div>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>
+                写新文章
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="addblog">
+        <% form_for :entry, :url => user_entries_path do |f|%>
+          <ul>
+            <li><strong>文章标题:</strong>
+            <label>
+              <%= f.text_field :title, :class => 'input'%>
+            </label>
+            <label>
+              <%= f.collection_select :entry_category_id, EntryCategory.find(:all), :id, :name %>
+            </label>
+            </li>
+            <li>
+            <div id="addblogcon">
+              <%= f.text_area :content, :rows => 20, :cols => 70 %>
+              </li>
+              <li id="tags1"><strong>默认标签:</strong> <a href="javascript:void(0)" onclick="att('心情日记',this);return false">心情日记</a> <a href="javascript:void(0)" onclick="att('天下杂侃',this);return false">天下杂侃</a> <a href="javascript:void(0)" onclick="att('人生感悟',this);return false">人生感悟</a> <a href="javascript:void(0)" onclick="att('学习笔记',this);return false">学习笔记</a> <a href="javascript:void(0)" onclick="att('休闲搞笑',this);return false">休闲搞笑</a> <a href="javascript:void(0)" onclick="att('原创文学',this);return false">原创文学</a> <a href="javascript:void(0)" onclick="att('影音数码',this);return false">影音数码</a> <a href="javascript:void(0)" onclick="att('游戏动漫',this);return false">游戏动漫</a> <a href="javascript:void(0)" onclick="att('游戏动漫',this);return false">衣食住行</a></li>
+              <li><strong>自己写标签: </strong>
+              <input name="tags" id="tags" value="" size="70" type="text">
+              </li>
+              <li id="tags2" style=""><strong>已有自定义标签:</strong>
+              <cite> 提示：点击已有标签可以直接添加至标签栏。多个标签请用空格进行分割。若不填请留空。在博客里，标签等同于文章分类。</cite></li>
+              <li class="upload_notice">我们鼓励您上传原创的内容。但请勿上传涉及色情、政治敏感及其他非法内容的文章，否则会被删除。</li>
+              <li onclick="showMoreOpt()">
+              <img src="/image/ctrlpanel/ico_add.gif" name="imgmoreopt" id="imgmoreopt" style="border: medium none ; padding-bottom: 3px;" height="9" width="9">&nbsp;更多选项：</li>
+              <span id="tb_opt_more" style="display: none;"><li><b>摘要</b>：
+                <textarea name="summary" cols="55" rows="6" id="summary" style="width: 430px;"></textarea>
+                </li>
+                <li><b>作者</b>：
+                <input name="author" id="author" value="" size="20" type="text"></li>
+                <li><b>原文网址</b>：
+                <input name="fromurl" id="fromurl" value="" size="45" type="text"></li>
+                <li><b>置顶</b>：<input class="checkbox" value="1" type="checkbox">&nbsp;选中为置顶,该日志将在您的博客中排前显示</li>
+              </span>
+              <li class="upload_but"><%= submit_tag '立刻发表', :class => 'button' %>
+              <input name="action" id="action" value="save" type="hidden">
+              <input name="logid" id="logid" value="" type="hidden">
+              </li>
+            </ul>
+          <% end %></div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+

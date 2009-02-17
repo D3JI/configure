@@ -1,0 +1,153 @@
+<% if is_logged_in? %>
+  <%= render :partial => 'top'%>
+  <div id="content">
+    <div id="indexleft">
+      <%= render :partial => 'shared/left'%> 
+      <div class="mod">
+        <div class="modth">
+          <div class="lc">
+            <div class="rc">
+              <div class="modtit">
+                <h1>留言</h1>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modbox" id="m_quest">
+          <ul>
+            <li><a href="home.php?u=jshmemory"><%= logged_in_user.username %></a> <%= time_ago_in_words(logged_in_user.created_at)%> 以前：<br>
+            哈哈。今天刚来的。希望多关照啊。。。</li>    </ul>
+          <p class="more"><a href="questbook.php?mid=35665">更多留言»</a></p>
+
+        </div>
+      </div>
+      <div class="mod">
+        <div class="modth">
+          <div class="lc">
+            <div class="rc">
+              <div class="modtit">
+                <h1>文章分类</h1>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div id="m_artclg" class="modbox">
+          <ul>
+            <li><a href="myblog.php?tag=%E5%8F%91%E6%B3%84%E7%AD%92&amp;mid=35665">发泄筒</a>()</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="modth">
+          <div class="lc">
+            <div class="rc">
+              <div class="modtit">
+                <h1>空间统计</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="comm_info" class="modbox">
+          <ul>
+            <li>博客文章<br> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="con"><div class="mod">
+        <div class="modth">
+          <div class="lc">
+
+            <div class="rc">
+              <div class="modtit">
+                <h1>好友</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="m_friend" class="modbox">
+          <ul>
+            <li><img src="/user1/xu_ch/face37440.gif" height="42" width="42"><a href="home.php?u=xu_ch">xxx</a></li>
+            <div class="clear">&nbsp;</div>
+            <p class="more"><a href="myfriends.php?mid=35665">更多好友»</a></p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="modth">
+
+            <div class="lc">
+              <div class="rc">
+                <div class="modtit">
+                  <h1>日志</h1>
+                </div>
+                <div class="modopt"><a href="newpost.php">写新文章</a></div>
+              </div>
+            </div>
+          </div>
+          <div id="m_blog" class="modbox">
+            <ul id="blog_post_25598">
+              <li class="btit"><a href="blog.php?tid=25598">郁闷。。。。</a>
+              <div class="cedit"><a href="newpost.php?id=25598" title="编辑文章" class="cedita"></a><a href="#" onclick="if(confirm('确认要删除这篇文章?'))blog_delpost(25598);" title="删除文章" class="ceditb"></a></div>
+              </li>
+              <li class="btime">2009</li>
+              <li class="bcon">要开心！！
+              <p class="bmore"><a href="blog.php?tid=25598">详细内容»</a></p>
+
+              </li>
+            </ul>
+            <p class="more"><a href="myblog.php?mid=35665">更多日志»</a></p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="modth">
+            <div class="lc">
+              <div class="rc">
+                <div class="modtit">
+                  <h1>相册</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="m_photo" class="modbox">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="photoPlayer" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab" height="100%" width="100%">
+              <param name="movie" value="images/spacephotoPlayer.swf?id=35665">
+
+              <param name="quality" value="high">
+              <param name="bgcolor" value="#869ca7">
+              <param name="allowScriptAccess" value="sameDomain">
+              <embed src="images/spacephotoPlayer.swf?id=35665" bgcolor="#869ca7" name="SpacePhotoPlayer" play="true" loop="false" quality="high" allowscriptaccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" align="middle" height="100%" width="100%">
+
+            </object>
+            <div class="clear">&nbsp;</div>
+            <p class="more"><a href="myalbum.php?mid=35665">更多相册»</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="clear"></div>
+</div>
+    <% else %>
+      <div id="c2">
+        <div id="login">
+          <% if flash[:error]%>
+            <div class="error"> <%= flash[:error]%> </div>
+          <% end %>
+          <% if flash[:notice]%>
+            <div class="alert"> <%= flash[:notice] %> </div>
+          <% end %>
+          <% form_tag login_path do %>
+            <h4>用户登录</h4>
+            <ul>
+              <label>账&nbsp;号:</label>
+              <%= text_field_tag :username, nil, :class => 'input'%><br/><br/>
+              <label>密&nbsp;码:</label>
+              <%= password_field_tag :password, nil, :class => 'input'%><p/>
+              <%= submit_tag 'Login', :class => 'button'%>
+            <% end %>
+          </ul>
+          <div id="login_link"><%= link_to '忘记密码' %>| <%= link_to '注册', new_user_path %></div>
+        </div>
+      <% end %>
