@@ -3,7 +3,7 @@
     <div class="lc">
       <div class="rc">
         <div class="modtit">
-          <h1><%= logged_in_user.username %></h1>
+          <h1><%= @user.username %></h1>
         </div>
         <div class="modopt"><a href="mysetting.php">编辑资料</a></div>
       </div>
@@ -11,18 +11,33 @@
   </div>
   <div id="m_pro" class="modbox">
     <ul>
-      <li class="image"><img src="/user1/jshmemory/face35665.gif" height="80" width="80"></li>
-      <li class="user"><!--<img src="/skins/spaces/default/images/mama.gif" alt="美女" width="20" height="18" />-->美女|21岁</li>
-      <li class="a"><%= link_to '修改头像' %></li>
-      <li class="b"><%= link_to '发表文章', new_user_entry_path(:user_id => logged_in_user.id) %></li>
-      <li class="c"><%= link_to '上传照片' %></li>    
-      <li class="desc addr">地点：</li>
+      <li class="image">
+      <% if @user.avatar %>
+        <%= image_tag(@user.avatar.public_filename(:thumb)) %>
+      <% else %>
+        <%= image_tag('../images/noface.jpg')%>
+      <% end %>
+      </li>
+      <li class="user">美女|21岁</li>
+      <% if logged_in_user == @user %>
+        <li class="a"><%= link_to '修改头像' %></li>
+        <li class="b"><%= link_to '发表文章', new_user_entry_path(:user_id => logged_in_user.id) %></li>
+        <li class="c"><%= link_to '上传照片' %></li>
+      <% else %>
+        <% if logged_in_user.friends.include?(@user) %>
+          My Friend
+        <% else %>
+          <li class="a"><%= link_to '加为好友', new_user_friend_path(:user_id => logged_in_user.id, :friend_id => @user.id) %></li>
+        <% end %>
+        <li class="b"><%= link_to '给他留言' %></li>
+        <li class="c"><%= link_to '发短信息' %></li>
+      <% end %>
+      <li class="desc addr">地点：<%= @user.informations.name %></li>
       <li class="desc">等级：</li>
       <li class="desc">积分：</li>
-      <li class="desc">上次登录：</li>
+      <li class="desc">上次登录：<!--< time_ago_in_words(@user.last_activity_at) %>--></li>
       <li class="clear">&nbsp;</li>
     </ul>
     <p class="more"><a href="profile.php?mid=35665">详细资料»</a></p>
   </div>
 </div>
-

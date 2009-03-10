@@ -1,0 +1,22 @@
+<h1> 添加分类</h1>
+<% form_for :category, :url => admin_categories_path do |f| %>
+  <p>
+  <%= f.label :所属分类 %>
+  <!-- <%= f.collection_select :parent_id,@categories,  :id, :name, {:prompt => '分类:'} %> -->
+  <%= f.select (:parent_id, @categories.map {|u| [u.name, u.id]},  {:prompt => '默认分类'} ,
+                                  {:onchange => remote_function( :update => 'child_category',
+                                                                :with => "'parent_id='+value+'&partial=select'",
+                                                                :url => {:action => 'select_with_ajax'}  )} )%>
+<span id="child_category">
+   </span>
+  </p>
+    <p>
+  <%= f.label :名称 %><br />
+  <%= f.text_field :name %>
+  </p>
+  <p>
+  <%= submit_tag "添加" %>
+  </p>
+<% end %>
+<br/>
+<%= link_to '返回', admin_categories_path %>

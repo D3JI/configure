@@ -1,0 +1,41 @@
+<%= render :partial => 'shared/control'%>
+<% if flash[:error]%>
+  <%= flash[:error]%>
+  <% end %>
+  <%= error_messages_for :user %>
+<div id="con_ina">
+  <div class="mod">
+    <div class="modth">
+      <h1>修改密码</h1>
+    </div>
+    <div class="modbox" id="l_profile">
+      <% form_for :user, :url => user_path, :html => { :method => :put } do |f|%>
+        <table border="0" cellpadding="5" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td width="13%">当前密码：</td>
+              <td width="87%"><%= f.password_field :oldpassword, :class => 'input'%></td>
+            </tr>
+            <tr>
+              <td>新密码：</td>
+              <td><%= f.password_field :new_password, :class => 'input' %></td>
+            </tr>
+            <tr>
+              <td>确认新密码：</td>
+              <td><%= f.password_field :password_confirmation, :class => 'input' %></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td><label>
+                  <%= submit_tag '提交修改', :class => 'button' %>
+                  <input name="action" id="action" value="save" type="hidden">
+                  <input name="modify" id="step" value="pwd" type="hidden">
+              </label></td>
+            </tr>
+        </tbody></table>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+</div>
+</div>

@@ -24,15 +24,14 @@
               <%= f.text_field :title, :class => 'input'%>
             </label>
             <label>
-              <select name="isfrom" id="isfrom">
-                <option value="0" selected="selected">【原创】 </option><option value="1">【转载】 </option></select>
+              <%= f.collection_select :entry_category_id, EntryCategory.find(:all), :id, :name %>
             </label>
             </li>
             <li>
             <div id="addblogcon">
               <%= f.text_area :content, :rows => 20, :cols => 70 %>
               </li>
-              <li id="tags1"><strong>默认标签:</strong> <a href="javascript:void(0)" onclick="att('心情日记',this);return false">心情日记</a> <a href="javascript:void(0)" onclick="att('天下杂侃',this);return false">天下杂侃</a> <a href="javascript:void(0)" onclick="att('人生感悟',this);return false">人生感悟</a> <a href="javascript:void(0)" onclick="att('学习笔记',this);return false">学习笔记</a> <a href="javascript:void(0)" onclick="att('休闲搞笑',this);return false">休闲搞笑</a> <a href="javascript:void(0)" onclick="att('原创文学',this);return false">原创文学</a> <a href="javascript:void(0)" onclick="att('影音数码',this);return false">影音数码</a> <a href="javascript:void(0)" onclick="att('游戏动漫',this);return false">游戏动漫</a> <a href="javascript:void(0)" onclick="att('游戏动漫',this);return false">衣食住行</a></li>
+              <li id="tags1"><strong>默认标签:</strong>  <a href="javascript:void(0)" onclick="att('游戏动漫',this);return false">衣食住行</a></li>
               <li><strong>自己写标签: </strong>
               <input name="tags" id="tags" value="" size="70" type="text">
               </li>

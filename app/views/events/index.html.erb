@@ -1,0 +1,82 @@
+<div class="main top">
+  <div id="left">
+    <div class="left_c">
+      <div id="ad"><a href="http://www.mimimama.com/forum/viewthread.php?tid=10444&amp;extra=page%3D1&amp;page=6">
+          <img src="../images/bbqhuodd.jpg" border="0" height="170" width="300"></a></div>
+      <div id="subad">
+        <h1><a title="【30元】情系两岸咖啡（含晚餐、饮品、精美礼品）—互动交友" href="campaign.php?id=963" target="_blank">【30元】情系两岸咖啡（含晚餐、饮品、精美礼品）—</a></h1>
+        <div id="subad_c">
+          1、猜人名 【 随机抽取5组会员 】  30分钟
+          [<a href="campaign.php?id=963">详细</a>]</div>
+        <ul>
+          <li><a href="campaign.php?id=947">v2进行时</a></li>
+        </ul>
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>
+    <div class="title">官方活动
+      <div id="so">
+        <form method="get" name="searchform" id="searchform" style="display: inline;" onsubmit="if(''==this.key.value||'搜索活动'==this.key.value)return false;" action="campaign_list.php">
+          <label class="so1">
+            <input name="key" class="atfield" id="key" value="搜索活动" onfocus="if('搜索活动'==this.value)this.value=''" onblur="if(''==this.value)this.value='搜索活动'" type="text">
+          </label>
+          <label class="so2">
+            <input name="button2" class="button" id="button2" value="搜索" type="submit">
+          </label>
+        </form>
+      </div>
+    </div>  
+    <% @official_events.each do |off|%>
+    <ul class="camp_c top">
+      <li><%= off.started_at.strftime("%m")%> / <%= off.started_at.strftime("%d")%></li>
+      <li class="c_title1"><%= off.title %></li>
+      <li class="c_about">
+      <%= off.introduction %>
+      </li>
+      <li class="c_addr"> 类型：<%= off.event_category.name %> | 击175| 5人论 | 2参</li>
+      <li class="c_user"><font class="redt">2人</font><%= link_to '我要参加' ,edit_event_path(:id => off.id) %></li>
+      <li class="clear">&nbsp;</li>
+    </ul>
+  <% end %>
+
+    <div class="title top">最新活动</div>
+    <% @recent_events.each do |r|%>
+    <ul class="camp_c top">
+      <li><%= r.started_at.strftime("%m")%> / <%= r.started_at.strftime("%d")%></li>
+      <li class="c_title1"><%= r.title %></li>
+      <li class="c_about">
+      <%= r.introduction %>
+      </li>
+      <li class="c_addr"> 类型：<%= r.event_category.name %> | 击175| 5人论 | 2参</li>
+      <li class="c_user"><font class="redt">2人</font><%= link_to '我要参加',edit_event_path(:id => r.id) %></li>
+      <li class="clear">&nbsp;</li>
+    </ul>
+  <% end %>
+    <div class="r_more">
+      <div class="tiao"><a href="campaign_list.php">更多活动</a> 
+        <label>
+        </label>
+    </div></div>
+  </div>
+  <div id="right">
+    <div id="but"><%= link_to '发起新活动', new_event_path%> <a href="/vipshop.php">获取会员卡</a></div>
+    <div id="mymser">
+      <div id="mymser_t"><a href="home.php?u=jshmemory">jshmemory</a>，<span class="green">从这里开始...</span></div>
+      <img src="/user1/jshmemory/face35665.gif" height="100" width="100"><br>
+      你已经发起了<span class="green">0</span>个活动 | <a href="campaign_list.php?c=1">查看我发起的活动</a><br>
+      你参加了<span class="green">1</span>个活动 | <a href="campaign_list.php?c=2">查看我参加的活动</a></div>
+    <div class="right_t">按分类浏览</div>
+    <ul id="list">
+      <% @eventcategories.each do |c|%>
+        <li><%= link_to c.name %> </li>
+    <% end %>
+    </ul>
+    <div class="right_t">活跃会员(参加活动次数)</div>
+    <div class="right_c"><ul id="hyuser">
+      </ul>
+    </div>
+    <div class="right_t">活动回顾</div>
+    <div class="right_c">
+      <%= link_to '1月17' %></div>
+  <div class="clear">&nbsp;</div>
+</div>

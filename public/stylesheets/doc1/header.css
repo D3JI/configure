@@ -1,0 +1,231 @@
+/* 外套 */
+#spacesease {
+	margin:0 auto;
+	padding:0 10px;
+	background-color: #FFF;
+	overflow: hidden;
+}
+/* 顶部导航 */
+#topnav {
+	height: 25px;
+	line-height: 25px;
+}
+/* 顶部导航左背景图 */#topnav div.lc {background:url( ) no-repeat}
+/* 顶部导航右背景图 */#topnav div.rc {background:url( ) no-repeat top right}
+#topnav div.left {
+	height: 25px;
+	width: 600px;
+	text-align: left;
+	float: left;
+	margin-left: 10px;
+	}
+#topnav div.right {
+	height: 25px;
+	width: 280px;
+	text-align: right;
+	float: right;
+	} 
+/* 头部 */
+#spaces_header {
+	height: 100px;
+	text-align: left;
+	overflow: hidden;
+}
+/* 头部左背景图 */#spaces_header div.lc {background:url( ) no-repeat}
+/* 头部右背景图 */#spaces_header div.rc {background:url( ) no-repeat top right}
+/* 空间标题 */
+#spaces_header div.tit  {
+	margin-top: 25px;
+	text-indent: 15px;	
+	color: #666;
+}
+/* 空间简介 */
+#spaces_header div.desc  {
+	margin-top: 10px;
+	text-indent: 15px;
+}
+#spaces_header h1 {
+	font-size: 16px;
+	font-weight: bold;
+}
+/* TAB菜单 */
+#nav {
+	height: 30px;
+	text-align: left;
+	line-height: 30px;
+	font-size: 12px;
+	margin: 0 auto;
+	padding: 0 10px;
+	position: relative;
+}
+/* TAB菜单左背景图 */#nav div.lc {background:url( ) no-repeat}
+/* TAB菜单右背景图 */#nav div.rc {background:url( ) no-repeat top right}
+#nav a:link,#nav a:visited {
+	display: block;
+	float: left;
+	height: 25px;
+	line-height: 25px;
+	text-decoration: none;
+	font-size: 12px;
+}
+#nav a.on,#nav a.on:link,#nav a.on:visited,#nav a:active,#nav a:hover/*TAB选中状态*/{
+	display: block;
+	float: left;
+	height: 26px;
+	line-height: 25px;
+	color: #000;
+	text-decoration: none;
+	z-index: 9;
+	position: relative;
+}
+
+#nav font {
+	display: block;
+	padding:0 10px;
+	font-size: 12px;
+}/*tab栏目左背景*/
+
+#tabline {
+	top:28px;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	left: 0px;
+	z-index: 0;
+	border-bottom: 1px none #5A83A1;
+}
+/*设置TAB菜单主体 */
+#tab2 {
+	padding: 5px;
+	margin-bottom: 10px;
+} 
+#tab2 span {
+	color:#000;
+	font-size:14px;
+	font-weight:bold
+}
+#tab2 a {
+	font-size:14px
+}
+#tab2 a:link,#tab2 a:visited{
+	color:#36C
+}
+/* 内容 */
+#content {
+	margin:10px auto 0;
+	width: 100%;
+	text-align: left;
+	height: auto;
+}
+#content h1 {
+	font-size: 12px;
+	text-indent: 10px;
+}
+/* 左列 */
+#left {
+	width: 188px;
+	float: left;
+}
+/* 中列 */
+#con {
+	width: 554px;
+	left: 198px;
+	float: left;
+	margin-left: 10px;
+}
+/* 内页中列 */
+#con_ina{
+	width: 752px;
+	float: right;
+}
+#con_inb {
+	width: 752px;
+	float: left;
+}
+/* 右列 */
+#right {
+	width: 188px;
+	float: right;
+}
+/* 模块 */
+.mod {
+	margin-bottom:10px;
+	border: 1px none #CCC;
+}
+.modth {/* 模块标题栏主体 */
+	line-height: 2em;
+	height: 24px;
+	border-bottom: 1px none #CCC;
+}
+.modtit {color:#060;font-size:12px;font-weight:bold}/* 模块标题区（如文章列表） */
+.modopt {
+	width: 70px;
+	text-align: right;
+	line-height: 24px;
+	float: right;
+	position: absolute;
+	right: 10px;
+	top: 0px;
+}/* 模块操作区（如写新文章） */
+.modopt a:link,.modopt a:visited{
+	text-decoration: underline;
+}
+
+.modbox {
+	padding:5px;
+	clear: both;
+	height: auto;
+	word-wrap:break-word;
+
+}
+.more {text-align: right;display: block;height: 24px;width: 100%;clear: left;}
+.more a {
+	background: url(../img_s/001/groups_file.gif) no-repeat 0px 7px;
+	display: block;
+	width: 67px;
+	float: right;
+}
+
+/* 分页样式 */
+#page {
+	height: 25px;
+	text-align: right;
+	padding: 5px;
+}
+#page li {
+	display: block;
+	float: left;
+	height: 20px;
+	line-height: 20px;
+	margin-right: 5px;
+}
+#page li a:link,#page li a:visited,#page li a:active {
+	text-decoration: none;
+	display: block;
+	padding: 0 5px;
+}
+#page li a:hover {
+	text-decoration: none;
+	display: block;
+	padding: 0 5px;
+}
+#page .nolink {
+	font-weight: bold;
+}
+#page .nolink2 {
+	padding-right: 5px;
+	padding-left: 5px;
+
+}
+#page .tiao {
+	float: right;
+	margin-right: 10px;
+}
+/* 底部信息 */
+#foot {
+	height: 48px;
+	margin: 10px auto 0;
+	line-height: 2em;
+	text-align: center;
+	border-top: 1px solid #CCC;
+}

@@ -1,7 +1,24 @@
-<% if flash[:error]%>
-  <div id="error">
-    <%= flash[:error] %>
+<div id="c2">
+  <div id="login">
+    <% if flash[:error]%>
+      <div class="error"> <%= flash[:error]%> </div>
+    <% end %>
+    <% if flash[:notice]%>
+      <div class="alert"> <%= flash[:notice] %> </div>
+    <% end %>
+    <% if flash[:waring]%>
+      <div class="error"><%= flash[:waring]%></div>
+    <% end %>
+    <% form_tag login_path do %>
+      <h4>用户登录</h4>
+      <ul>
+        <label>账&nbsp;号:</label>
+        <%= text_field_tag :username, nil, :class => 'input'%><br/><br/>
+        <label>密&nbsp;码:</label>
+        <%= password_field_tag :password, nil, :class => 'input'%><p/>
+        <%= submit_tag 'Login', :class => 'button'%>
+      <% end %>
+    </ul>
+    <div id="login_link"><%= link_to '忘记密码' %>| <%= link_to '注册', new_user_path %></div>
   </div>
-<% end %>
-<h1>Account#login</h1>
-<p>Find me in app/views/account/login.html.erb</p>
+

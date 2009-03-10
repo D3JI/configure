@@ -1,0 +1,18 @@
+<% if category.parent_id.nil? -%>
+
+  <% category.children.each do |child|%>
+    <%= render :partial => 'admin/categories/child', :object => child %>
+  <% end %>
+<% else -%>
+  <% category.parent.children.each do |brother| -%>
+    <%= render :partial => 'admin/categories/child', :object => brother %>
+    <% end -%>
+<% end -%>
+<% if category.shops.empty? -%>
+    <dt>商家类型<dt>
+    <% category.shops.each do |shop| -%>
+      <dd><%= link_to shop.name, admin_category_path(:id => category.id)%><dd>
+    <% end -%>
+    <dt>推荐商家<dt>
+  <% end -%>
+

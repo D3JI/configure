@@ -1,0 +1,7 @@
+<% unless category.children.empty? %>
+<dt><%= link_to category.name, listpage_doc_path(:name => category.name) %></dt>
+
+<% category.product_children.each do |child| -%>
+<dd><%= link_to child.name, listpage_doc_path(:name => category.name)%></dd>
+<% end -%>
+<% end %>

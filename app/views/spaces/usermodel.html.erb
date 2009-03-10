@@ -1,0 +1,38 @@
+<%= render :partial => 'account/top'%>
+<div id="content">
+  <div id="indexleft">
+  </div>
+  <div id="content">
+    <div id="con_inner"></div>
+    <div><%= link_to '控制面板',control_path %> &gt;&gt;美化空间</div>
+    <div id="tab2"><%= link_to '基本设置'%>
+      | <span>模板设置</span>
+      | <%= link_to '模板选择', :action => 'userstyle'%>
+      | <a href="space_adminStyle.php">个性化高级设置</a>
+      | <a href="space_music.php">音乐设置</a></div>
+
+    <div class="mod">
+      <div class="modbox">你可以随意拖动模块，也可以关闭模块。
+        增加模块
+        <table border="0" cellpadding="5" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td colspan="6" id="navbox">&nbsp;
+                <div><div id="dnc">
+                    <% form_for :usermodel, :url => { :action => :set_model}, :html => {:method => :put} do |f| %>
+                      
+                    <span id="linav_0"> <%= f.check_box :profile_model %>个人档案</span>
+                    <span id="linav_1"><input id="chkappnav_2" onclick="App.show(2)" checked="checked" type="checkbox">圈子</span>
+                    <span id="linav_2"><input id="chkappnav_3" onclick="App.show(3)" checked="checked" type="checkbox">留言</span>
+                    <span id="linav_3"><input id="chkappnav_4" onclick="App.show(4)" checked="checked" type="checkbox">文章分类</span>
+                    <span id="linav_4"><input id="chkappnav_5" onclick="App.show(5)" checked="checked" type="checkbox">好友</span>
+                   <% end %>
+              </div> </div>
+        </td> 
+          </tr>
+        </tbody></table>
+        <label>
+        <input name="Submit" value="保存设置" onclick="javascript:App.save();" type="button">
+        </label>
+      </div>
+      <div class="clear">&nbsp;</div>
+    </div>

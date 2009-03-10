@@ -1,0 +1,82 @@
+<%= render :partial => 'users/top'%>
+  <div id="content">
+    <div id="indexleft">
+      <%= render :partial => 'shared/left'%>
+    </div>
+<div id="con_ina">
+  <div class="mod">
+    <div class="modth">
+      <h1>添加商品</h1>
+    </div>
+    <div class="modbox">
+
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <% form_for :product, :url => user_shop_products_path(:user_id => @user.id,:shop_id => @shop), :html => {:multipart => true}  do |f| %>
+          <tr>
+            <td width="24%" align="right"><font color="#FF0000">* </font>商品名称：</td>
+            <td><span>
+                <%= f.text_field :name, :size => 20, :maxlength => 50%>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td  align="right">分类：</td> <td><span>
+                <%= f.select :category_id, Category.find(:all, :conditions => "belongs_to='product'").collect{ |c| [c.name, c.id]}, {:prompt => '默认分类'} %>
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="right" valign="top"><font color="#FF0000">* </font>价格：</td>
+            <td><%= f.text_field :price, :size => 10 %></td>
+          </tr>
+
+          <tr>
+            <td align="right" valign="top">数量：</td>
+            <td><%= f.text_field :counts, :size => "10", :maxlength => "6" %>		</td>
+          </tr>
+          <tr>
+            <td align="right" valign="top">折扣：</td>
+            <td><%= f.text_field :discount, :size => 10 %>		</td>
+          </tr>
+          <tr>
+            <td align="right" ><font color="#FF0000">* </font>产品介绍：</td>
+            <td><%= f.text_area :introduction , :rows => 10, :cols => 30%>		</td>
+          </tr>
+
+          <tr>
+            <td align="right">优惠说明：</td>
+            <td><%= f.text_area :offer_description, :rows => 10, :cols => 30 %>		</td>
+          </tr>
+          <tr>
+            <td align="right" >预约说明：</td>
+            <td><%= f.text_area :reservation_help, :rows => 10, :cols => 30 %>		</td>
+          </tr>
+          <tr>
+            <td align="right" >补充说明：</td>
+            <td><%= f.text_area :address, :rows => 10, :cols => 30 %>		</td>
+          </tr>
+<tr>
+            <td align="right">上传图片:</td>
+            
+            <td><%= file_field :photo, :uploaded_data %></td>
+          </tr>
+
+          <tr>
+            <td align="right">&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td align="right">&nbsp;(<font color="#FF0000">*为必填项</font>)</td>
+            <td>
+              <%= submit_tag '提交' %>
+              &nbsp;&nbsp;
+              <%= link_to '取消', user_shop_products_path(:user_id => @user, :shop_id => @shop) %>
+            </td>
+          </tr>
+
+        <% end %>
+      </table>
+    </div>
+  </div>

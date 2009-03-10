@@ -1,0 +1,114 @@
+<div id="yourhear"><%= link_to '活动', events_path %>&raquo;
+  <%= link_to @event.event_category.name %>&raquo;<%= @event.title %>
+</div>
+<div class="main top">
+  <div id="left">
+    <div id="innerheader">
+      <div id="innert_time"><%= @event.started_at.strftime("%Y")%><br />
+        <%= @event.started_at.strftime("%m月%d日")%></div>
+      <div id="inner_t">
+        <%= @event.title %>
+      </div>
+      <div id="inner_t2">
+                发起人：<%= @event.user %><br />
+        发起时间：<%= @event.started_at %></div>
+      <div id="inner_t3">            官方活动
+      </div>
+    </div>  
+    <div class="inner_t">基本信息</div>
+    <ul class="inner_c"><li>活动地点：<span class="inner_cs"><%= @event.location %></span></li>
+      <li>活动时间：<span class="inner_cs">集合时间：
+        <%= @event.started_at%>
+        |结束时间：
+        <%= @event.end_at %>
+      </span></li>
+      <li>联系电话：<span class="inner_cs"><%= @event.phone %></span></li>
+      <li>消费水平：<span class="inner_cs"><%= @event.money %>元/人</span></li>
+      <li>活动状态：<span class="inner_cs redt">正在进行中...[<a href="#join">我要报名</a>]  </span></li>
+    </ul>
+    <div class="inner_t">活动要求</div>
+    <div class="inner_c">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="10%" valign="top">基本要求：</td>
+          <td width="90%" class="inner_cs"><br>
+            <%= @event.term %>
+            <br>
+            </td>
+        </tr>
+      </table>
+    </div>
+    <div class="inner_t">活动介绍</div>
+    <div class="inner_c3"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <br>
+      <%= @event.introduction %> 
+    </div>
+    <div class="inner_t">注意事项</div>
+    <div class="inner_c inner_c3"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= @event.notes %>
+    </div>
+    <div class="inner_t">详细活动地点</div>
+
+    <div  class="inner_c4">
+      所在地区：<span class="inner_c3"></span><br />
+      详细地址：<span class="inner_c3"><%= @event.location %></span></div>
+
+    <div class="r_more">
+      <div class="tiao">
+      </div>
+    </div>
+
+    <div class="inner_t">活动报名<a name="join" id="join"></a></div>
+    <div class="inner_c"> 此次活动限制参加人数：<span class="green"><strong><%= @event.people %></strong></span>。&nbsp;
+      已成功报名的人数 <strong class="redt">9
+    </strong> 人</div>
+    <ul class="inner_c5" id="comments">
+      <li><img src="/images/noface.jpg" width="65" height="66" /><br /><a href="/home.php?u=yangkesir" target="_blank">yangkesir</a><br />报名1人<br />
+      </li>
+    </ul>
+    <div class="clear"></div>
+    <div class="inner_c">
+
+      <strong>注意：</strong> 活动完全是网友自愿组织、自愿参加的。因聚会所产生的任何直接间接或偶然性损失，本站不承担任何责任。</div>
+    <div class="inner_join">
+      <div><span class="redt">我要报名：</span>
+
+        <% form_for :events_users, :url => event_path(:id => @event.id), :html => {:method => :put} do |f| %>
+          联系电话：
+          <%= f.text_field :phone%>
+          报名人数:<select id="mem" name="events_users[members_count]">
+            <option value="1" selected="selected"> 我一个</option>
+            <option value="2"> 两个人</option>
+            <option value="3"> 三个人</option>
+            <option value="4"> 四个人</option>
+          </select>
+          <%=submit_tag '确定' %>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="inner_t">网友留言：(
+      <span id="campaign_comm_count">4</span>
+      条)</div>
+
+    <ul class="inner_c6" id="comments_l">
+      <li id="campaign_comm_9110">
+      <div class="quest_t"><span> &nbsp;&nbsp;1楼 </span>发表时间：
+        2009-03-09 17:19:25
+        <div class="quest_del"></div></div>
+      <img src="/user/youngboy/upload_images/1192262204_s.jpg" width="65" height="66" />
+      <div class="quest_c"><a href="/home.php?u=youngboy" target="_blank">玻璃影子</a> 说：3.14是白色情人节，带MM去是不错的选择哈</div>
+      <div class="clear">&nbsp;</div></li>
+     </ul>
+
+      </div>
+  <div id="right">  <div id="but"><%= link_to '发起新活动', new_event_path%> <a href="#">获取会员卡</a></div>
+    <div class="right_t">按分类浏览</div>
+
+    <ul id="list">
+      <% @eventcategories.each do |e|%>
+      <% end %>
+      </ul>
+  </div>
+  <div class="clear">&nbsp;</div>
+</div>

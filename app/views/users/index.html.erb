@@ -1,0 +1,40 @@
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+  </div>
+  <% if flash[:notice] %>
+    <div class="alert"><%= flash[:notice] %></div>
+  <% end %>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>所有用户</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="l_friends">
+        <ul>
+          <% @users.each do |user|%>
+          <li id="lifriend_14596">
+        <p><% if user.avatar %><%= image_tag(user.avatar.public_filename(:thumb)) %>
+        <% else %>
+          <%= image_tag('../images/noface.jpg')%>
+        <% end %></p>
+        <p><%= link_to user.username, home_path(:user_id => user.id) %> 
+        <!-- <%= link_to '加为好友', new_user_friend_path(:user_id => logged_in_user) %>-->
+        </p>
+          </li>
+        <% end %>
+        </ul>
+        <div class="clear">&nbsp;</div>
+      </div> 
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>

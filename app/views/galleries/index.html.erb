@@ -1,0 +1,48 @@
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+  </div>
+  <% if flash[:notice] %>
+    <div class="alert"><%= flash[:notice] %></div>
+  <% end %>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>相册</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="l_pic" class="modbox">
+        <div id="notice">共 <%= @user.galleries_count %> 个相册共 <%= @user.photos_count %> 张图片。
+          <% if @user == logged_in_user %>
+          <%= link_to '创建相册', new_user_gallery_path(:user_id => logged_in_user.id) %></div>
+      <% end %>
+        <% @galleries.each do |gallery|%>
+          <ul>
+            <li>
+           <% if gallery.primary%>
+             <p class="photo"><%= link_to image_tag(gallery.primary.public_filename())%> </p>
+           <% end %>
+           <p><%=link_to gallery.title, gallery_photos_path(:gallery_id => gallery.id, :user_id => @user.id) %><br>
+            <strong>(<%= gallery.photos_count %>)</strong><br>
+            </p>
+            <% if logged_in_user == @user %>
+            <p><%= link_to '编辑', edit_user_gallery_path(:id => gallery.id) %> 
+            | <%= link_to '删除', user_gallery_path(:id => gallery.id), :method => :delete, :confirm => "Do you sure??" %>
+            |<%= link_to '上传照片', new_gallery_photo_path(:user_id => gallery.user, :gallery_id => gallery)%></p>
+          <% end %>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>

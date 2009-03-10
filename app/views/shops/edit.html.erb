@@ -1,0 +1,86 @@
+<%= render :partial => 'users/top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+  </div>
+<div id="con_ina">
+  <div class="mod">
+    <div class="modth">
+      <h1>修改店铺</h1>
+  <%= error_messages_for :shop %>
+    </div>
+    <div class="modbox">
+      <table width="100%" border="0" cellspacing="0" cellpadding="3">
+        <% form_for :shop, :url => user_shop_path, :html => {:method => :put}  do |f| %>
+          <tr>
+            <td width="24%" align="right"><font color="#FF0000">* </font>商店名称：</td>
+            <td><span>
+                <%= f.text_field :shopname, :size => 20, :maxlength => 10%>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td  align="right"><font color="#FF0000">* </font>分类：</td>
+            <td><span>
+                <%= f.collection_select :category_id, Category.find(:all), :id, :name, {:prompt => '行业类型:'} %>
+              </span>
+            </td>
+          </tr>
+
+          <tr>
+            <td align="right"><font color="#FF0000">* </font>真实姓名：</td>
+            <td><%= f.text_field :surename, :size => 30, :maxlength => 18%></td>
+          </tr>
+          <tr>
+            <td align="right"><font color="#FF0000">* </font>身份证号码：</td>
+            <td><%= f.text_field :IDcard, :size => 30, :maxlength => 18 %>		</td>
+          </tr>
+          <tr>
+            <td align="right">电话：</td>
+            <td><%= f.text_field :phone, :size => 20, :maxlength => 30 %>		</td>
+          </tr>
+
+          <tr>
+            <td align="right"><font color="#FF0000">* </font>E-mail：</td>
+            <td><%= f.text_field :email, :size => 20, :maxlength => 30 %>		</td>
+          </tr>
+
+          <tr>
+            <td align="right" valign="top"><font color="#FF0000">* </font>通信地址：</td>
+            <td><%= f.text_field :address, :size =>"20", :maxlength => "40" %>            <br />
+              （建议填写详细的工作单位地址，以便我们为您邮寄最新动态）	</td>
+          </tr>
+
+          <tr>
+            <td align="right" valign="top"><font color="#FF0000"> *</font> 邮政编码：</td>
+            <td><%= f.text_field :postcode, :size => "10", :maxlength => "6" %>		</td>
+          </tr>
+
+          <tr>
+            <td align="right">店铺特色：</td>
+            <td><%= f.text_area :description, :rows => 10, :cols => 30 %>		</td>
+          </tr>
+
+          <tr>
+            <td align="right"><font color="#FF0000">*</font> 验证码：</td>
+            <td><input  name="code" type="text" id="code" size="4" maxlength="4" />
+              <img id="chk_img" border="0" src="/seccode.php" align="absmiddle"></td>
+          </tr>
+
+          <tr>
+            <td align="right">&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+
+          <tr>
+            <td align="right">&nbsp;(<font color="#FF0000">以上*内容都为必填项</font>)</td>
+            <td>
+              <%= f.submit "提交" %>
+              &nbsp;&nbsp;
+              <%= link_to '取消',user_path(:user_id => @shop.user.id) %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>

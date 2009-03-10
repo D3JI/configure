@@ -1,0 +1,170 @@
+<div id="foruminfo">
+  <div id="nav">
+    <%= link_to '小白论坛-密密麻麻网', forums_path %>&raquo; <%= link_to @topic.forum.title, forum_topics_path(:forum_id => @topic.forum) %> &raquo; <%= @topic.title %>	</div>
+</div>
+
+<div class="pages_btns">
+  <div class="threadflow"><a href="redirect.php?fid=52&amp;tid=17722&amp;goto=nextoldset"> &lsaquo;&lsaquo; 上一主题</a> | <a href="redirect.php?fid=52&amp;tid=17722&amp;goto=nextnewset">下一主题 &rsaquo;&rsaquo;</a></div>
+  <%= link_to '发新主题', new_forum_topic_path(:forum_id => @topic.forum)%>
+  | <%= link_to '回复', "#reply"%>
+  </div>
+<ul class="popupmenu_popup newspecialmenu" id="newspecial_menu" style="display: none">
+  <li><%= link_to '发新话题', new_forum_topic_path(:forum_id => @topic.forum) %></li>
+</ul>
+<div class="mainbox viewthread">
+  <span class="headactions">
+    <%= link_to '收藏' %>
+    <%= link_to '订阅' %>
+    <%= link_to '推荐' %>
+    <%= link_to '打印' %>
+  </span>
+  <h1><%= link_to @topic.topic_category.name %><%= @topic.title %></h1>
+  <table id="pid107092" summary="pid107092" cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="postauthor">
+        <cite>	
+          <%= link_to @topic.user.username %>
+        </cite>
+        <div class="avatar"><% if @topic.user.avatar %>
+            <%= image_tag(@topic.user.avatar.public_filename(:tiny))%>
+          <% else %>
+            <%= image_tag("../images/noface.jpg")%>
+          <% end %>
+          <dl class="profile">
+            <dt>帖子</dt><dd>4&nbsp;</dd>
+            <dt>精华</dt><dd><a href="digest.php?authorid=21261">0</a>&nbsp;</dd>
+            <dt>威望</dt><dd>0 点&nbsp;</dd><dt>金钱</dt><dd>4 PP&nbsp;</dd></dl>						
+          <ul>
+            <li class="pm"><a href="pm.php?action=send&amp;uid=21261" target="_blank" id="ajax_uid_107092" onclick="ajaxmenu(event, this.id, 9000000, null, 0)">发短消息</a></li>
+            <li class="buddy"><a href="my.php?item=buddylist&amp;newbuddyid=21261&amp;buddysubmit=yes" target="_blank" id="ajax_buddy_0" onclick="ajaxmenu(event, this.id, null, 0)">加为好友</a></li>
+            <li class="offline">当前离线
+            </li>
+          </ul>
+        </td>
+        <td class="postcontent" >
+          <div class="postinfo">
+            <strong title="复制帖子链接到剪贴板" id="postnum107092" onclick="setcopy('http://www.mimimama.com/forum/viewthread.php?tid=17722&amp;page=1#pid107092', '帖子链接已经复制到剪贴板')">1<sup>F</sup></strong>
+            <em onclick="$('postmessage_107092').className='t_bigfont'">大</em>
+          </div>
+          <div id="ad_thread2_0"></div>					<div class="postmessage defaultpost">
+            <div id="ad_thread3_0"></div><div id="ad_thread4_0"></div>
+            <h2><%= @topic.title %></h2>
+            <div id="postmessage_107092" class="t_msgfont"><%= @topic.content %> </div>
+            <div id="post_rate_div_107092"></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="postauthor">
+      </td>
+      <td class="postcontent">
+        <div class="postactions">
+          <p>
+          <%= link_to '引用' %>
+          <%= link_to '使用道具' %>
+          <%= link_to '报告'%>
+
+          <%= link_to '回复', "#reply" %>
+          <strong onclick="scroll(0,0)" title="顶部">TOP</strong>
+          </p>
+          <div id="ad_thread1_0"></div>				</div>
+      </td>
+    </tr>
+  </table>
+</div>
+<% @posts.each do |post|%>
+  <div class="mainbox viewthread">
+    <span class="headactions">
+      <%= link_to '收藏' %>
+      <%= link_to '订阅' %>
+      <%= link_to '推荐' %>
+      <%= link_to '打印' %>
+    </span>
+    <table id="pid107092" summary="pid107092" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="postauthor">
+          <cite>	
+            <%= link_to post.user.username %>
+          </cite>
+          <div class="avatar"><% if post.user.avatar %>
+              <%= image_tag(post.user.avatar.public_filename(:tiny))%>
+            <% else %>
+              <%= image_tag("../images/noface.jpg")%>
+            <% end %>
+            <dl class="profile"><dt>帖子</dt><dd>4&nbsp;</dd><dt>精华</dt><dd><a href="digest.php?authorid=21261">0</a>&nbsp;</dd><dt>威望</dt><dd>0 点&nbsp;</dd><dt>金钱</dt><dd>4 PP&nbsp;</dd></dl>						
+            <ul>
+              <li class="pm"><a href="pm.php?action=send&amp;uid=21261" target="_blank" id="ajax_uid_107092" onclick="ajaxmenu(event, this.id, 9000000, null, 0)">发短消息</a></li>
+              <li class="buddy"><a href="my.php?item=buddylist&amp;newbuddyid=21261&amp;buddysubmit=yes" target="_blank" id="ajax_buddy_0" onclick="ajaxmenu(event, this.id, null, 0)">加为好友</a></li>
+              <li class="offline">当前离线
+              </li>
+            </ul>
+          </td>
+          <td class="postcontent" >
+            <div class="postinfo">
+
+              <strong title="复制帖子链接到剪贴板" id="postnum107092" onclick="setcopy('http://www.mimimama.com/forum/viewthread.php?tid=17722&amp;page=1#pid107092', '帖子链接已经复制到剪贴板')">1<sup>F</sup></strong>
+              <em onclick="$('postmessage_107092').className='t_smallfont'">小</em>												发表于 2009-3-7 06:37&nbsp;																					<a href="viewthread.php?tid=17722&amp;page=1&amp;authorid=21261" rel="nofollow">只看该作者</a>
+            </div>
+
+            <div id="ad_thread2_0"></div>					<div class="postmessage defaultpost">
+              <div id="ad_thread3_0"></div><div id="ad_thread4_0"></div>
+              <div id="postmessage_107092" class="t_msgfont"><%= post.content %> </div>
+              <div id="post_rate_div_107092"></div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="postauthor">
+        </td>
+        <td class="postcontent">
+          <div class="postactions">
+            <p>
+            <%= link_to '引用' %>
+            <%= link_to '使用道具' %>
+            <%= link_to '报告'%>
+            <%= link_to '回复', "#reply" %>
+            <strong onclick="scroll(0,0)" title="顶部">TOP</strong>
+            </p>
+            <div id="ad_thread1_0"></div>				
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% end %>
+
+<div class="pages_btns">
+  <div class="threadflow">
+    <a href="redirect.php?fid=52&amp;tid=17722&amp;goto=nextoldset"> &lsaquo;&lsaquo; 上一主题</a> 
+    | <a href="redirect.php?fid=52&amp;tid=17722&amp;goto=nextnewset">下一主题 &rsaquo;&rsaquo;</a>
+  </div>
+  <span class="postbtn" id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu(this.id)">
+    <%= link_to '发新话题', new_forum_topic_path(:forum_id => @topic.forum)%>
+  </span>
+  </div>
+
+  <% form_for :post, :url => forum_topic_posts_path(:forum_id => @topic.forum, :topic_id => @topic.id) do |f|%>
+  <div id="quickpost" class="box">
+    <h4>快速回复主题</h4><a name="reply" id="reply"></a>
+    <div class="postoptions">
+      <h5>选项</h5>
+      <p><label><input class="checkbox" type="checkbox" name="emailnotify" value="1"> 接收新回复邮件通知</label></p>
+    </div>
+    <div class="postform">
+            <p><label>内容</label>
+      <%= f.text_area :content, :rows => 9, :cols => 50 %>
+      </p>
+      <p class="btns">
+      <%= submit_tag '提交' %>
+      </p>
+    </div>
+    <div class="smilies">
+    </div>
+  </div>
+<% end %>
+
+<div id="footfilter" class="box">
+  <span id="visited_forums" class="dropmenu">最近访问的版块</span>
+</div>

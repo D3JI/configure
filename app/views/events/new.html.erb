@@ -1,0 +1,77 @@
+<div id="yourhear"><a href="campaign.php">Event</a> &raquo; <a href="#"></a>Begin Event</div>
+<div class="main top">
+  <div id="left">
+    <% form_for :event, :url => events_path do |f| %>
+      <ul class="add">
+        <li class="left"><span class="redt">* </span>Title
+        <li class="right">
+        <%= f.text_field :title, :class => 'input'%>
+        &nbsp;&nbsp;
+        </li>
+        <li class="left"><span class="redt">* </span>Type</li>
+        <li class="right"> 
+        <%= f.select :event_category_id, EventCategory.find(:all).map {|m| [m.name, m.id]} %>
+        </li>
+        <li class="left"><span class="redt">*</span> Time</li>
+        <li class="right">start_time<label>
+          <%= f.datetime_select :started_at%>
+        </label><br/>
+        End_Time<label><%= f.datetime_select :end_at %></label>
+        </li>
+        <li class="left"><span class="redt">*</span> City</li>
+        <li class="right">
+        <%= f.text_field :city, :class => 'input' %>
+        </li>
+        <li class="left">Money</li>
+        <li class="right"><label><%= f.text_field :money, :class => 'input'%>
+        </label> 
+        yuan/ren </li>
+        <li class="left">Event_Count</li>
+        <li class="right"> <%= f.text_field :people, :class => 'input' %> </li>
+        <li class="left"><span class="redt">*</span> Tel</li>
+        <li class="right"><label><%= f.text_field :phone, :class => 'input' %></label>
+        </li>
+        <li class="xftitle"><span class="left"><span class="redt">*</span> </span>Event_Term &nbsp;</li>
+        <li class="xfconent">
+        <label>
+          <%= f.text_area :term, :rows => 6, :cols => 30 %>
+        </label>
+        </li>
+        <li class="xftitle">Event_Introduction &nbsp;</li>
+        <li class="xfconent">
+        <label>
+          <%= f.text_area :introduction, :rows => 6, :cols => 30 %>
+        </label>
+        </li>
+        <li class="xftitle">Note</li>
+        <li class="xfconent">
+        <label>
+          <%= f.text_area :notes, :rows => 6, :cols => 30 %>
+        </label>
+        </li>
+        <li class="xftitle">Location</li>
+        <li class="xfconent">
+        <label><%= f.text_field :location, :class => 'input' %>
+          <br />
+          Bus...</label>
+        </li>
+        <li class="left"></li>
+        <li class="butten">
+        <label><%= submit_tag 'Submit' %> </label>
+        <li class="left"></li>
+      </ul>
+    <% end %>
+    <div class="clear">&nbsp;</div>
+  </div>
+  <div id="right">
+    <div class="right_c">Notice
+      <br />
+      1. ...................<span class="redt">*</span>Must
+      <br />
+      2. ..................
+      <br />
+      3............ </div>
+  </div>
+  <div class="clear">&nbsp;</div>
+</div>
+

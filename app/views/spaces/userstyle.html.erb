@@ -1,0 +1,58 @@
+<%= render :partial => 'account/top'%>
+<div id="content">
+  <div id="indexleft">
+  </div>
+  <div id="content">
+    <div id="con_inner"></div>
+    <div><%= link_to '控制面板',control_path %> &gt;&gt;美化空间</div>
+    <div id="tab2"><%= link_to '基本设置'%>
+      | <%= link_to '模块设置', :action => 'usermodel'%>
+      | <span>模板选择</span>
+      | <a href="space_adminStyle.php">个性化高级设置</a>
+      | <a href="space_music.php">音乐设置</a></div>
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>当前使用模板</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="admin_temp2">
+        <div class="tmp">
+          <% if @style.stylename == 'style001'%>
+          &nbsp;  <img  src="../images/layouts/spaces001.gif" class="p" height="150" width="150"> </div>
+      <% else %>
+          &nbsp;  <img  src="../images/layouts/spaces002.gif" class="p" height="150" width="150"> </div>
+        <% end %>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>模板选择</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="admin_temp">
+        <div id="notice"><strong>当前拥有2套模板可供选择</strong></div>
+        <div class="tmp">
+          <%= link_to '使用', :action => :set_style, :stylename => 'style001'%>
+            系统默认模板
+              <img src="../images/layouts/spaces001.gif" class="p" height="150" width="150"></div>
+        <div class="tmp">
+          <%= link_to '使用', :action => :set_style, :stylename => 'style002'%>
+          抽象空间<img src="../images/layouts/spaces002.gif" class="p" height="150" width="150"> </div>
+      </div>
+            <div class="clear"></div>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

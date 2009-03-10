@@ -11,7 +11,9 @@
             <div class="modtit">
               <h1>博客</h1>
             </div>
-            <div class="modopt"><%= link_to '写新文章', new_user_entry_path(:user_id => logged_in_user.id) %></div>
+            <% if logged_in_user == @user %>
+              <div class="modopt"><%= link_to '写新文章', new_user_entry_path(:user_id => logged_in_user.id) %>
+              <% end %></div>
           </div>
         </div>
       </div>
@@ -21,11 +23,17 @@
           <% @entries.each do |entry|%>
             <li class="ctitle">
             <%= link_to entry.title, user_entry_path(:id => entry) %>
-            <%= link_to 'edit', edit_user_entry_path(:id => entry)%> | <%= link_to 'delete', user_entry_path(:id => entry), :method => :delete, :confirm => '确认要删除这篇文章?' %>
+            <% if @user == logged_in_user %>
+              <%= link_to 'edit', edit_user_entry_path(:user_id => entry.user, :id => entry)%> 
+              | <%= link_to 'delete', user_entry_path(:id => entry), :method => :delete, :confirm => '确认要删除这篇文章?' %>
+            <% end %>
           </li>
           <li class="ctime"><%= entry.created_at %></li>
-          <li class="bcon"><%= entry.content %><p class="cmore">类别：
+          <li class="bcon"><%= entry.content %></li>
+          <% if entry.entry_category %>
+          <p class="cmore">类别：
           <%= link_to entry.entry_category.name %>
+        <% end %>
           <!-- display_user_entry_path(:user_id => entry.user_id, :category_id => entry.entry_category_id), :method => :put--> 
           | 浏览 |  评论(<%= entry.comments_count %>)</p>
           </li>

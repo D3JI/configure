@@ -1,19 +1,47 @@
-<div id="content">
-  <%= error_messages_for :user %>
-  <% form_for :user,:url => users_path do |f|%>
-    <h4>Sing Up</h4>
-    <ul>
-      <label>Username:</label><br/>
-      <%= f.text_field :username, :class => 'input'%><p/>
-      <label>Nike</label><br/>
-      <%= f.text_field :nike, :class => 'input'%><p/>
-      <label>Password:</label><br/>
-      <%= f.password_field :password, :class => 'input'%><p/>
-      <label>Password Confirmation:</label><br/>
-      <%= f.password_field :password_confirmation, :class => 'input'%><p/>
-      <label>Email </label><br/>
-      <%= f.text_field :email, :class => 'input' %><p/>
-      <%= submit_tag 'Sign Up', :class => 'button'%> | <%= link_to 'Cancel', home_path %>
-    </ul>
-  <% end %>
+<div class="main top">
+  <div id="left">
+    <div id="title">只需一步即可注册</div>
+    <% form_for :user,:url => users_path do |f|%>
+      <%= f.error_messages %>
+      <div id="logreg_main">
+        <ul>
+          <li class="left">账号：</li>
+          <li class="right">
+          <%= f.text_field :username, :class => 'input'%>
+          4-20位。请用字母、数字或下划线</li>
+          <li class="left">昵称：</li>
+          <li class="right">
+          <%= f.text_field :nike, :class => 'input'%>
+          1-20位字母或1-6个汉字,请用字母、数字或汉字</li>
+          <li class="left">密码：</li>
+          <li class="right">     
+          <%= f.password_field :password, :class => 'input'%> 
+          请使用英文字母（区分大小写）、符号或数字。</li>
+          <li class="left">确认密码：</li>
+          <li class="right">
+          <%= f.password_field :password_confirmation, :class => 'input'%>
+          </li>
+          <li class="left">Email：</li>
+          <li class="right">
+          <%= f.text_field :email, :class => 'input' %>
+          用于找回密码和接收网站通知。</li>
+          <li class="left"></li>
+          <li class="butten">
+          <%= submit_tag '注册', :class => 'button'%> | <%= link_to '取消', login_path %> 
+          <input name="action" id="action" value="save" type="hidden">
+          </li>
+          <li class="left"></li>
+          <li class="butten">已经注册请点击这里<strong><%= link_to '登录', login_path %></strong>密密麻麻。   </li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  <div id="right">
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" height="250" width="300">
+      <param name="movie" value="../ad/300x250-001.swf">
+      <param name="quality" value="high">
+      <embed src="../ad/300x250-001.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" height="250" width="300">
+  </object></div>
+  <div class="clear">&nbsp;</div>
 </div>
+<link href="../../styles/header.css" rel="stylesheet" type="text/css">

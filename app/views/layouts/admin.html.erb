@@ -1,0 +1,14 @@
+<html>
+  <%= render :partial => 'shared/admin/head' %>
+  <body>
+    <div id="header">
+      <%= render :partial => 'shared/admin/header' %>
+    </div>
+    <div class="main top">
+      <div id="left">
+        <%= render :partial => 'shared/admin/left' %>
+      </div>
+      <%= yield %>
+    </body>
+  </html>
+

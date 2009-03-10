@@ -1,0 +1,5 @@
+<!-- <dt><%= link_to category.name, admin_category_path(:id => category) %></dt> -->
+<% category.children.each do |child| -%>
+<dd><%= link_to child.name, admin_category_path(:id => category)%></dd>
+<% end -%>
+

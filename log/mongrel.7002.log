@@ -1,0 +1,44 @@
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.7002.pid and log/mongrel.7002.log for info.
+** Starting Mongrel listening at 127.0.0.1:7002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 127.0.0.1:7002
+** Writing PID file to tmp/pids/mongrel.7002.pid
+Mon Mar 09 00:42:36 +0800 2009: HTTP parse error, malformed request (127.0.0.1): #<Mongrel::HttpParserError: Invalid HTTP format, parsing fails.>
+Mon Mar 09 00:42:36 +0800 2009: REQUEST DATA: "GET /stat.php?u=http%3A//localhost%3A7002/&t=%u5BC6%u5BC6%u9EBB%u9EBB%u7F51 HTTP/1.1\r\nHost: localhost:7002\r\nUser-Agent: Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.0.6) Gecko/2009021603 Firefox/3.0.6\r\nAccept: */*\r\nAccept-Language: en-us,en;q=0.5\r\nAccept-Encoding: gzip,deflate\r\nAccept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7\r\nKeep-Alive: 300\r\nConnection: keep-alive\r\nReferer: http://localhost:7002/\r\nCookie: _mima_session=31ad9862d756f2ec58cb34a1bd4ad8f9; AJSTAT_ok_times=4; AJSTAT_ok_pages=1\r\n\r\n"
+---
+PARAMS: {"REQUEST_PATH"=>"/stat.php", "REQUEST_METHOD"=>"GET"}
+---
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.7002.pid and log/mongrel.7002.log for info.
+** Starting Mongrel listening at 127.0.0.1:7002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 127.0.0.1:7002
+** Writing PID file to tmp/pids/mongrel.7002.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.7002.pid and log/mongrel.7002.log for info.
+** Starting Mongrel listening at 127.0.0.1:7002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 127.0.0.1:7002
+** Writing PID file to tmp/pids/mongrel.7002.pid
+** TERM signal received.
+** Daemonized, any open files are closed.  Look at tmp/pids/mongrel.7002.pid and log/mongrel.7002.log for info.
+** Starting Mongrel listening at 127.0.0.1:7002
+** Starting Rails with development environment...
+** Rails loaded.
+** Loading any Rails specific GemPlugins
+** Signals ready.  TERM => stop.  USR2 => restart.  INT => stop (no restart).
+** Rails signals registered.  HUP => reload (without restart).  It might not work well.
+** Mongrel 1.1.5 available at 127.0.0.1:7002
+** Writing PID file to tmp/pids/mongrel.7002.pid

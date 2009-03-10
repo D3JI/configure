@@ -1,0 +1,43 @@
+<%= render :partial => 'shared/control'%>
+<div id="con_ina">
+  <div class="mod">
+    <div class="modth">
+      <h1>站内消息</h1>
+    </div>
+    <div class="modbox">
+      <div class="tabs">
+        <%= link_to '收件箱', messages_path(:user_id => @user.id) %><% unless @recipient_messages %>
+        [<span id="pm_unread"><%= @recipient_messages.size %></span>]<% end %>| 
+        <%= link_to '发件箱', message_to_messages_path(:sender_id => @user.id), :method => :get %> |
+        <%= link_to '垃圾箱', message_delete_messages_path(:user_id => @user.id), :method => :delete %></div>
+      <% form_for :message, :url => reply_message_path(:recipient_id => @recipient.id, :id => @current_message.id), :html => { :method => :get} do |f|%>
+        <table border="0" cellpadding="5" cellspacing="0" width="100%">
+          <tbody>
+            <tr>
+              <td >收件人：
+                <span class="STYLE1">*</span><%= text_field_tag :recipient_id, h(@recipient.username) %>
+              </td>
+            </tr>
+            <tr>
+              <td>标 &nbsp;题&nbsp;：
+                <span class="STYLE1">*</span> <%= text_field_tag :title, h(@current_message.title) %></td>
+            </tr>
+            <tr>
+              <td nowrap="nowrap">内容：<span class="STYLE1">*</span>
+                <%= f.text_area :content, :rows => 15, :cols => 50 %>
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;
+                <%= submit_tag 'Save', :class => 'button' %><input name="father" id="father" value="0" type="hidden">
+                <input name="action" id="action" value="reply" type="hidden"></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+      </div>
+    </div>

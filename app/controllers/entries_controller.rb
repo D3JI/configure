@@ -1,42 +1,41 @@
 class EntriesController < ApplicationController
+  layout "users"
   # GET /entries
   def index
     @user = User.find(params[:user_id])
     @entries = @user.entries.find(:all)
-
-     end
+  end
 
   # GET /entries/1.xml
   def show
     @user = User.find(params[:user_id])
-    @entry = @user.entries.find(params[:id])
+    @entry = Entry.find(params[:id])
     @comments = @entry.comments.find(:all)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @entry }
     end
   end
-#dai yong
-   # @user = User.find(params[:user_id])
-    #@category = EntryCategory.find(params[:category_id])
-    #@entries = @category.entries.find(:all, :conditions => ['user_id = ?', @user])
-  
 
   def new
+    @user = User.find(params[:user_id])
+    @tags = @user.entries.tag_counts(:order => 'name')
     @categories = EntryCategory.find(:all)
-    @entry = Entry.new
+    @entry = @user.entries.new
   end
 
   # GET /entries/1/edit
   def edit
-    @entry = Entry.find(params[:id])
+    @user = User.find(params[:user_id])
+    @entry = @user.entries.find(params[:id])
   end
 
   # POST /entries
   def create
     @user = User.find(params[:user_id])
     @entry = @user.entries.new(params[:entry])
-
+    #@entry.tag_list += ',' + params[:tag][:name]
+    #@entry.save
     respond_to do |format|
       if @entry.save
         flash[:notice] = 'Entry was successfully created.'
@@ -72,6 +71,21 @@ class EntriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to user_entries_url }
       format.xml  { head :ok }
+    end
+  end
+  def add_tag
+    @entry = logged_in_user.entries.find(params[:id])
+    @entry.tag_list += ' ' + params[:tag][:name]
+    @entry.save
+    @new_tag = @entry.reload.tags.last
+  end
+  def remove_tag
+    @entry = logged_in_user.entries.find(params[:id])
+    @tag_to_delete = @entry.tags.find(params[:tag_id])
+    if @tag_to_delete
+      @entry.tags.delete(@tag_to_delete)
+    else
+      render :nothing => true
     end
   end
 end

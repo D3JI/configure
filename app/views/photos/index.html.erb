@@ -1,0 +1,62 @@
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="left">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>jshmemory</h1>
+            </div>
+            <div class="modopt"><a href="mysetting.php">编辑资料</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="m_piclist">
+        <ul class="albumslist">
+          <li class="current">
+          <% if @gallery.primary%>
+            <%= link_to image_tag(@gallery.primary.public_filename()) %><p><%= link_to @gallery.title %>[<%= @gallery.photos_count %>]</p>
+          <% end %>    </li>		
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>查看相册</h1>
+            </div>
+            <% if @user == logged_in_user %>
+              <div class="modopt"><%= link_to '上传照片', new_gallery_photo_path(:user_id => @gallery.user, :gallery_id => @gallery.id)%>
+              <% end %></div>
+          </div>
+        </div>
+      </div>
+      <div id="l_pic2" class="modbox">
+        <div id="pictitle"><h1><%= @gallery.title %></h1></div>
+        <div id="notice"><strong>相册介绍：</strong><%= @gallery.description %><br>
+        </div>
+        <ul>
+          <% @photos.each do |photo|%>
+            <li id="liphoto_33046">
+            <p class="photo"><%= link_to image_tag(photo.public_filename(:thumb)), gallery_photo_path(:user_id => photo.user, :id => photo.id)%></p>
+            <p><%= link_to photo.title , gallery_photo_path(:user_id => photo.user, :id => photo.id)%><font>浏览:() | 评论:0</font></p>
+            <% if @user == logged_in_user %>
+            <p><%= link_to '编辑', edit_gallery_photo_path(:user_id => photo.user, :id => photo.id) %>|
+            <%= link_to '删除', gallery_photo_path(:id => photo.id), :method => :delete, :confirm => '您确认要删除这张照片?'%>
+            | <%= link_to 'Primary', set_primary_gallery_photo_path(:user_id => photo.user,:gallery_id => @gallery.id, :id => photo.id), :method => :put  %>
+            | <%= link_to 'Icon', set_avatar_gallery_photo_path(:gallery_id => @gallery.id, :id => photo.id), :method => :put  %></p> </li>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>

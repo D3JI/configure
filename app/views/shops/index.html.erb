@@ -1,0 +1,29 @@
+<h1>所有店铺</h1>
+<h3>全部｜按分类</h3>
+<table>
+  <tr>
+    <th>店主</th>
+    <th>店名</th>
+    <th>分类</th>
+    <th>状态</th>
+    <th>推荐？</th>
+    <th>产品数量</th>
+    <th>注册时间</th>
+<th>操作</th>
+  </tr>
+  <% for shop in @shops %>
+    <tr>
+      <td><%=h shop.surename %></td>
+      <td><%=h shop.shopname %> </td>
+      <td><%=h shop.category.name unless shop.category.nil? %> </td>
+      <td><%=link_to shop.show_status, set_status_admin_shop_path(:id => shop.id), :method => :put, :confirm => "你确定修改:#{shop.show_status} 吗？" %> </td>
+      <td><%=link_to shop.show_recomend, set_recomend_admin_shop_path(:id => shop.id), :method => :put, :confirm => "你确定修改:#{shop.show_recomend} 吗？" %></td>
+      <td><%=h shop.products_count unless shop.products_count.nil? %></td>
+      <td><%=h shop.created_at.strftime('%Y-%m-%d') %> </td>
+      <td>[<%=link_to '编辑'%>|<%=link_to '删除',admin_shop_path(:id => shop.id), :method => :delete, :confirm => "你确定要删除该店铺吗？"%>]</td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+

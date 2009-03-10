@@ -1,0 +1,33 @@
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+  </div>
+  <% if flash[:notice] %>
+    <div class="alert"><%= flash[:notice] %></div>
+  <% end %>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <h1>个人档案</h1>
+      </div>
+      <div class="modbox" id="l_profile">
+        <%= inplace_error_div %>
+        <dt><cite></cite>基本信息</dt>
+        <table>
+          <% for c in Information.content_columns %> <p>
+            <b><tr>
+                <td><%= c.human_name %>:</td></b>
+              <td><%= in_place_text_field :information, c.name%></td>
+            </tr>
+            </p>
+          <% end %>
+          <div class="row button">
+          </div>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>

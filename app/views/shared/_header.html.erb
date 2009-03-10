@@ -1,0 +1,40 @@
+<div id="logo"><%= link_to image_tag('../images/logo.gif'), home_path, :alt => '密密麻麻' %> </div>
+<div id="header_l1">
+  <ul>
+    <li><a >网站地图</a></li>
+    <li class="help"><a href="http://www.mimimama.com/help/">帮助中心</a></li>
+    <li><a >会员服务</a></li>
+    <li><a >博客</a></li>
+    <li><a >社区</a></li>
+    <% if is_logged_in? %>
+      <li><%= logged_in_user.username %><%= link_to '[退出]', logout_path %> | <%= link_to '控制面板',control_path(:user_id => logged_in_user) %> | <%= link_to '管理员',admin_path%></li>
+    <% else %>
+    <li>你好，欢迎光临！<%= link_to '[登录]', userhome_path(:id => 1) %><a>[注册]</a><%= link_to '管理员',admin_path%></li>
+  <% end %>
+  </ul>
+</div>
+<div id="header_nav">
+  <div id="navtab">
+    <ul>
+      <li class="tb"><%= link_to '首页', home_path %></li>
+      <li class="ta"><a>摄影婚庆</a></li>
+      <li class="ta"><a >家装建材</a></li>
+      <li class="ta"><%= link_to '汽车服务', listpage_doc_path(:name => "汽车服务")%></li>
+      <li class="ta"><a>培训教育</a></li>
+      <li class="ta"><%= link_to '健身美容', listpage_doc_path(:name => "健身美容")%></li>
+    </ul>
+  </div>
+
+  <div id="navtab2">
+    <ul>
+      <li class="t4"><%= link_to '论坛', forums_path %></li>
+      <li class="t2"><%= link_to '活动', events_path %></li>
+      <li class="t1"><a>消费点评</a></li>
+    </ul>
+  </div>
+
+</div>
+</div>
+<!-- start search -->
+<%= render :partial => 'shared/search' %>
+<!-- end search -->

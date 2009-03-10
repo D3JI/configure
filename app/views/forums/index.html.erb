@@ -1,0 +1,234 @@
+<div id="foruminfo">
+  <div id="userinfo">
+    <div id="nav">
+      <%= link_to logged_in_user.username, userhome_path(:user_id => logged_in_user)%> 																</div>
+    <p>
+    您上次访问是在: <em><%= logged_in_user.last_activity_at.strftime("%Y-%m-%d")%></em>
+
+    &nbsp;			<a href="search.php?srchfrom=66000&amp;searchsubmit=yes">查看新帖</a>
+    <a href="member.php?action=markread" id="ajax_markread" onclick="ajaxmenu(event, this.id)">标记已读</a>
+    </p>
+  </div>
+
+  <div id="forumstats">
+    <p>
+    今日: <em>146</em>, 昨日: <em>534</em>, 最高日: <em>1216</em> &nbsp; <a href="digest.php">精华区</a>
+
+    <a href="rss.php?auth=CDMQn8Nm5cl3XOveuM8QYXBzGDHzm8E" title="RSS 订阅全部版块" target="_blank"><img src="images/common/xml.gif" alt="RSS 订阅全部版块"></a>		</p>
+    <p>主题: <em>13771</em>, 帖子: <em>95564</em>, 会员: <em>21454</em>, 欢迎新会员 <cite><a href="space.php?username=hldbwchq">hldbwchq</a></cite></p>
+  </div>
+</div>
+
+<div class="ad_text" id="ad_text"><table summary="Text Ad" cellpadding="0" cellspacing="1"><tbody><tr><td width="25%"><a href="http://www.mimimama.com/forum/viewthread.php?tid=17771&amp;extra=&amp;page=1" target="_blue" style="color: red;">“我就是明星”第一批10位免费名额</a></td><td width="25%"><a href="http://www.mimimama.com/forum/viewthread.php?tid=17507&amp;extra=page%3D1" _blue="" style="color: red;">V2稀区写真体验报告帖（会员上PP）</a></td><td width="25%"><a href="http://www.mimimama.com/lucida/" target="_blue" style="color: blue;">我就是明星 免费拍写真</a></td><td width="25%"><a href="http://www.mimimama.com/forum/viewthread.php?tid=17622&amp;page=1&amp;extra=" target="_blue" style="color: red;">每天上网2小时，每周积分换大餐</a></td></tr>
+</tbody></table></div>
+<table summary="HeadBox" class="portalbox" cellpadding="0" cellspacing="1">
+  <tbody><tr>
+      <td>
+        <div id="hottags"><h3><a href="tag.php" target="_blank">热门标签</a></h3>
+          <a href="tag.php?name=%E7%BE%8E%E9%A3%9F" target="_blank">美食<em>(28)</em></a>
+        </div>
+
+      </td>
+    </tr>
+</tbody></table>
+<!-- HomeShow v1.1.0(080808) on -->
+<div class="mainbox forumlist" style="padding: 1px; margin-top: -10px;" id="toplist">
+  <table cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <td style="padding: 0pt 1px 0pt 0pt;" align="center"><h3>≡ 论坛图片 ≡</h3></td>
+        <td style="padding: 0pt;" align="center"><h3>≡ 最新帖子 ≡</h3></td>
+
+        <td style="padding: 0pt 1px;" align="center"><h3>≡ 最新回复 ≡</h3></td>
+        <td style="padding: 0pt;" align="center">
+          <span class="headactions"><img id="category_HS_img" src="./images/mimimama/collapsed_no.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('category_HS');"></span>
+          <h3>≡ 本周热门 ≡</h3>
+        </td>
+      </tr>
+    </thead>
+    <tbody><tr id="category_HS" summary="categoryHS" style="">
+
+        <td width="25%">
+          </td>
+          <td width="25%">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+                <% @topics.each do |topic|%>
+                <tr valign="top">
+                  <td style="border-top: 0px none; padding: 0pt;" width="24">
+                  </td>
+                  <td style="border-top: 0px none; padding: 0pt; line-height: 20px; background-repeat: repeat-y;" background="images/HomeShow/listbg.gif" width="100%">	
+                    <div style="overflow: hidden; height: 20px; width: 100%;"><%=link_to topic.title, forum_topic_posts_path(:forum_id => topic.forum, :topic_id => topic)%>
+</div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody></table>
+          </td>
+
+          <td width="25%">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+                <% @posts.each do |post|%>
+                <tr valign="top">
+                  <td style="border-top: 0px none; padding: 0pt;" width="24">
+                  </td>
+                  <td style="border-top: 0px none; padding: 0pt; line-height: 20px; background-repeat: repeat-y;" background="images/HomeShow/listbg.gif" width="100%">
+                    <div style="overflow: hidden; height: 20px; width: 100%;"><%=link_to post.topic.title, forum_topic_posts_path(:forum_id => post.topic.forum, :topic_id => post.topic)%></div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody></table>
+          </td>
+          <td width="25%">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody><tr valign="top">
+
+                  <td style="border-top: 0px none; padding: 0pt;" width="24"><div style="background: transparent url(images/HomeShow/list.gif) no-repeat scroll 0% 0%; overflow: hidden; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; width: 24px; height: 202px;"></div></td>
+                  <td style="border-top: 0px none; padding: 0pt; line-height: 20px; background-repeat: repeat-y;" background="images/HomeShow/listbg.gif" width="100%">
+                    <div style="overflow: hidden; height: 20px; width: 100%;"><a href="viewthread.php?tid=17640" title="热门帖子
+                        所在论坛: 露天广场
+                        主题标题: 差点忘记了--80后的爆笑回忆（多图杀猫 转载）
+                        主题作者: G病毒
+                        发表时间: 2009-3-4 06:46
+                        浏览次数: 485 次
+                        回复次数: 103 次
+                        最后回复: 2009-3-9 09:41
+                        最后发表: 老板②两牛肉面">差点忘记了--80后的爆笑回 ...</a></div>
+                  </td>
+
+                </tr>
+            </tbody></table>
+          </td>
+        </tr>
+    </tbody></table>
+  </div>
+  <!-- HomeShow v1.1.0(080808) end -->
+  <div class="mainbox forumlist">
+    <span class="headactions">
+      <img id="category_20_img" src="../images/forum/collapsed_no.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('category_20');">
+
+    </span>
+    <h3><a href="index.php?gid=20">密麻会所</a></h3>
+    <table id="category_20" summary="category20" style="" cellpadding="0" cellspacing="0">
+      <thead class="category">
+        <tr>
+          <th>版块</th>
+          <td class="forumlogo"></td>
+          <td class="nums">主题</td>
+
+          <td class="nums">帖数</td>
+          <td class="lastpost">最后发表</td>
+        </tr>
+        </thead>
+        <tbody id="forum">
+        <tr>
+          <th class="new">
+
+            <h2><a href="forumdisplay.php?fid=23">会员特区|会员活动</a><em> (今日: 6)</em></h2>
+            <p>密密麻麻网会员，生活消费达人，周周活动，样样优惠，种种特权，一卡打尽。</p>																<p class="moderators">版主: <a class="notabs" href="space.php?username=%E7%8E%BB%E7%92%83%E5%BD%B1%E5%AD%90">玻璃影子</a>, <a class="notabs" href="space.php?username=%E6%97%A0%E7%97%85%E5%91%BB%E5%90%9F">无病呻吟</a></p>							</th>
+          <td class="forumlogo"></td>
+          <td class="nums">216</td>
+
+          <td class="nums">3362</td>
+          <td class="lastpost">
+            <a href="redirect.php?tid=17803&amp;goto=lastpost#lastpost">丰田RAV4免费试驾火热进行中</a>
+            <cite>by <a href="space.php?username=%E9%AA%91%E7%9D%80%E7%89%9B%E7%9A%84%E7%8C%AA">骑着牛的猪</a> - 2009-3-10 02:18</cite>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  <div id="ad_intercat_20"></div>		
+  <!-- 我们的论坛  --> 
+  <div class="mainbox forumlist">
+    <span class="headactions">
+      <img id="category_10_img" src="../images/forum/collapsed_no.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('category_10');">
+    </span>
+    <h3><%= link_to '我们的论坛' %></h3>
+    <table id="category_10" summary="category10" style="" cellpadding="0" cellspacing="0">
+      <thead class="category">
+        <tr>
+          <th>版块</th>
+          <td class="forumlogo"></td>
+          <td class="nums">主题</td>
+          <td class="nums">帖数</td>
+
+          <td class="lastpost">最后发表</td>
+        </tr>
+      </thead>
+      <% @forums.each do |forum|%>
+        <tbody >
+          <tr>
+            <th class="new">
+              <h2><%= link_to forum.title, forum_topics_path(:forum_id => forum) %><em> (今日: 19)</em></h2>
+              <p> <%= forum.description %> </p>			
+              <p class="moderators">版主: <%= forum.user %></p>	
+            </th>
+            <td class="forumlogo"></td>
+            <td class="nums"><%= forum.topics_count %></td>
+            <td class="nums"><%= forum.posts_count %></td>
+            <td class="lastpost">
+                        </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+  <div id="ad_intercat_10"></div>			<div class="mainbox forumlist">
+    <span class="headactions">
+      <img id="category_1_img" src="../images/forum/collapsed_no.gif" title="收起/展开" alt="收起/展开" onclick="toggle_collapse('category_1');">
+    </span>
+    <h3><a href="index.php?gid=1">城市CITY</a></h3>
+    <table id="category_1" summary="category1" style="" cellpadding="0" cellspacing="0">
+      <thead class="category">
+
+        <tr>
+          <th>版块</th>
+          <td class="forumlogo"></td>
+          <td class="nums">主题</td>
+          <td class="nums">帖数</td>
+          <td class="lastpost">最后发表</td>
+        </tr>
+
+        </thead><tbody id="forum14">
+        <tr>
+          <th class="new">
+            <h2><a href="forumdisplay.php?fid=14">露天广场</a><em> (今日: 14)</em></h2>
+            <p>一笑而过吧……</p>																<p class="moderators">版主: <a class="notabs" href="space.php?username=G%E7%97%85%E6%AF%92">G病毒</a></p>							</th>
+
+          <td class="forumlogo"></td>
+          <td class="nums">4971</td>
+          <td class="nums">26112</td>
+          <td class="lastpost">
+            <a href="redirect.php?tid=17797&amp;goto=lastpost#lastpost">芙蓉姐姐又出来闹了--展示魔术天才 ...</a>
+            <cite>by <a href="space.php?username=candyone">candyone</a> - 2009-3-10 02:30</cite>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="ad_intercat_1"></div>		<div class="box" id="online">
+    <span class="headactions"><a href="index.php?showoldetails=yes#online" class="nobdr"><img src="./images/mimimama/collapsed_yes.gif" alt=""></a></span>
+    <h4>
+      <strong><a href="member.php?action=online">在线会员</a></strong>
+      - 共 <em>225</em> 人在线
+      - 最高记录是 <em>647</em> 于 <em>2008-8-9</em>.
+    </h4>
+
+    <dl id="onlinelist">
+      <dt><img src="images/common/online_admin.gif" alt=""> 管理员 &nbsp; &nbsp; &nbsp; <img src="images/common/online_supermod.gif" alt=""> 超级版主 &nbsp; &nbsp; &nbsp; <img src="images/common/online_moderator.gif" alt=""> 版主 &nbsp; &nbsp; &nbsp; <img src="images/common/online_member.gif" alt=""> 会员 &nbsp; &nbsp; &nbsp; </dt>
+
+    </dl>
+  </div>
+
+  <!--<div class="legend">
+    <label><img src="./images/mimimama/forum_new.gif" alt="有新帖的版块" />有新帖的版块</label>
+    <label><img src="./images/mimimama/forum.gif" alt="无新帖的版块" />无新帖的版块</label>
+  </div>-->
+  <ul class="popupmenu_popup" id="creditlist_menu" style="position: absolute; z-index: 50; clip: rect(auto, auto, auto, auto); left: 243px; top: 204px; display: none;">
+    <li>积分: 6</li><li>威望: 0 点</li><li>金钱: 6 PP</li></ul>
+  ﻿<!-- <div class="top"><a href="http://www.bluenoah.com/bbs" target="_blank"><img src="http://www.mimimama.com/new/imagesbeta/adimg/bbs_footad.jpg" alt="蓝色诺亚公会" width="950" height="80" /></a></div>-->
+</div>

@@ -1,0 +1,6 @@
+<%= select(:category, :parent_id, @children,{:include_blank => true})%>
+<p>
+类型：
+<%= radio_button(:category, :belongs_to, "product")%>产品
+<%= radio_button(:category, :belongs_to, "shop") %>店铺
+  </p>

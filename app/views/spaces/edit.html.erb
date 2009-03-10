@@ -1,0 +1,68 @@
+<%= render :partial => 'account/top'%>
+<div id="content">
+  <div id="indexleft">
+  </div>
+  <div id="content">
+    <div id="con_inner"></div>
+    <div><%= link_to '控制面板',control_path %> &gt;&gt;美化空间</div>
+    <div id="tab2"><span>基本设置</span>
+      | <%= link_to '模块设置',  :action => 'usermodel'%>
+      | <%= link_to '模板选择', '/spaces/userstyle' %>
+      | <a href="space_adminStyle.php">个性化高级设置</a>
+      | <a href="space_music.php">音乐设置</a></div>
+    <table border="0" cellpadding="5" cellspacing="0" width="100%">
+      <tbody>
+        <% form_for :space, :url => space_path, :html => { :method => :put } do |f|%>
+          <tr>
+            <td align="right" width="10%">空间地址：</td>
+            <td width="90%">
+              <%= f.text_field :address, :class => 'input' %>
+              <input value="复制地址" onclick="copytoBoard();" type="button">
+            </td>
+          </tr>
+
+          <tr>
+            <td align="right" width="10%">空间名称：</td>
+            <td width="90%"><label>
+                <%= f.text_field :titlee, :class => 'input'%>
+                不超过30个字符</label></td>
+          </tr>
+          <tr>
+            <td align="right" valign="top">空间简介：</td>
+            <td><%= f.text_area :description, :rows => 4, :cols => 30%>
+              不超过50字符</td>
+          </tr>
+          <tr>
+            <td align="right">分辨率：</td>
+            <td>
+              <%= f.radio_button :resolution, "1024*768" %>
+              <label>1024*768（宽屏） </label>
+              <%= f.radio_button :resolution, "800*600" %>
+              <label>800*600（窄屏） </label></td>
+          </tr>
+          <%= observe_field(:space_resolution_1024768,
+                            :update => :select_layouts,
+                            :with => "'resolution='+ '1024*768'",
+                            :url => {:action => :select_layout}) %>
+         <%= observe_field(:space_resolution_800600,
+                           :update => :select_layouts,
+                          :with => "'resolution='+ '800*600'",
+                        :url => {:action => :select_layout}) %>
+                                              <tr>
+                                                <td align="right" valign="top">布局设置：</td>
+                                                <td><!--<div id="type_show_place", style="display: none;"></div>-->
+                                                  <div id="select_layouts">
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <td align="right" valign="top">&nbsp;</td>
+                                                <td><input name="Submit" value="保存设置" type="submit"><input value="save" name="action" type="hidden">
+                                                  <input name="Submit2" value=" 重置 " type="reset"></td>
+                                              </tr>
+                                            <% end %>
+                                          </tbody>
+                                        </table>
+                                        <div class="clear"></div>
+                                      </div>
+                                    </div>

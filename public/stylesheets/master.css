@@ -1,0 +1,13 @@
+html,body {background-color: #CCC;margin: 0px;text-align: center;height: 100%;+height: auto;}
+body,td,th {font-family: Verdana, Arial, Helvetica, sans-serif;font-size: 12px;color: #333;line-height: 2em;}
+a:link {color: #36C;	text-decoration: none;}
+a:visited {text-decoration: none;color: #36C;}
+a:hover {text-decoration: underline;color: #339;}
+a:active {text-decoration: none;color: #C00;}
+ul,li,p,h1,h2 {margin: 0px;padding: 0px;}
+ul,li {list-style-type: none;}
+img {border: none;}
+h3 {font-size: 14px;margin: 5px;}
+.clear {font:0px/0px sans-serif;clear:both;display:block;}
+.imgmiddle {margin-bottom:-3px;}
++ul {overflow:auto;zoom:1;}

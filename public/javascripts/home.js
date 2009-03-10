@@ -1,0 +1,1 @@
+function music_play(_){try{window.parent.frames["button_player"].selPlPlay(_)}catch($){alert("\u64ad\u653e\u97f3\u4e50\u65f6\u51fa\u9519,\u53ef\u80fd\u7a7a\u95f4\u4e3b\u4eba\u672a\u5f00\u542f\u97f3\u4e50\u64ad\u653e.")}}

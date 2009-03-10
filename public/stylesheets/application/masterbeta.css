@@ -1,0 +1,141 @@
+@charset "utf-8";
+/* CSS Document */
+/* 所有页面公用CSS */
+* { 
+margin:0px; 
+padding:0px; 
+} 
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666666;
+	line-height: 2em;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #006699;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #006699;
+}
+a:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+a:active {
+	text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+}
+h1 {
+	font-size: 12px;
+	color: #333333;
+}
+h2 {
+	font-size: 12px;
+	color: #333333;
+}
+
+h4 {
+	font-size: 12px;
+	color: #0B9003;
+	margin: 0px;
+	padding: 0px;
+}
+h5 {font-size: 14px;color: #0B9003;}
+h6 {font-size: 18px;color: #666666;}
+form {
+	margin: 0px;
+	padding: 0px;
+}
+
+ul,li,p {
+	margin: 0px;
+	padding: 0px;
+}
+li {
+	list-style-type: none;
+}
+img {border:0pt none;}
+.top {
+	margin-top: 10px;
+}
+.clear {
+	font:0px/0px sans-serif;
+	clear:both;
+	display:block;
+}
+.imgmiddle {margin-bottom:-3px;}
+.green {
+	color: #58C10C;
+}
+.redt {
+	color: #FF0000;
+}
+.button {
+	padding: 0 5px;
+	color: #FFF;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-repeat: repeat-x;
+	background-position: 0px -165px;
+	outline: 1px solid #59BB25;
+	border: 1px solid #FFF !important;
+	border: 1px solid #59BB25;
+	height: 30px;
+	line-height: 18px;
+	margin-bottom:0px;
+	font-family: Tahoma, Verdana;
+	font-size: 12px;
+	display: block;
+	font-weight: bold;
+}
+#yourhear {
+	height: 29px;
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+	line-height: 29px;
+	font-size: 12px;
+}
+
+.main {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.star00,.star01,.star02,.star03,.star04,.star05 {
+	background-image: url(../images/star.gif);
+	height: 21px;
+	background-repeat: no-repeat;
+	display: block;
+	width: 75px;
+}
+.star00 {
+	background-position: 0px 0px;
+}
+.star01 {
+	background-position: 0px -21px;
+}
+.star02 {
+	background-position: 0px -42px;
+}
+.star03 {
+	background-position: 0px -63px;
+}
+.star04 {
+	background-position: 0px -84px;
+}
+.star05 {
+	background-position: 0px -105px;
+}
+
+

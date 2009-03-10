@@ -1,0 +1,36 @@
+<div id="sub">
+  <div id="subtop">
+    <div id="subbon">
+      <dl>
+        <% for category in @categories -%>
+          <%= render :partial => 'category', :locals => {:category => category} %>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+</div>
+<div class="mod top">
+  <div class="modtop">
+    <div class="topl">
+      <div class="topr">
+        <h1>日志推荐</h1>
+        <div class="more"><%= link_to '[更多...]' %></div>
+      </div>
+    </div>
+  </div>
+  <div class="modbox" id="c10">
+    <ul>
+      <% @entries.each do |entry|%>
+      <li class="left">
+      <%=link_to entry.title, user_entry_path(:user_id => entry.user.id, :id => entry.id), :target => :blank %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+  <div class="modbot">
+    <div class="botl">
+      <div class="botr">
+      </div>
+    </div>
+  </div>
+</div>

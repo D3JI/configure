@@ -1,0 +1,115 @@
+/* CSS Document */
+@import "master.css"; /* 全局样式 */
+@import "header.css"; /* 全局样式 */
+/* 个人档案 */
+#m_pro li.image {
+	padding: 5px;
+	height: 80px;
+	width: 80px;
+	float: left;
+	margin-right: 5px;
+	overflow: hidden;
+	text-align: center;
+}
+#m_pro li.a,#m_pro li.b,#m_pro li.c {display: block;line-height: 18px;float: left;width: 75px;height: 18px;margin-top: 4px;	background: url(../img_s/001/s_ico.gif) no-repeat;text-indent: 18px;}
+#m_pro li.b {background-position: 0px -18px;}
+#m_pro li.c {background-position: 0px -36px;}
+#m_pro li.user {color: #F90;font-weight: bold;}
+#m_pro li.addr {margin-top: 5px;}
+#m_pro li.desc {width: 100%;	display: block;	float: left;}
+#m_pro ul {
+	_height: 1px;
+}
+
+/* 文章分类,存档 */
+#m_artclg li,#m_artclg2 li {}
+/* 音乐 */
+#m_music li {}
+/* 博客 */
+#m_blog li.btit {
+	font-size: 14px;
+	font-weight: bold;
+	display: block;
+	border-bottom: 1px dashed #EEE;
+	position: relative;
+}
+#m_blog li.btit a {
+	font-size: 14px;
+}
+#m_blog li.btit a:hover,#m_blog li.btit a:active {
+	text-decoration: underline;
+	color: #999999;
+}
+#m_blog li.btime {
+	color: #CCC;
+}
+#m_blog li.bcon {
+	padding: 10px;
+	word-break:break-all;
+}
+#m_blog li.bmore {
+	text-align: left;
+}
+
+/* 我的好友，最近访客 */
+#m_friend ul,#m_reader ul,#m_friend2 ul {
+	_height: 1px;
+}
+
+#m_friend li,#m_reader li,#m_friend2 li {
+	float: left;
+	height: 90px;
+	width: 88px;
+	text-align: center;
+}
+
+#m_friend img,#m_reader img,#m_friend2 img {
+	padding: 2px;
+	border: 1px solid #CCC;
+	display: block;
+	margin:0 auto;
+	height: 50px;
+	width: 50px;
+}
+#m_friend li a,#m_reader li a,#m_friend2 li a {
+	display: block;
+	overflow: hidden;
+	width: 80px;
+	margin: 0 auto;
+	height: 24px;
+}
+/* 最近访客未登录 */
+#m_reader div.catalog {
+	height: 70px;
+}
+#m_reader div.catalog img {
+	float: left;
+	margin-right: 15px;
+}
+/* 相册 */
+#m_photo {
+	height: 150px;
+}
+/* 我的圈子 */
+#m_group li {
+	text-indent: 10px;
+}
+#m_quest {
+	word-break:break-all;
+}
+
+/* 我的留言 */
+#m_quest li {
+	border-bottom: 1px solid #EFEFEF;
+	line-height: 1.5em;
+	padding: 5px 0  5px 0;
+	background: url(../img_s/001/gx_fbpl.gif) no-repeat 0px 8px;
+	text-indent: 15px;
+}
+/* 我的链接 */
+#m_link li {
+	line-height: 1.5em;
+	margin-bottom: 5px;
+}
+/* 其他 */
+#comm_info{color:#333;font-family:Arial;text-align:left}

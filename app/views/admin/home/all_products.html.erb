@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>名称</th>
+    <th>分类</th>
+    <th>商家</th>
+    <th>产品数量</th>
+    <th>操作</th>
+  </tr>
+  <% for product in @products %>
+    <tr>
+      <td><%=product.name%></td>
+    <td><%=product.category.name%></td>
+    <td><%=product.shop.shopname%></td>
+    <td><%=product.counts%></td>
+    <td></td></tr>
+  <% end %>
+</table>
+

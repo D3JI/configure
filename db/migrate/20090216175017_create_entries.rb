@@ -10,8 +10,8 @@ class CreateEntries < ActiveRecord::Migration
     end
     add_index :entries, :user_id
     add_index :entries, :category_id
-    add_column :users, :entries_count, :integer
-    add_column :users, :views_count, :integer
+    add_column :users, :entries_count, :integer, :default => 0
+    add_column :users, :views_count, :integer, :default => 0
   end
 
   def self.down

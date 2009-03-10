@@ -1,0 +1,196 @@
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%> 
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>个人管理 </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="m_list">
+        <ul>
+          <li><%= link_to '控制面板首页' %></li>
+          <li><%= link_to '个人档案设置' %></li>
+          <li><%= link_to '修改密码', edit_user_path(:id => @user.id) %></li>
+          <li><%= link_to '隐私设置' %></li>
+          <li><%= link_to '美化空间',edit_space_path(:id => @user.space) %></li>
+          <% if @user.has_shop? %>
+            <li><%= link_to '美化店铺', edit_user_shop_path(:user_id => @user.id, :id => @user.shop.id)%></li>
+          <% end %>
+          <li><%= link_to '站内消息', messages_path(:user_id => @user.id) %></li>
+          <li><%= link_to '朋友圈个性签名' %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>邀请好友</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td><textarea name="textarea" cols="10" style="overflow: auto;">http://www.mimimama.com/home.php?u=jshmemory</textarea></td>
+              <td align="center" valign="top"><input name="Submit" src="../../../image/ctrlpanel/yaoqing.gif" onclick="copytoBoard()" type="image">            </td>
+            </tr>
+        </tbody></table>
+      </div>
+    </div>
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>空间统计</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox">博客文章：<%= @user.entries_count %><br>
+        相册照片：<%= @user.photos_count %><br>
+        点评数：0<br>
+        空间访问量：663
+      </div>
+    </div>
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>我的好友 (1/2)</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox">
+        <div id="myfriends">
+          我的好友(<%= @friends.size %>)
+          <div class="myfriends" id="myf1">
+            <% @friends.each do |friend|%>
+              <% if friend.friend.avatar %>
+                <%= image_tag(friend.friend.avatar.public_filename(:tiny))%>
+              <% else%>
+                <%= image_tag("../images/noface.jpg") %>
+              <% end %>
+              <b><div><%= link_to friend.friend.username, home_path(:user_id => friend.friend) %></b>
+                [<%= link_to '短消息', new_user_message_path(:user_id => @user.id,:recipient_id => friend.friend) %>]</div>
+            <% end %>
+          </div>
+          <div class="clear"></div>
+          黑名单
+          <div class="myfriends" id="myf2">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="con">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>欢迎回来, <%= @user.username %></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox"> 您现有积分
+        122
+        分[<a href="?action=ur">更新我的积分</a>]，等级:军团一级士官(3级)，当前您的<a href="http://www.mimimama.com/mysetting.php">个人档案</a>完善度为84%。<br>
+        <% unless @user.has_shop? %>
+        <%= link_to '<span style="color:#FF0000">激活店铺</span>', new_user_shop_path(@user) %>
+        <br>
+        <% end %>
+        <div class="clear">&nbsp;</div>
+      </div>
+    </div>
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>最近访客</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="m_friend" class="modbox">
+        <ul>
+          <% @visits.each do |visit|%>
+            <li>
+            <% if visit.user.avatar %>
+              <%= image_tag(visit.user.avatar.public_filename(:tiny))%>
+            <% else %>
+              <%= image_tag("../images/noface.jpg")%>
+            <% end %>
+            <%= link_to visit.user.username, home_path(:user_id => visit.user) %>
+            </li>
+          <% end %>
+        </ul>
+        <div class="clear">&nbsp;</div>
+      </div>
+    </div>
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>好友新鲜事</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox">
+        <% @activities.each do |activity|%>
+          <%- unless activity.item.nil? -%>
+            <li>
+            <%= minifeed_message activity %>
+            <%= activity.created_at.strftime("%Y-%m-%d")%>
+            <br/>
+            </li>
+          <%- end -%>
+        <% end %>
+        <div class="clear">&nbsp;</div>
+      </div>
+    </div>
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>最近加入</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="m_friend2" class="modbox">
+        <ul>
+          <% @recent_users.each do |user|%>
+            <li>
+            <% if user.avatar %>
+              <%= image_tag(user.avatar.public_filename(:thumb)) %>
+            <% else%>
+              <%= image_tag("../images/noface.jpg") %>
+            <% end %>
+            <%= link_to user.username, home_path(:user_id => @user.id)%>
+            </li>
+          <% end %>
+        </ul>
+        <div class="clear">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+          </div>

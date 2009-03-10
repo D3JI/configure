@@ -1,0 +1,15 @@
+<div id="nav"><div class="lc">
+    <div class="rc">
+      <%= link_to '控制面板', control_path, :class => "on" %>
+      <%= link_to '首页', userhome_path(:user_id => @user.id) %>
+      <%= link_to '  个人档案  ', users_path(:user_id => @user.id) %>
+      <%= link_to '  博  客  ', user_entries_path(:user_id => @user.id)%>
+      <%= link_to '  相  册  ', user_galleries_path(:user_id => @user.id)%>
+      <%= link_to '  好  友  ', user_friends_path(:user_id => @user.id) %>
+      <%= link_to '  朋 友 圈  ' %>
+      <%= link_to '  留 言 薄  ' , user_comments_path (:user_id => @user.id)%>
+      <% if @user.has_shop? -%>
+        <%= link_to '商店',user_shop_products_path(:user_id => @user.id, :shop_id => @user.shop.id) %>
+      <% end -%>
+      <div id="tabline"></div></div>
+</div></div>

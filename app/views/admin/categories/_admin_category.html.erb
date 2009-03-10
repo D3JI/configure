@@ -1,0 +1,20 @@
+<td>&nbsp;<%=h admin_category.id %></td>
+<td>&nbsp;<%=h admin_category.name %></td>
+<td>&nbsp;<%=h admin_category.parent_id  %></td>
+<td>&nbsp;<%=h admin_category.shops_count  %></td>
+<td>&nbsp;<%=h admin_category.products_count  %></td>
+<td>&nbsp;<%= link_to '修改', edit_admin_category_path(admin_category) %> |
+  <%= link_to '删除', admin_category_path(admin_category), :confirm => '确定删除吗?', :method => :delete %></td>
+<% admin_category.children.each do |child| -%>
+  <tr>
+    <td>&nbsp;&nbsp;</td>
+    <td><%=h child.name %></td>
+    <td>  <%=h child.parent_id  %></td>
+    <td>&nbsp;<%=h child.shops_count  %></td>
+    <td>&nbsp;<%=h child.products_count  %></td>
+    <td><%= link_to '修改', edit_admin_category_path(child) %> |
+      <%= link_to '删除', admin_category_path(child), :confirm => '确定删除吗?', :method => :delete %>
+    </td>
+    <td>&nbsp;&nbsp;<%=h child.belongs_to  %></td>
+  </tr>
+<% end -%>

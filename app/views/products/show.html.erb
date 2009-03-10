@@ -1,0 +1,124 @@
+<div class='main'>
+  <div id='left'>
+    <div class='mod' id='subnav'>
+      <div class='bgtop'></div>
+      <div class='modth' id='t0'><div class='lc'><div class='rc'>
+            <div class='modtit'><h3>分类</h3></div>
+      </div></div></div>
+      <div class='modbox'>
+        <div class='modbox'>
+<%= render :partial => 'category', :object => @category %>
+        </div>
+      </div>
+      <div class='bgbottom'></div>
+    </div>
+    <div class='mod' id='ad3'>
+      <div class='bgtop'></div>
+      <div class='modth' id='t12'>
+        <div class='lc'>
+          <div class='rc'>
+
+            <div class='modtit'>
+              <h3>同类热门产品</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='modbox'>
+        <ul>
+
+          <script language='javascript' src='/doc/1/class_111.js'></script>
+        </ul>
+      </div>
+      <div class='bgbottom'></div>
+    </div>
+    <div class='mod' id='ad4'>
+      <div class='bgtop'></div>
+      <div class='modth' id='t11'>
+
+        <div class='lc'>
+          <div class='rc'>
+            <div class='modtit'>
+              <h3>您最近浏览商品</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='modbox'>
+        <ul id='history'>
+          <script language='javascript'>history_show();</script>
+        </ul>
+      </div>
+      <div class='bgbottom'></div>
+    </div>
+  </div>
+
+  <div id='right'>
+     <div id="youarehear">您现在的位置:
+      <%= link_to '首页',home_path %> &gt;&gt;
+      <%= link_to '商城',doc_path%> &gt;&gt;
+      <% if @category.parent_id -%>
+        <%=link_to @category.parent.name,admin_category_path(:id => @category.parent_id) %> &gt;&gt;
+      <% end -%>
+      <%= @category.name%> （本类下共有商品个）
+    </div>
+      <div id='content_list'>
+      <div id='inner_main'>
+        <div id='inner_main_l'><img src='../images/p1.jpg' width='200' height='200' />
+          <div id='inner_butten'><a href='javascript:copyToClipboard();'>
+              <img src='../images/butten03.gif' width='95' height='30' border='0' /></a>&nbsp;
+            <a href='javascript:window.external.AddFavorite( window.location.href , " 古摄影·艺术写真A套系 ")' target='_self'>
+              <img src='../images/butten04.gif' width='95' height='30' border='0' /></a>
+          </div>
+        </div>
+        <div id='inner_main_2'>
+          <div id='inner_title'>古摄影·艺术写真A套系</div>
+          <ul>
+            <li><span class='textccc'>优 惠 价：</span>
+            <span class='redtext'>￥688</span></li>
+            <li><span class='textccc'>商家：</span><a href='../provide/33'>成都古摄影婚纱艺术</a></li>
+          </ul>
+          <div class='clear'></div>
+          <div align='center' id='inner_main_buy'><img src='../images/butten02.gif' onclick='popup_show();'/></div></div>
+        <div class='clear'></div>
+      </div>
+      <div class='inner_title2'>产品图片</div>
+      <script language='javascript' src='/doc/prodoc/204/pic.js'></script>
+
+      <div class='inner_title2'>产品介绍</div>
+      <div class='inner_main'>
+        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+          <tr>
+            <td><style> P { margin: 0px; } </style>
+              <FONT size=4><FONT color=#666666 size=2><STRONG>【婚纱礼服】</STRONG> 服装三套（一古两便）<BR><STRONG>【拍摄数量】</STRONG> 拍35张选16张<BR><STRONG>【入册数量】</STRONG>&nbsp; 6X8寸手工册入16张&nbsp;<BR><STRONG>【附属成品】</STRONG> 24寸海报一张<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7寸拉米一个入盘（同底16张）<BR></FONT><BR></FONT></td>
+
+          </tr>
+        </table>
+      </div>
+
+      <div class='inner_title2'>优惠说明</div>
+      <div class='inner_main'> nei rong </div>
+      <div class='inner_title2 inner_red'>预定/预约说明</div>
+
+      <div class='inner_main'></div>
+      <div class='inner_title2 inner_red'>最近购买记录</div>
+      <div class='inner_main' id='jilu'>
+      </div>
+
+      <div class='inner_title2 inner_red' id='innerquest_title' onclick="toggle_oc('img_ooc_my','quest_img_my');">
+        <div id='innerquest_left'>购买咨询</div>
+        <div id='innerquestico'><img id='quest_img_my' src='../images/a.gif' width='12' height='12' /></div>
+      </div>
+
+      <div id='inner_addquest'>
+        <strong><a target='_blank' href='/leaverword/questbook.php?p=204&c=1'>
+            <img src='../images/addquest.gif' alt='添加留言' width='109' height='43' border='0' /></a></strong>
+      </div>
+
+      <div style='font: 0px/0px sans-serif;clear: both;display: block'></div>
+    </div>
+    <div class='clear'></div>
+  </div>
+</div>
+

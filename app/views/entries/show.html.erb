@@ -14,14 +14,19 @@
             <div class="modtit">
               <h1>文章</h1>
             </div>
-            <div class="modopt"><%= link_to '写新文章', new_user_entry_path %></div>
+            <% if logged_in_user == @user %>
+              <div class="modopt"><%= link_to '写新文章', new_user_entry_path(:user_id => logged_in_user.id) %>
+              <% end %></div>
           </div>
         </div>
       </div>
       <div class="modbox" id="l_blog">
         <ul>
           <li class="ctitle"><%= @entry.title %>
-          <%= link_to 'edit', edit_user_entry_path(:id => @entry)%> | <%= link_to 'delete', user_entry_path(:id => @entry), :method => :delete, :confirm => '确认要删除这篇文章?' %>
+          <% if logged_in_user == @user %>
+          <%= link_to 'edit', edit_user_entry_path(:id => @entry)%> 
+          | <%= link_to 'delete', user_entry_path(:id => @entry), :method => :delete, :confirm => '确认要删除这篇文章?' %>
+        <% end %>
           </li>
           <li class="ctime"><%= @entry.created_at %>
           </li>
@@ -36,11 +41,12 @@
           <div>
             <% @comments.each do |comment|%>
               <ul>
-                <li class="r_img"><img src="/user1/jshmemory/face35665.gif" height="88" width="110"></li>
+                <li class="r_img"><%= image_tag(comment.user.avatar.public_filename())%></li>
                 <li class="user"><%= link_to comment.user.username %> [<%= comment.created_at %>]
                 <% if logged_in_user.username == @entry.user.username %>
                   [<span style="color: rgb(153, 153, 153); cursor: pointer;"><%= link_to '删除' , user_entry_comment_path(:entry_id => @entry, :id => comment.id), :method => :delete, :confirm => "Do you sure to delete?"%></span>]
               <% end %></li>
+
                 <li class="rcon"><%= comment.content %></li><li class="clear">&nbsp;</li>
               </ul>
             <% end %>
@@ -57,7 +63,7 @@
             </li> 
             <li>
             <%= submit_tag '提交评论', :class => 'button' %>
-            <input name="logid" id="logid" value="23787" type="hidden">
+            <input name="switch" id="logid" value="entry" type="hidden">
             </li> 
           </ul>
         <% end %>

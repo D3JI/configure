@@ -1,0 +1,50 @@
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+  </div>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>相册</h1>
+            </div>
+            <div class="modopt"><%= link_to  'Back', user_galleries_path %>&nbsp;</div>
+          </div>
+        </div>
+      </div>
+      <div id="l_pic" class="modbox">
+        <% form_for :gallery, :url => user_gallery_path, :html => { :method => :put } do |f|%>
+          <table><tr>
+              <strong>创建相册</strong>
+            </tr>
+            <tr>
+              <td>相册名称：</td>
+              <td><label>
+                  <%= f.text_field :title, :class => 'input' %>
+              </label></td>
+            </tr>
+            <tr>
+              <td>相册简介：</td>
+              <td><label>
+                  <%= f.text_area :description, :rows => 5, :cols => 45 %>
+              </label></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+                <%= submit_tag 'Save', :class => 'button'%>
+                <input name="aid" id="aid" value="0" type="hidden">
+                <input name="action" id="action" value="save" type="hidden"></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>

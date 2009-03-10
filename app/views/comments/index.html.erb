@@ -1,18 +1,67 @@
-<h1>Listing comments</h1>
-
-<table>
-  <tr>
-  </tr>
-
-<% for comment in @comments %>
-  <tr>
-    <td><%= link_to 'Show', comment %></td>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New comment', new_comment_path %>
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+  </div>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>留言薄</h1>
+            </div>
+            <div class="modopt"><%= link_to '添加留言' %></div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox">
+        <div class="modbox" id="l_quest">
+          <div id="notice">共有<strong></strong> [<%= @boards.size %>]条留言</div>
+          <% @boards.each do |board|%>
+            <ul>
+              <li class="q_photo">
+              <% if board.user.avatar %>
+                <%= image_tag(board.user.avatar.public_filename(:thumb))%>
+              <% end %> 
+              </li>
+              <li class="q_title"><%= link_to board.user.username %> 说：</li>
+              <li class="q_con"><%= board.content %></li>
+              <% if logged_in_user == @user %>
+              <li class="postcon">
+              <span class="post">主人回复：</span>
+              <span title="点击修改" id="tobeedited_26341"><%= board.reply %></span>
+              </li>
+            <% end %>
+              <li class="q_time">[<%= board.created_at %>] 
+              <% if logged_in_user == @user %>
+                [<%= link_to '删除', delete_board_user_comment_path(:id => board.id), :method => :delete, :confirm => "Do you sure to delete?" %>]
+              <% end %>
+              </li>
+              <li class="clear">&nbsp;</li>
+            </ul>
+          <% end %>
+        </div>
+        <ul id="addreview">
+          <% form_for :board, :url => user_comments_path(:boarder_id => @user) do |f|%>
+            <ul id="addreview">
+              <li class="addtitle">添加留言</li>
+              <li>已登录:<%= logged_in_user.username %></li>
+              <li>验证码：
+              </li>
+              <li>
+              <%= f.text_area :content, :rows => 10, :cols => 30%>
+              </li> 
+              <li>
+              <%= submit_tag '提交留言', :class => 'button' %>
+              <input name="switch" id="logid" value="board" type="hidden">
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,59 @@
+<%= render :partial => 'shared/control'%>
+<div id="con_ina">
+  <div class="mod">
+    <div class="modth">
+      <h1>站内消息»发件箱</h1>
+    </div>
+    <div class="modbox">
+      <div class="tabs">
+      <%= link_to '收件箱', messages_path(:user_id => @user.id) %><% unless @recipient_messages %>[<span id="pm_unread"><%= @recipient_messages.size %></span>]<% end %>| 
+        <b><%= link_to '发件箱', message_to_messages_path(:sender_id => @user.id),:method => :get, :class => 'on'%></b> | 
+        <%= link_to '垃圾箱', trashbox_messages_path(:user_id => @user.id), :method => :put %>
+        <table border="0" cellspacing="0" width="100%">
+          <tbody><tr>
+              <td class="mail_line" align="left" height="40" width="40%"><strong>标题</strong></td>
+              <td class="mail_line" align="left" width="40%"><strong>时间</strong></td>
+              <td class="mail_line" align="left" width="20%"><strong>收件人</strong></td>
+            </tr>
+          </tbody>
+          <form action="" method="post">
+            <tbody>
+              <% @send_messages.each do |message|%>
+                <tr>
+                  <td class="mail_line" height="40" width="7%"><label>
+                      <input name="mid[]" id="mid_3255" value="3255" type="checkbox">
+                      <a href="#top" id="reply_button" onclick="Element.toggle('reply'); Element.toggle('reply_button'); return false" class="link"> <%= message.title %></a>
+                    </td>
+                    <td><%= message.created_at %></td>
+                    <td><%= message.recipient_id %></td>
+                  </tr>
+                  <tr>
+                    <fieldset id="reply" style="display: none">
+                      <legend><%= message.title %></legend>
+                      <div> <%= message.content%></div>
+                      <div class="mail_admin">
+                        <%= link_to '回复', reply_message_path(:id => message.id) %> -
+                        <a href="mail_new.php?tr=3265">转发</a> - 
+                        <%= link_to '删除', message_path(:id => message.id), :method => :delete, :confirm => "Do you sure ?" %> - 
+                         <%= link_to '放入垃圾箱', message_delete_message_path(:id => message.id), :method => :delete%> - 
+                        <a href="#" onclick="Element.toggle('reply'); Element.toggle('reply_button'); return false">关闭</a>
+                      </div>
+                    </fieldset>
+                  </tr>
+                <% end %>
+            </tbody></table>
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody><tr>
+                  <td align="center" height="30" width="50"><input name="checkbox6" id="checkbox6" onclick="checkAll('mid[]',this.checked);" type="checkbox"></td>
+                  <td><input name="button" id="button" value="删除" onclick="$('action').value='delall';this.form.submit();" type="button">
+                    <input name="action" id="action" value="delall" type="hidden">
+                    <input name="type" id="type" value="1" type="hidden"></td>
+                </tr>
+          </tbody></table></form>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+</div>

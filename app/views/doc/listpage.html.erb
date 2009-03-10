@@ -1,0 +1,41 @@
+  <div id="right"> <div id="youarehear">您现在的位置: <%= link_to '首页', home_path, :target => :blank%> &gt;&gt; 
+      <%= link_to '商城首页',doc_path%> &gt;&gt;
+      <% if @category.parent_id -%>
+        <%=link_to @category.parent.name,listpage_doc_path(:name => @category.parent.name) %> &gt;&gt;
+      <% end -%>
+      <%= @category.name%> （本类下共有商品<%=@category.products_count%>个(这有个错误)）</div>  
+    <div class="list_cz">
+
+      <div class="list_qh"><a href="sale_p_p_3_20_1.html"><strong>图片</strong></a>
+        <a href="sale_w_p_3_20_1.html">图文</a>  每页显示：<a href="sale_p_p_3_20_1.html">20条</a>
+        <a href="sale_p_p_3_40_1.html">40条</a> <a href="sale_p_p_3_80_1.html">80条</a>
+        <a href="sale_p_p_3_5000_1.html">全部</a>
+      </div>
+      <div class="list_page">共46个 第1/3页 首页 上一页 <a href="sale_p_p_3_20_2.html">下一页</a>
+        <a href="sale_p_p_3_20_3.html">最后一页</a>
+      </div>
+        </div>
+        <div id="content_list">
+          <ul>
+         <% for product in @category.all_products -%>
+          <li>
+          <div class="sp_mainlist1_img">
+            <%= link_to image_tag(product.first_photo.public_filename(:thumb)), :action => 'show', :id => product.id %>
+
+          </div>
+        <div class="spjs_jg3"><span class="spjs_jg3">￥<%= product.price%></span></div>
+        <div class="spjs2"><%=link_to product.name, :action => 'show', :product_id => product.id %></div>
+        </li>
+        <% end -%>
+      </ul>
+    </div>
+    <div class="clear"></div>
+    <div class="list_cz">
+      <div class="list_qh"><a href="sale_p_p_3_20_1.html"><strong>图片</strong></a> <a href="sale_w_p_3_20_1.html">图文</a>  每页显示：<a href="sale_p_p_3_20_1.html">20条</a> <a href="sale_p_p_3_40_1.html">40条</a> <a href="sale_p_p_3_80_1.html">80条</a> <a href="sale_p_p_3_5000_1.html">全部</a> </div>
+
+      <div class="list_page">共46个 第1/3页 首页 上一页 <a href="sale_p_p_3_20_2.html">下一页</a> <a href="sale_p_p_3_20_3.html">最后一页</a></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+

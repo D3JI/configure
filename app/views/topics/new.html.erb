@@ -1,0 +1,56 @@
+<div id="nav"><%= link_to 'home', home_path%> &gt;&gt; <%= link_to @forum.title, forums_path %>
+&gt;&gt; 发新话题</div>
+<% form_for :topic, :url => forum_topics_path do |f|%>
+  <div class="mainbox formbox">
+    <span class="headactions"><a class="notabs" href="member.php?action=credits&amp;view=forum_post&amp;fid=50" target="_blank">查看积分策略说明</a></span>
+    <h1>发新话题</h1>
+    <table summary="post" id="newpost" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <th>用户名</th>
+          <td>
+            <%= logged_in_user.username %> [<%= link_to '退出', logout_path %>]
+          </td>
+        </tr>
+      </thead>
+      <tbody><tr>
+          <th style="border-bottom: 0pt none;"><label for="subject">标题</label></th>
+          <td style="border-bottom: 0pt none;">
+            <%= f.select :topic_category_id, TopicCategory.find_all_by_forum_id(@forum.id).map {|m| [m.name, m.id]} %>
+            <%= f.text_field :title, :class => 'input'%>
+          </td>
+        </tr>
+      </tbody>
+      <tbody><tr>
+          <th valign="top">
+            <label for="posteditor_textarea">
+              内容
+            </label>
+          </th>
+          <td valign="top">
+            <div id="posteditor">
+            <table class="editor_text" summary="Message Textarea" style="table-layout: fixed;" cellpadding="0" cellspacing="0">
+              <tbody><tr>
+                  <td>
+                    <%= f.text_area :content, :rows => 9, :cols => 50 %>
+                  </td>
+                </tr>
+            </tbody></table>
+          </div>
+      </td></tr>
+
+      <tr>
+        <th><label for="tags">标签(TAG)</label></th>
+      </tr>
+      </tbody>
+     <tbody><tr class="btns">
+        <th>&nbsp;</th>
+        <td>
+          <%= submit_tag '发表' %>
+        </td>
+      </tr>
+  </tbody></table>
+</div>
+<br>
+<% end %>
+</div>

@@ -1,0 +1,155 @@
+<div id="forum_left"> 
+  <div id="foruminfo">
+    <div id="headsearch">
+      <p>
+      <span id="rules_link" style="display: none;"><a href="###" onclick="$('rules_link').style.display = 'none';toggle_collapse('rules', 1);">本版规则</a> |</span>						<a href="my.php?item=favorites&amp;fid=50" id="ajax_favorite" onclick="ajaxmenu(event, this.id)">收藏本版</a> |
+      <a href="my.php?item=threads&amp;srchfid=50">我的话题</a>
+
+      <a href="rss.php?fid=50&amp;auth=WGQVmstm4cl3XOveuM8sMh0pGTvznZZTcg" target="_blank"><img src="images/common/xml.gif" class="absmiddle" alt="RSS 订阅全部版块" border="0"></a>	</p>
+    </div>
+    <div id="nav">
+      <p><%= link_to '小白论坛-密密麻麻网', forums_path %> » <%= link_to @forum.title, forum_topics_path(:forum_id => @forum) %></p>
+      <p>版主:</p>
+
+    </div>
+  </div>
+  <div class="mainbox threadlist">
+    <div class="headactions"><a href="forumdisplay.php?fid=50&amp;filter=type&amp;typeid=19">求助</a> <a href="forumdisplay.php?fid=50&amp;filter=type&amp;typeid=25">见闻</a> <a href="forumdisplay.php?fid=50&amp;filter=type&amp;typeid=48">分享</a> <a href="forumdisplay.php?fid=50&amp;filter=type&amp;typeid=47">推荐</a> <a href="forumdisplay.php?fid=50&amp;filter=type&amp;typeid=64">讨论</a> <a href="forumdisplay.php?fid=50&amp;filter=type&amp;typeid=71">败家</a> <a href="forumdisplay.php?fid=50&amp;filter=type&amp;typeid=72">打折</a> <a href="forumdisplay.php?fid=50&amp;filter=type&amp;typeid=73">晒物</a> 	</div>
+
+    <h1>
+      <%= link_to @forum.title , forums_path %>
+    </h1>
+    <input name="formhash" value="5458e34c" type="hidden">
+    <table summary="forum_50" cellpadding="0" cellspacing="0">
+      <thead class="category">
+        <tr>
+          <td class="folder">&nbsp;</td>
+          <td class="icon">&nbsp;</td>
+          <th>标题</th>
+          <td class="author">作者</td>
+          <td class="nums">回复/查看</td>
+          <td class="lastpost">最后发表</td>
+        </tr>
+      </thead>
+      <% @topics.each do |topic|%>
+        <tbody id="stickthread_17667">
+          <tr>
+            <td class="folder"><a href="viewthread.php?tid=17667&amp;extra=page%3D1" title="新窗口打开" target="_blank"><img src="./images/mimimama/folder_common.gif"></a></td>
+            <td class="icon">
+              &nbsp;								</td>
+            <th class="common">
+              <label>
+                &nbsp;</label>
+              <span id="thread_17667"><%= link_to topic.title, forum_topic_posts_path(:forum_id => topic.forum, :topic_id => topic) %></span>
+            </th>
+            <td class="author">
+              <cite>
+                <%= link_to topic.user.username%>
+              </cite>
+
+              <em><%= topic.created_at.strftime("%Y-%m-%d")%></em>
+            </td>
+            <td class="nums"><strong><%= topic.posts_count %></strong> / <em><%= topic.views_count %></em></td>
+            <td class="lastpost">
+              <em><%= topic.updated_at.strftime("%Y-%m-%d %H:%m") %></em>
+              <cite>by <%= link_to topic.user.username %></cite>
+            </td>
+          </tr>
+        </tbody>		
+      <% end %>
+    </table>
+  </div>
+
+  <div class="pages_btns">
+    <div class="pages"><em>&nbsp;3111&nbsp;</em><strong>1</strong>
+      <%= link_to '发新话题', new_forum_topic_path(:forum_id => @forum)%></div>
+  </span>
+
+</div>
+
+
+<% form_for :topic, :url => forum_topics_path(:forum_id => @forum.id) do |f|%>
+  <div id="quickpost" class="box">
+    <span class="headactions"><a href="member.php?action=credits&amp;view=forum_post&amp;fid=50" target="_blank">查看积分策略说明</a></span>
+
+    <h4>快速发新话题</h4>
+    <div class="postoptions">
+      <h5>选项</h5>
+      <p><label><input class="checkbox" name="emailnotify" value="1" type="checkbox"> 接收新回复邮件通知</label></p>
+    </div>
+
+    <div class="postform">
+      <h5><label for="subject">标题</label>
+        <%= f.select :topic_category_id, TopicCategory.find_all_by_forum_id(@forum.id).map {|m| [m.name, m.id]}%>
+        <%= f.text_field :title, :class => 'input' %>
+      <div id="threadtypes"></div>
+
+      <p><label>内容</label>
+      <%= f.text_area :content, :rows => 6, :cols => 50 %>
+      </p>
+      <p class="btns">
+      <%= submit_tag '提交'%>
+      </p>
+    </div>
+    <div class="smilies">
+      <div style="" id="smilieslist"><h4>
+          <span id="_popup_smileytypes" onmouseover="showMenu(this.id, true, 0, 2)" class="dropmenu">洋葱头</span></h4>
+        <table summary="smilies" cellpadding="0" cellspacing="0">
+          <tbody><tr align="center">                </tr><tr height="26">        <td id="smilie_60_parent" onmouseover="smileyMenu(this)" onclick="insertSmiley(60)" align="center"><img src="images/smilies/yangcong/16.gif" id="smilie_60" alt="yc16;" title="50" border="0" height="20" width="20"></td>
+              <td id="smilie_61_parent" onmouseover="smileyMenu(this)" onclick="insertSmiley(61)" align="center"><img src="images/smilies/yangcong/17.gif" id="smilie_61" alt="yc17;" title="50" border="0" height="20" width="20"></td>
+              <td id="smilie_62_parent" onmouseover="smileyMenu(this)" onclick="insertSmiley(62)" align="center"><img src="images/smilies/yangcong/18.gif" id="smilie_62" alt="yc18;" title="50" border="0" height="20" width="20"></td>
+              <td id="smilie_63_parent" onmouseover="smileyMenu(this)" onclick="insertSmiley(63)" align="center"><img src="images/smilies/yangcong/19.gif" id="smilie_63" alt="yc19;" title="50" border="0" height="20" width="20"></td>
+            </tr>
+        </tbody></table>
+        </div>
+    </div>
+  </div>
+<% end %>
+
+
+<div class="box">
+  <span class="headactions"><a href="forumdisplay.php?fid=50&amp;page=1&amp;showoldetails=yes#online" class="nobdr"><img src="./images/mimimama/collapsed_yes.gif" alt=""></a></span>
+
+  <h4>正在浏览此版块的会员</h4>
+</div>
+
+<div id="footfilter" class="box">
+  <form method="get" action="forumdisplay.php">
+    <input name="fid" value="50" type="hidden">
+    查看 <select name="filter">
+      <option value="86400">1 天以来主题</option>
+    </select>
+    排序方式
+    <select name="orderby">
+      <option value="lastpost" selected="selected">回复时间</option>
+    </select>
+    <select name="ascdesc">
+      <option value="DESC" selected="selected">按降序排列</option>
+    </select>
+    &nbsp;<button type="submit">提交</button>
+
+  </form>
+  <span id="visited_forums" onmouseover="showMenu(this.id, false, 2)" class="dropmenu">最近访问的版块</span>
+  <ul class="popupmenu_popup" id="visited_forums_menu" style="display: none;">
+    培训充电我为美食狂我要结婚|“我就是明星”活动专区快乐装修站务中心|版主茶馆商家自发广告区爱车一族会员特区|会员活动	</ul>
+</div>
+
+<div class="legend">
+  <label><img src="./images/mimimama/folder_new.gif" alt="有新回复">有新回复</label>
+</div>
+
+<div class="popupmenu_popup" id="forumlist_menu" style="position: absolute; z-index: 50; clip: rect(auto, auto, auto, auto); left: 243px; top: 231px; display: none;">
+  <dl><dt><a href="index.php?gid=20">密麻会所</a></dt><dd><ul><li><a href="forumdisplay.php?fid=78">新手接待大厅：欢迎新同学报道</a></li><li><a href="forumdisplay.php?fid=23">会员特区|会员活动</a></li></ul></dd></dl><dl><dt><a href="index.php?gid=10">购物分享-成都</a></dt><dd><ul><li class="current"><a href="forumdisplay.php?fid=50">逛街shopping</a></li><li class="sub"><a href="forumdisplay.php?fid=44">商家自发广告区</a></li><li><a href="forumdisplay.php?fid=6">我为美食狂</a></li><li><a href="forumdisplay.php?fid=52">我要结婚|“我就是明星”活动专区</a></li><li><a href="forumdisplay.php?fid=51">快乐装修</a></li><li><a href="forumdisplay.php?fid=53">爱车一族</a></li><li><a href="forumdisplay.php?fid=54">培训充电</a></li></ul></dd></dl><dl><dt><a href="index.php?gid=1">城市CITY</a></dt><dd><ul><li><a href="forumdisplay.php?fid=14">露天广场</a></li><li><a href="forumdisplay.php?fid=8">City Talk</a></li><li><a href="forumdisplay.php?fid=27">站务中心|版主茶馆</a></li></ul></dd></dl>	</div>
+    </div>
+    <div id="forum_right">
+      <div id="forum_radwz">
+        <dl>
+          <dt>编辑推荐</dt>
+          <dd><a href="http://www.mimimama.com/forum/forumdisplay.php?fid=18" title="省钱”生活大比拼">你有我会省钱吗？</a></dd>
+        </dl>
+      </div><div>[广告]<a href="http://www.bluenoah.com/bbs" target="_blank"><img src="/new/imagesbeta/adimg/bbs_01.gif" alt="蓝色诺亚公会" height="300" width="156"></a></div>
+      24小时活跃用户<div class="top">
+        <a href="http://www.mimimama.com/forum/space.php?uid=234">┎小.猪ゞ^</a> 72<br>
+      </div>
+    </div><div class="clear"></div>
+  </div>

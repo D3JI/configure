@@ -1,0 +1,52 @@
+<div class='main'>
+  <div id='left'>    <div class="mod" id="subnav">
+      <div class="bgtop">      </div>
+      <div class="modth" id="t0">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h3>分类</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox">
+        <%= render :partial => 'category', :object => @category %>
+      </div>
+      <div class="bgbottom"></div>
+    </div>
+  </div>
+  <div id="right">
+    <div id="youarehear">您现在的位置:
+      <%= link_to '首页',home_path %> &gt;&gt;
+      <%= link_to '商城',doc_path%> &gt;&gt;
+      <% if @category.parent_id -%>
+        <%=link_to @category.parent.name,admin_category_path(:id => @category.parent_id) %> &gt;&gt;
+      <% end -%>
+      <%= @category.name%> （本类下共有商品个）
+    </div>
+    <div class="list_cz">
+      <div class="list_page">共8个 第1/8页 首页 上一页 <a href="sale_p_p_7_20_2.html">下一页</a>
+        <a href="sale_p_p_7_20_8.html">最后一页</a>
+      </div>
+    </div>
+
+    <div id="content_list">
+      <% if @products.empty? %>
+        <div id="list_class"><strong>该分类暂无内容</strong></div>
+      <% else -%>
+        <ul>
+          <% for product in @products -%>
+            <li>
+            <div><%= link_to image_tag('../images/p1.jpg'),admin_category_product_path(:category_id => product.category, :id => product)%>
+            </div>
+            <div><span><%= product.price%></span> &nbsp;</div>
+            <div><%= link_to product.name, admin_category_product_path(:category_id => product.category, :id => product)%></div>
+            </li>
+          <% end -%>
+        </ul>
+        <% end -%>
+      </div>
+      <div class="clear"></div>
+    </div>
+

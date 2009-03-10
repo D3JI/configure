@@ -1,18 +1,12 @@
 class CommentsController < ApplicationController
+    in_place_edit_for :board, :reply
   # GET /comments
-  # GET /comments.xml
   def index
-    @entry = Entry.find(params[:entry_id])
-    @comments = @entry.comments.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @comments }
-    end
+    @user = User.find(params[:user_id])
+    @boards = Board.find_all_by_boarder_id(params[:user_id])
   end
 
   # GET /comments/1
-  # GET /comments/1.xml
   def show
     @comment = Comment.find(params[:id])
 
@@ -23,39 +17,61 @@ class CommentsController < ApplicationController
   end
 
   # GET /comments/new
-  # GET /comments/new.xml
   def new
     @comment = Comment.new
   end
 
-  
   # POST /comments
-  # POST /comments.xml
   def create
-    #@entry = Entry.find(params[:entry_id])
-    #@comment = @entry.comments.new(params[:comment])
-    @comment =  Comment.create(:entry_id => params[:entry_id], :user_id => params[:user_id], :content => params[:comment][:content])
-    respond_to do |format|
+    user_data = { :user_id => params[:user_id] }
+    case params[:switch]
+    when 'entry'
+      @entry = Entry.find(params[:entry_id])
+      @comment = @entry.comments.create(params[:comment].merge(user_data))
       if @comment
-        format.html { redirect_to user_entry_path(:id => @comment.entry_id) }
-        format.xml  { render :xml => @comment, :status => :created, :location => @comment }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
+        redirect_to user_entry_path(:id => @comment.entry_id, :user_id => @entry.user)
+      end
+    when 'photo'
+      @photo = Photo.find(params[:photo_id])
+      @comment = @photo.comments.create(params[:comment].merge(user_data))
+      if @comment
+        redirect_to gallery_photo_path(:id => @photo.id, :user_id => @photo.user)
+      end
+    when 'board'
+      @board = Board.create(:boarder_id => params[:user_id],
+                            :user_id => logged_in_user.id,
+                            :content => params[:board][:content])
+      if @board
+        redirect_to user_comments_path(:user_id => @board.user)
       end
     end
   end
 
   # DELETE /comments/1
-  # DELETE /comments/1.xml
   def destroy
-    @entry = Entry.find(params[:entry_id])
-    @comment = @entry.comments.find(params[:id])
-    @comment.destroy
+    @comment = Comment.find(params[:id])
+    if @comment.entry_id.nil?
+      @photo = Photo.find(params[:photo_id])
+      @photo_comment = @photo.comments.find(params[:id])
+      @photo_comment.destroy
 
-    respond_to do |format|
-      format.html { redirect_to user_entry_path(:id => @entry.id) }
-      format.xml  { head :ok }
+      respond_to do |format|
+        format.html { redirect_to gallery_photo_path(:id => @photo.id, :user_id => @photo.user) }
+      end
     end
+    if @comment.photo_id.nil?
+      @entry = Entry.find(params[:entry_id])
+      @entry_comment = @entry.comments.find(params[:id])
+      @entry_comment.destroy
+      respond_to do |format|
+        format.html { redirect_to user_entry_path(:id => @entry.id, :user_id => @entry.user) }
+      end
+    end
+  end
+  def delete_board
+    @board = Board.find(params[:id])
+    @user = User.find(params[:user_id])
+    @board.destroy
+    redirect_to user_comments_path(:boarder_id => @board.boarder_id)
   end
 end

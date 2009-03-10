@@ -1,0 +1,101 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>导购</title>
+
+    <%= stylesheet_link_tag 'doc/indexbeta'%>
+    <%= stylesheet_link_tag 'doc/headerbeta'%><%= stylesheet_link_tag 'doc/list'%>
+    <%= javascript_include_tag 'tb' %>
+    <%= javascript_include_tag 'prototype' %>
+    <%= javascript_include_tag 'yu' %>
+  </head>
+
+  <body>
+    <div id="header">
+      <%= render :partial => 'shared/header' %>
+    </div>
+
+    <div id="menunav">
+      <div id="menuleft">
+        <div id="menuright">
+          <ul>
+            <% for category in @parent_categories%>
+              <li><%= link_to category.name, listpage_doc_path(:name => category.name)%></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div id="sale_searchs">
+      <div class="content">
+        <input id="sale_search" onkeyup="autoComplete.hdleEvent(event)" value="=请输入关键字=" onclick="if(this.value == '=请输入关键字=') this.value='';" ondblclick="autoComplete.expandAllItem();" style="width:400px;font:10pt Arial;"/>
+        &nbsp;
+        <input type="button" id="button_sarch_xh" onclick="thisgotourl()" value=" 查找 " disabled="disabled" />
+        &nbsp;
+        <input type="hidden" id="url_mark" /><span id="span_text_xh" style="width:100%; font:10pt Arial;"></span>
+      </div>
+    </div>
+
+<% if controller.action_name != "index" -%>
+<div class="main">
+  <div id="left"><div class="mod" id="subnav">
+      <div class="bgtop"></div>
+
+      <div class="modth" id="t0">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h3>分类</h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modbox">
+        <dl>
+          <% for child in @category.product_children -%>
+             <dd><%= link_to child.name, listpage_doc_path(:name => child.name)%>(<%=child.products_count%>)</dd>
+          <% end -%>
+          <dd>&nbsp;</dd>
+          <dt>商家类型</dt>
+          <% for child in @category.shop_children -%>
+            <dd><%= link_to child.name, listpage_doc_path(:name => child.name)%>(<%= child.shops_count%>)</dd>
+          <% end -%>
+          <dd>&nbsp;</dd>
+          <dt>推荐商家</dt>
+         <% for shop_category in @category.shops-%>
+            <dd><%= link_to shop_category.shopname%></dd>
+          <% end -%>
+          <dd>&nbsp;</dd>
+        </dl>
+
+      </div>
+      <div class="bgbottom"></div>
+    </div>										
+    <div class="mod" id="ad4">
+      <div class="bgtop"></div>
+      <div class="modth" id="t11">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h3>您最近浏览商品</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox">
+        <ul id="history"><li><a href="/doc/" target="_blank">古摄影·艺术写真A套系</a></li>
+        </ul>
+      </div>
+      <div class="bgbottom"></div>
+    </div>
+  </div>
+  <% end -%>
+
+    <%= yield %>
+    <%= javascript_include_tag 'foot' %>
+  </body>
+</html>
+

@@ -1,0 +1,46 @@
+<%= render :partial => 'users/top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+  </div>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>店铺</h1>
+            </div>
+            <div class="modopt"><%= link_to '添加产品', new_user_shop_product_path(:user_id => @user.id, :shop_id => @shop.id)%> </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="l_blog">
+        <% for product in @products -%>
+          名称： <%= product.name %>
+          <div id="photo">
+              <%= image_tag(product.first_photo.public_filename(:thumb))%>
+          </div>
+          分类：<%= product.category.name%>
+          [<%= link_to '修改' %>|
+          <%= link_to '删除',user_shop_product_path(:id => product), :method => :delete, :confirm => '你确定吗？'%>|
+          <a href="#" id="new_photo_button" onclick="Element.toggle('new_photo'); Element.toggle('new_photo_button'); return false"  class="link">上传更多图片</a>
+          <fieldset id="new_photo" style="display: none">
+            <legend>上传图片</legend>
+            <% form_for :product, :url => more_photo_user_shop_product_path(:id => product.id), :html => { :method => :put , :multipart => true } do |f| -%>
+              <label>图片</label>
+              <%= file_field :photo, :uploaded_data %><br/>
+              <%= submit_tag '上传', :class => 'input_button' %>
+              or 
+              <a href="#" onclick="Element.toggle('new_photo'); Element.toggle('new_photo_button'); return false">取消</a>
+            <% end -%>
+          </fieldset>
+          <br/>
+        <% end -%>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

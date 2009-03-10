@@ -1,0 +1,334 @@
+@charset "utf-8";
+@import "masterbeta.css"; /* 全局样式 */
+@import "headerbeta.css"; /* 全局样式 *//
+
+#menuright ul {
+	width: 938px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#menuright li {
+	float: left;
+	width: 88px;
+	display: block;
+	text-align: center;
+}
+#menuright  .on {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/listmenu.gif);
+	background-repeat: no-repeat;
+	color: #333333;
+	
+}
+.main {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}
+#left {
+	width: 200px;
+	float: left;
+}
+#left .mod {
+	width: 200px;
+	background-image: url(../images/subnav.gif);
+	background-repeat: repeat-y;
+	background-position: -200px 0px;
+	line-height: 20px;
+	margin-bottom: 10px;
+}
+#left .bgtop,#left .bgbottom {
+	background-image: url(../images/main3.gif);
+	background-repeat: no-repeat;
+	height: 5px;
+	overflow: hidden;
+}
+#left .bgtop {
+	background-position: 0px 0px;
+}
+#left .bgbottom {
+	background-position: -400px 0px;
+}
+#left .modth {
+	height: 24px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #D1D1D1;
+}
+#subnav .modbox {
+	overflow: hidden;
+}
+#left .modtit h3 {
+	height: 0px;
+	width: 0px;
+	display: block;
+	overflow: hidden;
+	text-indent: -9999px;
+}
+
+#subnav dt {
+	font-weight: bold;
+	text-indent: 13px;
+}
+#subnav dd {
+	text-indent: 23px;
+}
+#subnav dt a:link,#subnav dt a:visited {
+	color: #3EA211;
+	text-decoration: none;
+}
+#subnav dt a:hover,#subnav dt a:active {
+	text-decoration: underline;
+	color: #4AC615;
+}
+#rightlist dd {
+	float: left;
+	width: 50%;
+	text-indent: 0px;
+}
+
+#t0,#t11,#t12 {
+	background-image: url(../images/titlebg.gif);
+	background-repeat: no-repeat;
+	background-position: 3px 1px;
+}
+#t11 {
+	background-position: 0px -333px;
+}
+#t12 {
+	background-position: 0px -433px;
+}
+#ad4 li,#ad5 li {
+	width: 180px;
+	display: block;
+	text-align: left;
+	background-image: url(../images/dottedbg.gif);
+	background-repeat: repeat-x;
+	background-position: 0px bottom;
+	line-height: 24px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#right {
+	float: right;
+	width: 740px;
+	overflow: hidden;
+}
+#youarehear {
+	height: 30px;
+	line-height: 30px;
+}
+#list_nav {
+	margin-bottom: 10px;
+}
+#list_nav dl {
+	display: block;
+}
+
+#list_nav dt {
+	height: 25px;
+	width: 100%;
+	color: #069905;
+}
+#list_nav dd {
+	float: left;
+	height: 20px;
+	width: 20%;
+	display: block;
+	line-height: 20px;
+}
+
+#list_class {
+	padding: 5px;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #CCCCCC;
+	overflow: hidden;
+	width: 740px;
+}
+#list_class a:link {
+	color: #3366CC;
+	text-decoration: none;
+}
+#list_class a:visited {
+	text-decoration: none;
+	color: #0066CC;
+}
+#list_class a:hover {
+	text-decoration: underline;
+	color: #CC0000;
+}
+#list_class li {
+	float: left;
+	width: 156px;
+}
+.list_cz {
+	color: #333333;
+	margin-top: 10px;
+	line-height: 25px;
+	background-color: #F3F8FC;
+	padding: 5px;
+	height: 25px;
+	position: relative;
+	overflow: hidden;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #D8E3EA;
+	margin-bottom: 10px;
+}
+.list_cz a:link,.list_cz a:visited {
+	color: #333;
+	text-decoration: underline;
+}
+.list_cz  a:hover {
+	text-decoration: underline;
+	color: #000;
+}
+.list_qh {
+	width: 310px;
+	float: left;
+	height: 25px;
+}
+.list_page {
+	float: right;
+	height: 25px;
+	width: 380px;
+	text-align: right;
+}
+#content_list,#content_list2,#content_list3 {
+	width: 720px;
+	padding: 10px;
+}
+#content_list li,#content_list4 li{
+	text-align: center;
+	width:172px!important; /* IE7+FF */
+	width:172px; /* IE6 */
+	float: left;
+	list-style-type: none;
+	display: block;
+	padding: 3px;
+}
+
+#content_list2  li {
+	padding: 10px;
+	text-align: center;
+	border-bottom: 1px solid #CCCCCC;
+	list-style-type: none;
+	height: 160px;
+}
+#content_list2 .list2title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	float: right;
+	width: 540px;
+}
+#content_list2 p {
+	text-align: left;
+	display: block;
+	float: right;
+	width: 540px;
+	overflow: hidden;
+	height: 92px;
+}
+#content_list2 font {
+	display: block;
+	float: right;
+	width: 540px;
+	text-align: left;
+	font-size: 12px;
+}
+#content_list2 .fonts {
+	float: right;
+	width: 540px;
+	text-align: left;
+}
+
+
+
+
+.sp_mainlist1_img {
+	padding: 5px;
+	height: 160px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid #E4E4E4;
+}
+.sp_mainlist2_img {
+	float: left;
+	height: 160px;
+}
+.spjs {
+	float: left;
+	width: 603px;
+	text-align: left;
+	font-size: 14px;
+	padding: 10px;
+}
+.spjs2 {
+	text-align: left;
+	font-size: 12px;
+	line-height: 18px;
+	height: 41px;
+}
+.spjs a:link,.spjs a:visited,.spjs2 a:link,.spjs2 a:visited  {
+	color: #666666;
+	text-decoration: none;
+}
+.spjs a:hover,.spjs2 a:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+.spjs_main {
+	float: left;
+	width: 603px;
+	text-align: left;
+	font-size: 12px;
+	padding: 10px;
+	height: 40px;
+	overflow: hidden;
+	line-height: 2em;
+}
+.spjs_jg {
+	font-size: 12px;
+	float: left;
+	width: 623px;
+	height: 35px;
+	line-height: 35px;
+	text-align: left;
+}
+.spjs_jg2 {
+	font-size: 12px;
+	color: #333333;
+}
+.spjs_jg3 a:link,.spjs_jg3 a:visited  {
+	color: #CC0000;
+	text-decoration: none;
+}
+.spjs_jg3 a:hover {
+	text-decoration: underline;
+	color: #000000;
+}
+.spjs_jg3 {
+	font-size: 12px;
+	color: #CC0000;
+	font-weight: bold;
+	text-align: left;
+}
+.spjs_butten {}
+
+.delete {
+	text-decoration: line-through;
+	color: #333333;
+	font-weight: normal;
+	font-size: 10px;
+}
+#sale_searchs {
+	height: 28px;
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}

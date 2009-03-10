@@ -1,0 +1,38 @@
+<div id="nav"><div class="lc">
+    <div class="rc">
+      <%= link_to '控制面板', control_path(:user_id => logged_in_user.id), :class => "on" %>
+      <%= link_to '首页', home_path(:user_id => @user.id)%>
+      <%= link_to '  个人档案  ', user_informations_path (:user_id => @user.id)%>
+      <%= link_to '  博  客  ', user_entries_path(:user_id => @user.id)%>
+      <%= link_to '  相  册  ', user_galleries_path(:user_id => @user.id) %>
+      <%= link_to '  好  友  ', user_friends_path(:user_id => @user.id) %>
+      <%= link_to '  朋 友 圈  ' %>
+      <%= link_to '  留 言 薄  ' , user_comments_path (:user_id => @user.id)%>
+      <div id="tabline"></div></div>
+</div></div>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>个人管理</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="m_list">
+        <ul>
+          <li><%= link_to '控制面板首页' %></li>
+          <li><%= link_to '个人档案设置' %></li>
+          <li><%= link_to '修改密码', edit_user_path(:id => @user.id) %></li>
+          <li><%= link_to '隐私设置' %></li>
+          <li><%= link_to '美化空间', edit_account_path(:id => @user.id) %></li>
+          <li><%= link_to '站内消息', messages_path(:user_id => @user.id) %></li>
+          <li><%= link_to '朋友圈个性签名' %></li>
+        </ul>
+      </div>
+    </div>
+  </div>

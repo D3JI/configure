@@ -1,0 +1,73 @@
+<%= render :partial => 'top'%>
+<div id="content">
+  <div id="indexleft">
+    <%= render :partial => 'shared/left'%>
+    <% if logged_in_user == @user %>
+      <div class="mod">
+        <div class="modth">
+          <div class="lc">
+            <div class="rc">
+              <div class="modtit">
+                <h1>好友分类</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="m_artclg" class="modbox">
+          <ul>
+            <li><%= link_to '所有好友' %></li>
+            <li><%= link_to '等待确认' %></li>
+            <li><%= link_to '我的申请' %></li>
+            <li><%= link_to '黑名单' %></li>
+            <li><%= link_to '邀请好友' %></li>
+          </ul>
+        </div>
+    </div>
+<% end %>
+  </div>
+  <div id="con_ina">
+    <div class="mod">
+      <div class="modth">
+        <div class="lc">
+          <div class="rc">
+            <div class="modtit">
+              <h1>我的好友</h1>
+            </div>
+            <div class="modopt">
+              <% if logged_in_user == @user %><%= link_to '寻找好友', users_path %>
+              <% end %></div>
+          </div>
+        </div>
+      </div>
+      <div class="modbox" id="l_friends">
+        <div id="notice">共 
+          <span id="friendscnt"><%= @friends.size %></span>
+          位好友</div>
+        <ul>
+          <% @friends.each do |friend|%>
+            <li id="lifriend_14595">
+            <p>
+            <% if friend.friend.avatar %>
+              <%= link_to image_tag(friend.friend.avatar.public_filename(:thumb)), home_path(:user_id => friend.friend_id) %>
+            <% else %>
+              <%= image_tag('../images/noface.jpg')%>
+            <% end %>
+            </p>
+            <p><%= link_to friend.friend.username, home_path(:user_id => friend.friend) %></p>
+            <% if logged_in_user == @user %>
+              <p><%= link_to '发消息', new_user_message_path(:recipient_id => friend.friend)  %>
+            | <%= link_to '删除', user_friend_path(:id => friend.friend_id), :method => :delete, :confirm => '确认要删除吗?' %>
+            | <%= link_to '黑名单' %></p>
+          <% else %>
+            <p><%= link_to '发消息' , new_user_message_path(:recipient_id => friend.friend)%> | <%= link_to '加为好友', new_user_friend_path(:user_id => logged_in_user, :friend_id => friend.friend.id) %></p>
+          <% end %>
+            </li>
+          <% end %>
+        </ul>
+        <div class="clear">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>

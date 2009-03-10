@@ -1,153 +1,292 @@
-<% if is_logged_in? %>
-  <%= render :partial => 'top'%>
-  <div id="content">
-    <div id="indexleft">
-      <%= render :partial => 'shared/left'%> 
-      <div class="mod">
-        <div class="modth">
-          <div class="lc">
-            <div class="rc">
-              <div class="modtit">
-                <h1>留言</h1>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="modbox" id="m_quest">
-          <ul>
-            <li><a href="home.php?u=jshmemory"><%= logged_in_user.username %></a> <%= time_ago_in_words(logged_in_user.created_at)%> 以前：<br>
-            哈哈。今天刚来的。希望多关照啊。。。</li>    </ul>
-          <p class="more"><a href="questbook.php?mid=35665">更多留言»</a></p>
-
+<div id="content">
+  <div id="c1">
+    <div id="new_ad">
+      <div id="RotateAD">
+        <div style="margin:0;padding:0;font-size:0;"></div>
+        <div id="RotateADTop">
+          <div id="RotateADImgDiv"><a href="javascript:jump2url();"><img src="http://www.mimimama.com/image/community/aloadingd.gif" name="RotateADImg" width="470" height="135" border="0" id="RotateADImg" style="FILTER: revealTrans(duration=2,transition=23)" /></a></div>
         </div>
       </div>
-      <div class="mod">
-        <div class="modth">
-          <div class="lc">
-            <div class="rc">
-              <div class="modtit">
-                <h1>文章分类</h1>
-              </div>
-
+      <div id="RotateADPages"></div>
+      <div id="new_ad2" style="display:none"><a id="RotateADTitle" href="javascript:jump2url();"></a>
+        <script type="text/javascript"> var rotateADs=new Array();  rotateADs.push("/new/imagesbeta/adimg/4901351.jpg;http://www.mimimama.com/forum/viewthread.php?tid=17087&extra=page%3D1 ;2"); rotateADs.push("/new/imagesbeta/adimg/4901352.jpg;http://www.mimimama.com/zhuanti/marry/;2"); rotateADs.push("/new/imagesbeta/adimg/4901353.jpg;http://www.mimimama.com/zhuanti/20090209/;2"); rotateADs.push("/new/imagesbeta/adimg/4901354.jpg;http://www.lx1999.com.cn/onlinedm.html;2");                                 rotateADs.push("/new/imagesbeta/adimg/4901355.jpg;http://www.mimimama.com/zhuanti/20090210/;2"); initRotateAD(); </script>
+      </div>
+    </div>
+    <div class="mod top">
+      <div class="modtop">
+        <div class="topl">
+          <div class="topr">
+            <h1>商品特惠</h1>
+            <div id="c03tab">
+              <ul>
+                <li><a href="#" onmouseover="easytabs('1', '1');" onfocus="easytabs('1', '1');" onclick="return false;"  title="" id="tablink1">限时抢购</a></li>
+                <li><a href="#" onmouseover="easytabs('1', '5');" onfocus="easytabs('1', '5');" onclick="return false;"  title="" id="tablink5">独家特惠</a></li>
+              </ul>
             </div>
           </div>
-        </div>
-        <div id="m_artclg" class="modbox">
-          <ul>
-            <li><a href="myblog.php?tag=%E5%8F%91%E6%B3%84%E7%AD%92&amp;mid=35665">发泄筒</a>()</li>
-          </ul>
         </div>
       </div>
-      <div class="mod">
-        <div class="modth">
-          <div class="lc">
-            <div class="rc">
-              <div class="modtit">
-                <h1>空间统计</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="comm_info" class="modbox">
-          <ul>
-            <li>博客文章<br> </li>
-          </ul>
+      <div class="modbox" id="c031">
+        <!-- 限时 -->
+        <ul>
+          <li><a href="http://sale.mimimama.com/doc/1/846/" target="_blank"><img src="/new/imagesbeta/tehui/a_1.gif" alt="V2浪漫情侣写真限时抢购" width="80" height="80" /></a><a href="http://sale.mimimama.com/doc/1/846/" target="_blank">V2浪漫情侣写真</a><span class="redt">1290元</span>/套</li>
+          <li><a href="http://sale.mimimama.com/doc/1/235/" target="_blank"><img src="/new/imagesbeta/tehui/a_7.gif" alt="龙发牵手2009 定制我的高质之家！" width="80" height="80" /></a><a href="http://sale.mimimama.com/doc/1/235/" target="_blank">龙发牵手2009</a><span class="redt">超值大礼</span></li>
+        </ul>
+      </div>
+      <div class="modbox" id="c032">
+        <!-- 限量 -->
+        <ul>
+          <li><a href="http://sale.mimimama.com/doc/1/668/" target="_blank"><img src="/new/imagesbeta/tehui/b_1.gif" alt="骆驼影像摄影·那片海" width="80" height="80" /></a><a href="http://sale.mimimama.com/doc/1/668/" target="_blank">骆驼影像·那片海</a><span class="redt">7880元</span>/三天</li>
+
+          <li><a href="http://sale.mimimama.com/doc/1/782/" target="_blank"><img src="/new/imagesbeta/tehui/b_8.gif" alt="尚品国际婚纱艺术摄影·艺术照A套系" width="80" height="80" /></a><a href="http://sale.mimimama.com/doc/1/782/" target="_blank">尚品国际艺术照</a><span class="redt">499元</span>/套</li>
+        </ul>
+      </div>
+      <div class="modbox" id="c033">
+        <!--购物有礼-->
+        <ul>
+          <li><a href="http://sale.mimimama.com/doc/1/260/" target="_blank"><img src="/new/imagesbeta/tehui/c_8.gif" alt="九鼎日盛1000元现金卷" width="80" height="80" /></a><a href="http://sale.mimimama.com/doc/1/260/" target="_blank">九鼎日盛</a><span class="redt">1000元现金卷</span></li>
+        </ul>
+      </div>
+      <div class="modbox" id="c034">
+        <!--全城最低 -->
+        <ul>
+          <li><a href="http://sale.mimimama.com/doc/1/843/" target="_blank"><img src="/new/imagesbeta/tehui/d_8.gif" alt="风尚国际·2009" width="80" height="80" /></a><a href="http://sale.mimimama.com/doc/1/843/" target="_blank">风尚国际·2009</a><span class="redt">2009元</span>/套</li>
+        </ul>
+      </div>
+      <div class="modbox" id="c035">
+        <!--独家特惠--><ul>
+          <li><a href="http://sale.mimimama.com/doc/1/803/" target="_blank"><img src="/new/imagesbeta/tehui/e_1.gif" alt="吉祥摄影·艺术写真C套系" width="80" height="80" /></a><a href="http://sale.mimimama.com/doc/1/803/" target="_blank">吉祥·艺术写真</a><span class="redt">980元</span>/套</li>
+          <li><a href="http://sale.mimimama.com/doc/1/646/" target="_blank"><img src="/new/imagesbeta/tehui/e_8.gif" alt="世友地板安利格(复合)F15G01-06-TJ风暴价低至5.7折
+            " width="80" height="80" /></a><a href="http://sale.mimimama.com/doc/1/646/" target="_blank">安利格(复合)地板</a><span class="redt">188元</span>/平方米</li>
+        </ul>
+      </div>
+      <div class="modbot">
+        <div class="botl">
+          <div class="botr"></div>
         </div>
       </div>
     </div>
-    <div id="con"><div class="mod">
-        <div class="modth">
-          <div class="lc">
+    <div class="mod top">
+      <div class="modtop"><div class="topl"><div class="topr">
+            <h1>消费热点</h1>
+      </div></div></div>
+      <div class="modbox" id="c01">
+        <ul>
+          <li><a href="http://www.mimimama.com/forum/viewthread.php?tid=17117&extra=page%3D1&page=1" target="_blank"><img src="/new/imagesbeta/adimg/redian_b.jpg" width="160" height="100" alt="跟风哈根达斯火锅，情人节大餐！" /></a><a href="http://www.mimimama.com/forum/viewthread.php?tid=17117&extra=page%3D1&page=1" target="_blank">跟风哈根达斯火锅，情人节大餐！</a></li>
 
-            <div class="rc">
-              <div class="modtit">
-                <h1>好友</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="m_friend" class="modbox">
-          <ul>
-            <li><img src="/user1/xu_ch/face37440.gif" height="42" width="42"><a href="home.php?u=xu_ch">xxx</a></li>
-            <div class="clear">&nbsp;</div>
-            <p class="more"><a href="myfriends.php?mid=35665">更多好友»</a></p>
-          </div>
-        </div>
-        <div class="mod">
-          <div class="modth">
-
-            <div class="lc">
-              <div class="rc">
-                <div class="modtit">
-                  <h1>日志</h1>
-                </div>
-                <div class="modopt"><a href="newpost.php">写新文章</a></div>
-              </div>
-            </div>
-          </div>
-          <div id="m_blog" class="modbox">
-            <ul id="blog_post_25598">
-              <li class="btit"><a href="blog.php?tid=25598">郁闷。。。。</a>
-              <div class="cedit"><a href="newpost.php?id=25598" title="编辑文章" class="cedita"></a><a href="#" onclick="if(confirm('确认要删除这篇文章?'))blog_delpost(25598);" title="删除文章" class="ceditb"></a></div>
-              </li>
-              <li class="btime">2009</li>
-              <li class="bcon">要开心！！
-              <p class="bmore"><a href="blog.php?tid=25598">详细内容»</a></p>
-
-              </li>
-            </ul>
-            <p class="more"><a href="myblog.php?mid=35665">更多日志»</a></p>
-          </div>
-        </div>
-        <div class="mod">
-          <div class="modth">
-            <div class="lc">
-              <div class="rc">
-                <div class="modtit">
-                  <h1>相册</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="m_photo" class="modbox">
-            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="photoPlayer" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab" height="100%" width="100%">
-              <param name="movie" value="images/spacephotoPlayer.swf?id=35665">
-
-              <param name="quality" value="high">
-              <param name="bgcolor" value="#869ca7">
-              <param name="allowScriptAccess" value="sameDomain">
-              <embed src="images/spacephotoPlayer.swf?id=35665" bgcolor="#869ca7" name="SpacePhotoPlayer" play="true" loop="false" quality="high" allowscriptaccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" align="middle" height="100%" width="100%">
-
-            </object>
-            <div class="clear">&nbsp;</div>
-            <p class="more"><a href="myalbum.php?mid=35665">更多相册»</a></p>
+        </ul>
+        <dl>
+          <dt><a href="http://www.mimimama.com/forum/viewthread.php?tid=17151&extra=page%3D1" target="_blank">红豆摄影333元疯狂团购</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不限风格，三套造型，拍摄50张以上，入册10张，5寸数码方册...</dt>
+          <dd><a href="http://www.mimimama.com/forum/viewthread.php?tid=17127&extra=page%3D1" target="_blank">[成都]合江亭的爱清斑马线确实很有意思</a></dd>
+        </dl>
+      </div>
+      <div class="modbot"><div class="botl"><div class="botr"></div></div></div>
+    </div>
+    <div class="mod top">
+      <div class="modtop">
+        <div class="topl">
+          <div class="topr">
+            <h1>消费点评</h1>
+            <div class="more"><a href="/shop.php">[更多...]</a></div>
           </div>
         </div>
       </div>
+      <div class="modbox" id="c05">
+        <strong>【热门商区】</strong>
+        <dl>
+          <dt>成华区</dt>
+          <dd><a href="/shops.php?class=0&tag=&area=0280501&order=0&cost=0&mem=0">望平街</a></dd>
+        </dl>  
+        <div class="clear"></div>
+        <strong>【热门推荐】</strong>
+        <ul><li><a href="shops.php?class=1&amp;tag=%E7%81%AB%E9%94%85&amp;area=&amp;	order=0&amp;cost=0&amp;mem=0">火锅</a></li>
+          <li class="tag4"><a href="shops.php?class=1&amp;tag=%E5%B7%9D%E8%8F%9C&amp;area=&amp;	order=0&amp;cost=0&amp;mem=0">川菜</a></li>
+        </ul>
+      </div>
+      <div class="modbot">
+        <div class="botl">
+          <div class="botr"></div>
+        </div>
+      </div>
     </div>
-  </div> 
-  <div class="clear"></div>
-</div>
+  </div>
+  <% if is_logged_in? %>
+    <div id="c2">
+      <div id="login2">
+        <div id="login2_main">欢迎登录，<strong><%= link_to logged_in_user.username, user_path(:id => logged_in_user) %></strong> [<%= link_to '退出' %>]</div>
+        <ul><li><%= link_to '个人中心', control_path(:user_id => logged_in_user) %></li>
+          <li><%= link_to '个人主页', userhome_path(:user_id => logged_in_user) %></li>
+          <li><%= link_to '相册',user_galleries_path(:user_id => logged_in_user) %></li>
+          <li><%= link_to '博客',user_entries_path(:user_id => logged_in_user) %></li>
+        </ul>
+      </div> 
     <% else %>
       <div id="c2">
         <div id="login">
-          <% if flash[:error]%>
-            <div class="error"> <%= flash[:error]%> </div>
-          <% end %>
-          <% if flash[:notice]%>
-            <div class="alert"> <%= flash[:notice] %> </div>
-          <% end %>
           <% form_tag login_path do %>
             <h4>用户登录</h4>
             <ul>
               <label>账&nbsp;号:</label>
-              <%= text_field_tag :username, nil, :class => 'input'%><br/><br/>
+              <%= text_field_tag :username, nil, :class => 'input'%><br/>
               <label>密&nbsp;码:</label>
-              <%= password_field_tag :password, nil, :class => 'input'%><p/>
-              <%= submit_tag 'Login', :class => 'button'%>
+              <%= password_field_tag :password, nil, :class => 'input'%><br/>
+              <%= submit_tag '登录'%></br>
+              <div id="login_link"><%= link_to '忘记密码' %> | <%= link_to '免费注册', new_user_path %></div>
             <% end %>
-          </ul>
-          <div id="login_link"><%= link_to '忘记密码' %>| <%= link_to '注册', new_user_path %></div>
+          </div>   
+        <% end %>
+        <div class="mod top">
+          <div class="modtop">
+            <div class="topl">
+              <div class="topr">
+                <h1>热门活动</h1>
+                <div id="c04tab">
+                  <ul>
+                    <li><a href="#" onmouseover="easytabs('2', '2');" onfocus="easytabs('2', '2');"  onclick="return false;" title="" id="linkthree2">活动回顾</a></li>
+                  </ul>
+                </div>
+              </div>
+          </div>    </div>
+          <div class="modbox" id="c041">
+            <ul>
+              <li>
+              <div class="c_time">02月<a href="campaign.php?id=948">22</a></div>
+              <h4><a href="campaign.php?id=948" title="玩"杀人游戏"，吃特色川菜">玩"杀人游戏"，吃特色川菜</a></h4>
+              19人感兴趣</li>
+            </ul>
+          </div>
+          <div class="modbox" id="c042">
+            <ul>
+            </ul>
+          </div>
+          <div class="modbot">
+            <div class="botl">
+              <div class="botr"></div>
+            </div>
+          </div>
         </div>
-      <% end %>
+        <div class="top"><a href="http://sale.mimimama.com/doc/1/260/" target="_blank"><img src="/new/imagesbeta/adimg/27065.gif" alt="金牛送福千万家 九鼎装饰礼更牛" width="270" height="65" /></a></div>
+        <div class="mod top">
+          <div class="modtop">
+            <div class="topl">
+              <div class="topr">
+                <h1>优惠快报</h1>
+                <div class="more"><a href="http://www.mimimama.com/info_list.php">[更多...]</a></div>
+
+              </div>
+            </div>
+          </div>
+          <div class="modbox" id="c02">
+            <ul>
+              <li>02.14
+              <a href="info_inner.php?id=691" target="_blank"> 滴意法国餐厅特制情人节套餐</a></li>
+            </ul>
+          </div>
+          <div class="modbot">
+            <div class="botl">
+
+              <div class="botr"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mod top">
+          <div class="modtop">
+            <div class="topl">
+              <div class="topr">
+                <h1>会员店</h1>
+                <div class="more"><a href="http://www.mimimama.com/shops.php?class=1&amp;tag=&amp;order=0&amp;area=&amp;cost=0&amp;mem=1">[更多...]</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="modbox" id="c11">
+            <div><a href="http://www.mimimama.com/buycard/index.php" target="_blank"><img src="/new/imagesbeta/card.gif" alt="密密麻麻会员卡，打折、互动！全城联盟商家消费折扣低至 3 折。【立刻申领】" width="260" height="70" /></a>
+              <dl>
+                <dt><a href="/shop.php?id=203859">横町日本料理（沸城店）</a></dt>
+                <dd><span>8折</span></dd>
+            </dl></div>
+          </div>
+          <div class="modbot"><div class="botl"><div class="botr"></div></div></div>
+        </div>
+      </div>
+
+      <div id="c4"><a href="http://www.mimimama.com/forum/viewthread.php?tid=17086&extra=page%3D1"><img src="/new/imagesbeta/adimg/75080.jpg" alt="" width="749" height="79" /></a></div>
+      <div id="c5">
+
+        <div class="mod top">
+          <div class="modtop"><div class="topl"><div class="topr">
+                <h1>摄影婚庆</h1>
+                <div class="more"><%= link_to '[更多...]', forum_topics_path(:forum_id => @forum_marry)%></div>
+            </div> </div> </div>
+          <div class="modbox" id="c06">
+            <dl>
+              <dt><%=link_to  @forum_marry.topics.find(:first).title, forum_topic_posts_path(:forum_id => @forum_marry, :topic_id => @forum_marry.topics.find(:first)), :target => :blank %>
+              <%= @forum_marry.topics.find(:first).content%></dt>
+            </dl>
+            <font><%= link_to image_tag("../images/forum/adf_a.jpg"), forum_topics_path(:forum_id => @forum_marry), :alt => "#{@forum_marry.title}", :width => "110", :height => "110", :target => :blank%></font>
+            <div class="clear"></div>
+          </div>
+          <div class="modbot"><div class="botl"><div class="botr"></div></div></div>
+        </div>
+
+        <div class="mod top" id="left01">
+          <div class="modtop"><div class="topl"><div class="topr">
+                <h1>家居</h1>
+                <div class="more"><%= link_to '[更多...]', forum_topics_path(:forum_id => @forum_marry)%></div>
+            </div> </div> </div>
+          <div class="modbox" id="c06">
+            <dl>
+              <dt><%=link_to  @forum_marry.topics.find(:first).title, forum_topic_posts_path(:forum_id => @forum_marry, :topic_id => @forum_marry.topics.find(:first)), :target => :blank %>
+              <%= @forum_marry.topics.find(:first).content%></dt>
+            </dl>
+            <font><%= link_to image_tag("../images/forum/adf_a.jpg"), forum_topics_path(:forum_id => @forum_marry), :alt => "#{@forum_marry.title}", :width => "110", :height => "110", :target => :blank%></font>
+            <div class="clear"></div>
+          </div>
+          <div class="modbot"><div class="botl"><div class="botr"></div></div></div>
+        </div>
+        <div class="mod top">
+          <div class="modtop"><div class="topl"><div class="topr">
+                <h1>汽车服务</h1>
+                <div class="more"><%= link_to '[更多...]', forum_topics_path(:forum_id => @forum_marry)%></div>
+            </div> </div> </div>
+          <div class="modbox" id="c06">
+            <dl>
+              <dt><%=link_to  @forum_marry.topics.find(:first).title, forum_topic_posts_path(:forum_id => @forum_marry, :topic_id => @forum_marry.topics.find(:first)), :target => :blank %>
+              <%= @forum_marry.topics.find(:first).content%></dt>
+            </dl>
+            <font><%= link_to image_tag("../images/forum/adf_a.jpg"), forum_topics_path(:forum_id => @forum_marry), :alt => "#{@forum_marry.title}", :width => "110", :height => "110", :target => :blank%></font>
+            <div class="clear"></div>
+          </div>
+          <div class="modbot"><div class="botl"><div class="botr"></div></div></div>
+        </div>
+        <div class="mod top" id="left02">
+          <div class="modtop"><div class="topl"><div class="topr">
+                <h1>培训</h1>
+                <div class="more"><%= link_to '[更多...]', forum_topics_path(:forum_id => @forum_marry)%></div>
+            </div> </div> </div>
+          <div class="modbox" id="c06">
+            <dl>
+              <dt><%=link_to  @forum_marry.topics.find(:first).title, forum_topic_posts_path(:forum_id => @forum_marry, :topic_id => @forum_marry.topics.find(:first)), :target => :blank %>
+              <%= @forum_marry.topics.find(:first).content%></dt>
+            </dl>
+            <font><%= link_to image_tag("../images/forum/adf_a.jpg"), forum_topics_path(:forum_id => @forum_marry), :alt => "#{@forum_marry.title}", :width => "110", :height => "110", :target => :blank%></font>
+            <div class="clear"></div>
+          </div>
+          <div class="modbot"><div class="botl"><div class="botr"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="clear">&nbsp;</div> 
+  </div>
+  <div class="top" id="Brand">
+    <dl>
+      <dt><img src="/new/imagesbeta/logo_t.gif" width="50" height="80" /></dt>
+      <dd><a href="http://sale.mimimama.com/doc/1/provide/33" target="_blank"><img src="/new/imagesbeta/logo/logo_gusheying.gif" alt="成都古摄影婚纱艺术" width="88" height="31" /></a></dd>
+      <dd><a href="http://sale.mimimama.com/doc/1/265/" target="_blank"><img src="/new/imagesbeta/logo/logo_aosite.gif" alt="澳斯特橱柜" width="88" height="31" /></a></dd>
+    </dl>
+  </div>
+  <div id="link">友情链接：<a href="http://www.139mlife.com/bbs/index.php" title="" target="_blank">移动信息生活社区</a> |
+    &nbsp;<a href="http://www.mimimama.com/ulinks.php" target="_blank">更多&gt;&gt;</a>
+  </div>
+
+  <link href="../../styles/header.css" rel="stylesheet" type="text/css" />
+

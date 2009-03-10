@@ -6,6 +6,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :hashed_password
       t.string :salt
+      t.string :last_activity
+      t.datetime :last_activity_at
       t.timestamps
     end
     add_index :users, :username

@@ -1,0 +1,79 @@
+<%= render :partial => 'top'%>
+<%= javascript_include_tag  "prototype" %>
+<div id="content">
+  <div id="con_inner"></div>
+  <div><a href="ctrlpanel.php">控制面板</a> » 美化空间</div>
+  <div id="tab2"><span>基本设置</span> 
+    | <a href="space_app.php">模块设置</a> 
+    | <a href="space_template.php">模板选择</a> 
+    | <a href="space_adminStyle.php">个性化高级设置</a> 
+    | <a href="space_music.php">音乐设置</a></div>
+  <table border="0" cellpadding="5" cellspacing="0" width="100%">
+    <tbody><tr>
+        <td align="right" width="10%">空间地址：</td>
+        <td width="90%">
+          <input name="homeurl" readonly="1" value="hi.mimimama.com/qq_qq" size="30" maxlength="30" type="text">
+          <input value="复制地址" onclick="copytoBoard();" type="button">
+        </td>
+      </tr>
+      <% form_for :user, :url => type_show_user_path(:id => @user), :html => { :method => :put } do |f|%>
+        <tr>
+          <td align="right" width="10%">空间名称：</td>
+          <td width="90%"><label>
+              <%= f.text_field :nike, :class => 'input'%>
+              不超过30个字符</label></td>
+        </tr>
+        <tr>
+          <td align="right" valign="top">空间简介：</td>
+          <td><%= f.text_area :profile, :rows => 4, :cols => 30%>
+            不超过50字符</td>
+        </tr>
+        <tr>
+          <td align="right">分辨率：</td>
+          <td>
+            <%= radio_button (:process, :resolution_id, "1") %>
+            <%= observe_field(:process_resolution_id_1, :update => :type_show_place,
+                              :url => {:action => :type_show, :id => 1}) %>
+            <label>1024*768（宽屏） </label>
+            <%= radio_button (:process, :resolution_id, "2") %>
+            <%= observe_field(:process_resolution_id_2, :update => :type_show_place,
+                              :url => {:action => :type_show , :id => 2}) %>
+            <label>800*600（窄屏） </label></td>
+          <!--<div id="type_show_place", style="display: none;"></div>-->
+        </tr>
+        <tr>
+          <div id="type_show_place", style="display: none;">
+          <td align="right" valign="top">布局设置：</td>
+          <td>
+            <div id="width_1" style="display: none;">
+              <table border="0" cellpadding="5" cellspacing="0" width="500">
+                <tbody><tr>
+                    <td align="center"><label for="layoutType1"><%= image_tag("")%></label></td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input name="layoutType" id="layoutType1" value="a" type="radio"></td>
+                </tr></tbody>
+              </table>
+            </div>
+            <div id="width_2" style="">
+              <table border="0" cellpadding="5" cellspacing="0" width="500">
+                <tbody><tr>
+                    <td align="center"><label for="layoutType6"><%= image_tag("")%></label></td>
+                  </tr>
+                  <tr>
+                    <td align="center"><input name="layoutType" id="layoutType6" value="a" checked="checked" type="radio"></td>
+                </tr> </tbody>
+            </table></div>
+        </td></div>
+        </tr>
+        <tr>
+          <td align="right" valign="top">&nbsp;</td>
+          <td><input name="Submit" value="保存设置" type="submit"><input value="save" name="action" type="hidden">
+            <input name="Submit2" value=" 重置 " type="reset"></td>
+        </tr>
+      <% end %>
+
+  </tbody></table>
+  <div class="clear"></div>
+</div>
+                </div>

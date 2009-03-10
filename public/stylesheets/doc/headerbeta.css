@@ -1,0 +1,655 @@
+﻿@charset "utf-8";
+#header {
+	height: 75px;
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_header.gif);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+#logo {
+	float: left;
+	height: 75px;
+	width: 175px;
+}
+#banner {
+	float: left;
+	height: 72px;
+	width: 195px;
+}
+#banner font {
+	font-size: 18px;
+	font-weight: bold;
+	display: block;
+	line-height: 40px;
+	height: 40px;
+	margin-top: 12px;
+}
+#banner p {
+	line-height: 20px;
+	display: block;
+	height: 20px;
+	font-size: 18px;
+	font-weight: bold;
+}
+#header_l1 {
+	float: right;
+	height: 25px;
+	width: 640px;
+	text-align: right;
+}
+#header_l1 li {
+	display: block;
+	float: right;
+	padding-right: 10px;
+	padding-left: 10px;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_dot.gif);
+	background-repeat: no-repeat;
+	background-position: right -147px;
+	height: 25px;
+}
+#header_l1  .help  a {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_dot.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -122px !important;
+	>background-position: 0px -124px !important;
+	*background-position: 0px -124px;
+	text-indent: 17px;
+	display: block;
+}
+
+
+#search {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-position: right -153px;
+	background-repeat: repeat-x;
+	height: 47px;
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#search_left {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/snow_bg_nav.gif);
+	height: 47px;
+	width: 950px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: left;
+	
+}
+#search_right {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-position: right -204px;
+	background-repeat: no-repeat;
+	height: 47px;
+	width: 950px;
+	overflow: hidden;
+}
+#nav_search {
+	float: left;
+	height: 47px;
+	width: 555px;
+	line-height: 40px;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_search.gif);
+	background-repeat: no-repeat;
+}
+#nav_s1  {
+	width: 350px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	margin-top: 8px;
+	margin-left: 9px;
+	display:inline;
+}
+
+#nav_s1 input {
+	background-color:transparent;
+	background-position:-5px -5px;
+	height:23px;
+	width:340px;
+	border: 1px none #666666;
+	margin-top: 3px;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 4;
+	padding-top: 3px;
+	padding-right: 0;
+	padding-bottom: 0;
+	padding-left: 5px;
+	display: block;
+	text-indent: 5px;
+	font-size: 14px;
+	color: #999999;
+}
+
+#nav_s2 {
+	background-color:transparent;
+	border:0 none;
+	color:#FFFFFF;
+	cursor:pointer;
+	float:left;
+	font-weight:700;
+	height:28px;
+	text-indent:-9999px;
+	width:70px;
+	margin: 7px 0 0 12px;
+	display: block;
+}
+#nav_s3{
+	width: 100px;
+	display: block;
+	height: 24px;
+	float: left;
+	text-align: left;
+	line-height: 24px;
+	font-weight: normal;
+	text-indent: 10px;
+	margin-top: 10px;
+}
+#nav_s3 a:link,#nav_s3 a:visited {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+#nav_s3 a:hover,#nav_s3 a:active {
+	text-decoration: none;
+	color: #09AB08;
+}
+#tel400 {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_search.gif);
+	background-repeat: no-repeat;
+	float: right;
+	height: 47px;
+	width: 330px;
+	background-position: 0px -50px;
+}
+#tel400 a {
+	display: block;
+	height: 44px;
+	width: 145px;
+	text-indent: -999px;
+}
+
+
+
+#header_nav {
+	height: 31px;
+	width: 775px;
+	margin-right: auto;
+	margin-left: auto;
+	float: right;
+	margin-top: 17px;
+}
+#navtab {
+	width: 570px;
+	height: 31px;
+	float: left;
+}
+#navtab ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+#navtab li {
+	float: left;
+	height: 31px;
+	width: 76px;
+	display: block;
+	line-height: 31px;
+	font-weight: normal;
+	text-align: center;
+	font-size: 14px;
+	margin-right: 3px;
+}
+.ta a:link,.ta a:visited {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -51px;
+	color: #333333;
+	text-decoration: none;
+	display: block;
+	height: 31px;
+	width: 76px;
+	font-size: 12px;
+}
+.ta a:hover,.ta a:active {
+	text-decoration: none;
+	color: #009200;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -51px;
+}
+.tb a:link,.tb a:visited,.tb a:hover,.tb a:active {
+	text-decoration: none;
+	color: #FFFFFF;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-repeat: no-repeat;
+	display: block;
+	background-position: 0px 0px;
+	font-weight: bold;
+	height: 31px;	
+	line-height: 31px;
+	width: 76px;
+	text-align: center;
+}
+#navtab2 {
+	float: right;
+	height: 31px;
+	width: 200px;
+}
+#navtab2 ul {
+	display: block;
+	margin-right: 10px;
+}
+#navtab2 li {margin-right: 2px;
+	float: right;	}
+#navtab2 .t1,#navtab2 .t2,#navtab2 .t3,#navtab2 .t4 {
+	display: inline;
+	line-height: 26px !important;  /*用于Opera、Firefox2、Firefox3等现代浏览器*/
+    >line-height: 26px !important;    /*IE7、IE8可以识别该规则，因此它覆盖掉了上一条规则*/  
+	line-height: 2.5em;/*IE6*/
+	text-align: center;
+	overflow: hidden;
+	height: 26px;
+	margin-top: 4px;	
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-repeat: no-repeat;
+}
+#navtab2 .t1 {
+    width: 75px;
+	background-position: 0px -400px;
+}
+#navtab2 .t2,#navtab2 .t3,#navtab2 .t4 {
+    width: 49px;
+	background-position: 0px -426px;
+}
+
+#navtab2 .t1 a,#navtab2 .t4 a {
+	color: #099D05;
+	font-weight: bold;
+}
+#navtab2 .t2 a {
+	font-weight: bold;
+	color: #CC0000;
+}
+#navtab2 .t3 a {
+	font-weight: bold;
+	color: #CC00CC;
+}
+.tc a:link,.tc a:visited,.tc a:hover,.tc a:active {
+	width: 49px;
+	color: #FFFFFF;
+	display: block;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -452px;
+	font-weight: bold;
+	height: 31px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 31px;
+}
+
+
+#menunav {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 40px;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-repeat: repeat-x;
+	background-position: 0px -295px;
+	line-height: 40px;
+}
+#menuleft {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -255px;
+	height: 40px;
+}
+#menuright {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-repeat: no-repeat;
+	background-position: right -335px;
+	height: 40px;
+}
+#menuright li {
+	float: left;
+	width: 88px;
+	display: block;
+	padding: 0px;
+}
+#footer {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#footmain {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#footcopy {
+	margin-top: 5px;
+	text-align: center;
+	height: 80px;
+	line-height: 1.8em;
+	float: left;
+	width: 650px;
+}
+#logo2 {
+	float: left;
+	height: 65px;
+	width: 150px;
+	margin-top: 20px;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/logo_ivy.gif);
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+
+#logo3   {
+	width: 150px;
+	text-align: center;
+	height: 65px;
+	margin-right: auto;
+	margin-left: auto;
+	float: left;
+	margin-top: 20px;
+}
+
+#foot_ntjc {
+	height: 50px;
+	width: 50px;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/wj110.gif);
+	background-repeat: no-repeat;
+	float: left;
+}
+#foot_ntjc a {
+	display: block;
+	height: 50px;
+	width: 50px;	
+}
+#foot_ntjc span {
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	display: block;
+}
+
+
+#about {
+	background-repeat: repeat-x;
+	width: 950px;
+	line-height: 30px;
+	text-align: center;
+	margin-top: 10px;
+	color: #999999;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	height: 120px;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_about.gif);
+	background-position: 0px -120px;
+}
+#about_l {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_about.gif);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 120px;
+}
+#about_r {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_about.gif);
+	background-position: right -240px;
+	background-repeat: no-repeat;
+	height: 120px;
+}
+#about_r dt {
+	display: block;
+	width: 200px;
+	float: left;
+	height: 120px;
+}
+#about_r dd {
+	display: block;
+	width: 235px;
+	float: left;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_about.gif);
+	background-repeat: no-repeat;
+	background-position: left -360px;
+	height: 120px;
+	text-align: left;
+	padding-left: 15px;
+	line-height: 1.5em;
+}
+
+#about a:link,#about a:visited {
+	color: #666666;
+	text-decoration: none;
+}
+#about a:hover,#about a:active {
+	text-decoration: none;
+	color: #999999;
+}
+#about p {
+	display: block;
+	margin-top: 30px;
+}
+#about_top {
+	height: 17px;
+	width: 40px;
+	position: absolute;
+	top: 10px;
+	right: 4px;
+	line-height: 17px;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/header.gif);
+	background-repeat: no-repeat;
+	background-position: -13px -58px;
+}
+#about_top a {
+	display: block;
+	line-height: 17px;
+	height: 17px;
+	width: 40px;
+	overflow: hidden;
+}
+
+
+.button {
+	padding: 0 5px;
+	color: #FFF;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_nav.gif);
+	background-repeat: repeat-x;
+	background-position: 0px -165px;
+	outline: 1px solid #59BB25;
+	border: 1px solid #FFF !important;
+	height: 28px !important;
+	border: 1px solid #59BB25;
+	height: 30px;
+	line-height: 18px;
+	margin-bottom:0px;
+	font-family: Tahoma, Verdana;
+	font-size: 12px;
+	display: block;
+	font-weight: bold;
+}
+#yourhear {
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg.gif);
+	background-repeat: repeat-x;
+	background-position: 0px -151px;
+	height: 29px;
+	margin-right: auto;
+	margin-left: auto;
+	line-height: 29px;
+	text-indent: 10px;
+	font-size: 12px;
+}
+
+.main {
+	width: 950px;
+	margin-right: auto;
+	margin-left: auto;
+}
+/*各页通用样式表*/
+.content_t {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333333;
+	height: 30px;
+	margin-top: 15px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #099A07;
+	line-height: 30px;
+	position: relative;
+}
+.content_more {
+	height: 25px;
+	width: 80px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.content_more a:link,.content_more a:visited,.content_more a:active {
+	color: #999999;
+	text-decoration: underline;
+	font-size: 12px;
+	font-weight: normal;
+}
+.content_more a:hover {
+	text-decoration: none;
+	color: #333333;
+}
+.right_t {
+	height: 25px;
+	font-weight: bold;
+	margin-top: 10px;
+	color: #209709;
+}	
+
+
+/*登陆窗体*/
+#login {
+	height: 123px;
+	background-color: #FFFFCC;
+	padding-top: 10px;
+	padding-left: 10px;
+	border: 1px solid #FFCC00;
+	overflow: hidden;
+}
+#login2 {
+	height: 125px;
+	overflow: hidden;
+	background-color: #427AAE;
+	padding: 5px;
+	background-image: url(http://www.mimimama.com/new/imagesbeta/bg_login.gif);
+	color: #FFFFFF;
+	width: 260px;
+}
+#login2  a {
+	color: #FFFFFF;
+}
+
+#login2_main {
+	height: 20px;
+	text-align: left;
+	color: #FFFFFF;
+	line-height: 20px;
+}
+#login2_main img {
+	padding: 2px;
+	border: 1px solid #CCCCCC;
+	height: 80px;
+	width: 80px;
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+#login2 ul {
+	height: 80px;
+	width: 240px;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+}
+
+#login2 li {
+	float: left;
+	text-align: center;
+	display: block;
+	width: 60px;
+	height: 70px;
+}
+#login2 li a {
+	height: 70px;
+	width: 60px;
+	display: block;
+}
+#login2_credits {
+	text-indent: 17px;
+}
+
+
+
+
+
+
+#login  h4 {
+	line-height: 1em;
+	font-size: 14px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	display: block;
+}
+.login_tfield {
+	height: 18px;
+	width: 135px;
+	line-height: 20px;
+	border: 1px solid #999999;
+	}
+.tfield1 {
+	float: left;
+	width: 200px;
+	line-height: 25px;
+	overflow: hidden;
+	display: block;
+	padding-bottom: 5px;
+}
+.tfield2 {
+	width: 123px;
+	height: 26px;
+	float: left;
+	top: 0px;
+	right: 0px;
+	display: block;
+}
+.tfield3 {
+	width: 60px;
+	height: 26px;
+	float: left;
+	margin-left: 53px;
+	display: inline;
+}
+#login_link {
+	height: 20px;
+	width: 200px;
+	line-height: 20px;
+	float: right;
+}
+.tag1 a {
+	color:#339900;
+	font-weight:normal;
+	font-size: 14px;
+} 
+.tag2 a { color:#e65730;} 
+.tag3 a { color:#00b9da;} 
+.tag4 a {
+	color:#FE3981;
+	font-weight:bold;
+	font-size:14px;
+}
+.tag1 a,.tag2 a,.tag3 a,.tag4 a {
+	line-height: 24px;
+}

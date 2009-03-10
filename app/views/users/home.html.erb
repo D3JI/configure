@@ -1,0 +1,159 @@
+<% if is_logged_in? %>
+  <%= render :partial => 'top'%>
+  <div id="content">
+    <div id="indexleft">
+      <%= render :partial => 'shared/left'%> 
+      <div class="mod">
+        <div class="modth">
+          <div class="lc">
+            <div class="rc">
+              <div class="modtit">
+                <h1>留言</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modbox" id="m_quest">
+          <ul>
+            <li><a href="home.php?u=jshmemory"><%= @user.username %></a> <%= time_ago_in_words(@user.created_at)%> 以前：<br>
+            哈哈。</li>    </ul>
+          <p class="more"><a href="questbook.php?mid=35665">更多留言»</a></p>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="modth">
+          <div class="lc">
+            <div class="rc">
+              <div class="modtit">
+                <h1>文章分类</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="m_artclg" class="modbox">
+          <% @categories.each do |category|%>
+            <ul>
+              <li><%= link_to category.name %> (<%= category.entries_count %>)</li>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+      <div class="mod">
+        <div class="modth">
+          <div class="lc">
+            <div class="rc">
+              <div class="modtit">
+                <h1>空间统计</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="comm_info" class="modbox">
+          <ul>
+            <li>博客文章 (<%= @user.entries_count %>)<br> </li>
+            <li>Photos :(<%= @user.photos_count %>)<br></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="con"><div class="mod">
+        <div class="modth">
+          <div class="lc">
+            <div class="rc">
+              <div class="modtit">
+                <h1>好友</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="m_friend" class="modbox">
+          <ul>
+            <% @friends.each do |friend|%>
+              <li>
+              <% if friend.friend.avatar %>
+                <%= image_tag(friend.friend.avatar.public_filename(:tiny))%>
+              <% else%>
+                <%= image_tag("../images/noface.jpg") %>
+              <% end %>
+              <%= link_to friend.friend.username, home_path(:user_id => friend.friend) %>
+              </li>
+            <% end %>
+            <div class="clear">&nbsp;</div>
+            <p class="more"><a href="myfriends.php?mid=35665">更多好友»</a></p>
+          </div>
+        </div>
+        <div class="mod">
+          <div class="modth">
+            <div class="lc">
+              <div class="rc">
+                <div class="modtit">
+                  <h1>日志</h1>
+                </div>
+                <div class="modopt">
+                  <% if @user == logged_in_user %><%= link_to '写新文章', new_user_entry_path(:user_id => @user.id) %>
+                  <% end %></div>
+              </div>
+            </div>
+          </div>
+          <div id="m_blog" class="modbox">
+            <% @entries.each do |entry|%>
+              <ul id="blog_post_25598">
+                <li class="btit"><%= link_to entry.title , user_entry_path(:user_id => entry.user_id, :id => entry) %>
+                <% if logged_in_user == @user %>
+                  <%= link_to 'edit', edit_user_entry_path(:user_id => entry.user_id, :id => entry.id)%> 
+                  | <%= link_to 'delete', user_entry_path(:user_id => entry.user_id, :id => entry.id), :method => :delete, :confirm => '确认要删除这篇文章?' %>
+                <% end %>
+                </li>
+                <li class="btime"><%= entry.created_at %></li>
+                <li class="bcon"><%= entry.content %>
+                <p class="bmore"><%= link_to '详细内容»', user_entry_path(:user_id => entry.user_id, :id => entry) %></p>
+                </li>
+              </ul>
+            <% end %>
+            <p class="more"><a href="myblog.php?mid=35665">更多日志»</a></p>
+          </div>
+        </div>
+
+        <% if @user.has_shop?%>
+          <div class="mod">
+            <div class="modth">
+              <div class="lc">
+                <div class="rc">
+                  <div class="modtit">
+                    <h1>商店</h1>
+                  </div>
+                  <div class="modopt"><%= link_to '添加产品'%></div>
+                </div>
+              </div>
+            </div>
+            <div id="m_shop" class="modbox">
+              <p class="more"><%= link_to '更多产品&raquo;'%></p>
+            </div>
+        </div>      <% end %>
+
+        <div class="mod">
+          <div class="modth">
+            <div class="lc">
+              <div class="rc">
+                <div class="modtit">
+                  <h1>相册</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="m_photo" class="modbox">
+            <ul>
+              <% @galleries.each do |gallery|%>
+                <% if gallery.primary %>
+                  <li><%= link_to image_tag(gallery.primary.public_filename(:thumb)), gallery_photos_path(:gallery_id => gallery.id)%><%= link_to gallery.title %></li>
+                <% end %>
+              <% end %>
+            </ul>
+            <div class="clear">&nbsp;</div>
+            <p class="more"><%= link_to '更多相册»' %></p>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+<% end %>
